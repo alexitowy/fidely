@@ -1,20 +1,35 @@
 <ion-content class="ion-padding" [fullscreen]="true">
-  <div class="ion-text-center">
-    <ion-img alt="logo" src="../../../../assets/logo.jpg"></ion-img>
+  <div class="ion-margin-20">
+    <ion-img alt="logo" src="../../../../assets/logo.jpg" class="logo-img"></ion-img>
   </div>
   <div>
     <form  (ngSubmit)="onSubmit()">
-      <ion-input label="Usuario" placeholder="Usuario"></ion-input>
-      <ion-input type="password" label="Contraseña">
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
-    </form>
-    <ion-button expand="block">Iniciar sesión</ion-button>
-  </div>
-  <p>¿Olvidó su contraseña?</p>
+      <ion-list lines="none">
+        <ion-item >
 
-  <div>
-    <ion-button>Continuar con Google</ion-button>
-    <ion-button>Continuar con Apple</ion-button>
+          <ion-input label="Usuario" placeholder="Usuario" labelPlacement="stacked" class="border-login"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Contraseña" placeholder="********"  labelPlacement="stacked" type="password" class="border-login" helperText="Mínimo 8 caracteres">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <ion-button expand="block" class="ion-padding-vertical-20">Iniciar sesión</ion-button>
+  </div>
+  <div class="ion-text-center ion-margin-vertical-20">
+    <p>¿Olvidó su contraseña?</p>
+    <p class="space">o</p>
+  </div>
+
+  <div >
+    <ion-button expand="block" fill="outline" class="ion-padding-vertical-12"><ion-icon name="logo-google"></ion-icon>
+      Continuar con Google</ion-button>
+    <ion-button expand="block" class="ion-padding-vertical-12 ion-margin-left-6"><ion-icon name="logo-apple"></ion-icon>
+      Continuar con Apple</ion-button>
+  </div>
+  <div class="ion-text-center ion-margin-top-20">
+    <p>¿No tienes cuenta? Registrate</p>
   </div>
 </ion-content>

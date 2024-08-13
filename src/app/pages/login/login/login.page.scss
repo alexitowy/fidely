@@ -1,0 +1,33 @@
+
+.logo-img{
+  width: 200px;
+  height: 200px;
+  margin: 0px auto;
+}
+
+.space{
+  position: relative;
+  z-index: 2;
+  &::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: var( --ion-color-primary);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &::before{
+    content: 'o';
+    font-size: 20px;
+    line-height: 13px;
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background: white;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+  }
+}

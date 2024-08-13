@@ -1,0 +1,16 @@
+ion-input{
+  .label-text-wrapper{
+    margin-bottom: 8px;
+    font-size: larger;
+    padding-bottom: 12px;
+  }
+  .native-wrapper{
+    border: solid 1px;
+    border-color: hsl(230.77deg 22.03% 88.43%);
+    border-radius: 5px;
+    .native-input{
+      min-height: 48px;
+      padding-left: 8px;
+    }
+  }
+}

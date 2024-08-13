@@ -1,0 +1,57 @@
+$sizes: (
+  '4': 0.25rem,
+  '8': 0.5rem,
+  '12': 0.75rem,
+  '16': 1rem,
+  '20': 1.25rem
+);
+
+@each $name, $size in $sizes {
+  .ion-margin-#{$name}{
+    margin: $size!important;
+  }
+  .ion-margin-top-#{$name}{
+    margin-top: $size!important;
+  }
+  .ion-margin-bottom-#{$name}{
+    margin-bottom: $size!important;
+  }
+  .ion-margin-left-#{$name}{
+    margin-left: $size!important;
+  }
+  .ion-margin-right-#{$name}{
+    margin-right: $size!important;
+  }
+  .ion-margin-vertical-#{$name}{
+    margin-bottom: $size!important;
+    margin-top: $size!important;
+  }
+  .ion-margin-horizontal-#{$name}{
+    margin-left: $size!important;
+    margin-right: $size!important;
+  }
+
+  .ion-padding-#{$name}{
+    padding: $size!important;
+  }
+  .ion-padding-top-#{$name}{
+    padding-top: $size!important;
+  }
+  .ion-padding-bottom-#{$name}{
+    padding-bottom: $size!important;
+  }
+  .ion-padding-left#{$name}{
+    padding-left: $size!important;
+  }
+  .ion-padding-right-#{$name}{
+    padding-right: $size!important;
+  }
+  .ion-padding-vertical-#{$name}{
+    padding-bottom: $size!important;
+    padding-top: $size!important;
+  }
+  .ion-padding-horizontal-#{$name}{
+    padding-left: $size!important;
+    padding-right: $size!important;
+  }
+}
