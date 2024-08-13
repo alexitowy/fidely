@@ -14,14 +14,11 @@
   ></ion-img>
   </div>
   <div>
-    <!-- <form (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <ion-input label="Usuario" placeholder="Usuario" formControlName="user"></ion-input>
-    <ion-input type="password" label="Contraseña">
+    <ion-input type="password" label="Contraseña" formControlName="password">
       <ion-input-password-toggle slot="end"></ion-input-password-toggle>
     </ion-input>
-    
-    </form> -->
-    
-
+    </form>
   </div>
 </ion-content>
