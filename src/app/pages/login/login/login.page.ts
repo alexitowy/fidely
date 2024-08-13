@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,11 +12,13 @@ export class LoginPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //this.buildForm();
   }
 
   /* buildForm() {
     this.loginForm = new FormGroup({
-      user: new FormControl({}),
+      user: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     })
   } */
 
