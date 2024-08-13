@@ -1,18 +1,20 @@
-
-<ion-content [fullscreen]="true">
-  <div>
-    <ion-img
-    alt="logo"
-  ></ion-img>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="ion-text-center">
+    <ion-img alt="logo" src="../../../../assets/logo.jpg"></ion-img>
   </div>
   <div>
-  <form (ngSubmit)="onSubmit()">
+    <form  (ngSubmit)="onSubmit()">
       <ion-input label="Usuario" placeholder="Usuario"></ion-input>
-    <ion-input type="password" label="Contraseña">
-      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-    </ion-input>
-
+      <ion-input type="password" label="Contraseña">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
     </form>
+    <ion-button expand="block">Iniciar sesión</ion-button>
+  </div>
+  <p>¿Olvidó su contraseña?</p>
 
+  <div>
+    <ion-button>Continuar con Google</ion-button>
+    <ion-button>Continuar con Apple</ion-button>
   </div>
 </ion-content>
