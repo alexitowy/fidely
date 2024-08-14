@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "fidelity-back",
+    "fidelity-back-pre": "fidelity-back-pre",
+    "fidelity-back-pro": "fidelity-back-pro"
+  }
+}
