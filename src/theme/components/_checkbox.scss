@@ -1,0 +1,11 @@
+ion-checkbox {
+  --size: 32px;
+  --checkbox-background-checked: #6815ec;
+}
+
+ion-checkbox::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  border: 2px solid hsl(230.77deg 22.03% 88.43%);
+}
