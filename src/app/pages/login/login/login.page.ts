@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  /* loginForm!: FormGroup; */
+  loginForm: FormGroup = new FormGroup({
+    userName: new FormControl('', [Validators.email, Validators.required]),
+    password: new FormControl('', Validators.required)
+  });
 
-  constructor() { }
+  constructor(private router:Router) { }
 
-  ngOnInit() {
-    //this.buildForm();
+  ngOnInit(){}
+
+  onSubmit(){}
+
+  send(){
+    console.log(this.loginForm);
   }
 
-  /* buildForm() {
-    this.loginForm = new FormGroup({
-      user: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-    })
-  } */
-
-  onSubmit(){
-
+  goToForgotPage(){
+    this.router.navigate(['/forgot-password']);
   }
 }

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordPage implements OnInit {
 
+  isToastOpen = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  setOpen(isOpen: boolean){
+    this.isToastOpen = isOpen;
+  }
 }
