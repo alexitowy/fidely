@@ -1,6 +1,6 @@
 <ion-content class="ion-padding" [fullscreen]="true">
   <div class="ion-margin-20">
-    <ion-img alt="logo" src="../../../../assets/logo.jpg" class="logo-img"></ion-img>
+    <ion-img alt="logo" src="../../../../assets/logo.png" class="logo-img"></ion-img>
   </div>
   <div>
     <form  (ngSubmit)="onSubmit()">
@@ -19,17 +19,19 @@
     <ion-button expand="block" class="ion-padding-vertical-20">Iniciar sesión</ion-button>
   </div>
   <div class="ion-text-center ion-margin-vertical-20">
-    <p>¿Olvidó su contraseña?</p>
+    <strong class="ion-font-size-14 message">¿Olvidó su contraseña?</strong>
     <p class="space">o</p>
   </div>
 
-  <div >
-    <ion-button expand="block" fill="outline" class="ion-padding-vertical-12"><ion-icon name="logo-google"></ion-icon>
+  <div>
+    <ion-button color="secondary" expand="block" fill="outline" class="ion-padding-vertical-12">
+      <ion-icon class="button__icon--position-left" slot="start" name="logo-google"></ion-icon>
       Continuar con Google</ion-button>
-    <ion-button expand="block" class="ion-padding-vertical-12 ion-margin-left-6"><ion-icon name="logo-apple"></ion-icon>
+    <ion-button color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
+      <ion-icon class="button__icon--position-left" slot="start"  name="logo-apple"></ion-icon>
       Continuar con Apple</ion-button>
   </div>
-  <div class="ion-text-center ion-margin-top-20">
-    <p>¿No tienes cuenta? Registrate</p>
+  <div class="ion-text-center ion-margin-top-20 ion-padding-top-20">
+    <p class="ion-font-size-14">¿No tienes una cuenta?<strong class="register"> Regístrate</strong></p>
   </div>
 </ion-content>
