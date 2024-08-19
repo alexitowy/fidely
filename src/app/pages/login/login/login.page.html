@@ -8,7 +8,7 @@
         <form [formGroup]="loginForm">
           <ion-list lines="none">
             <ion-item>
-              <ion-input [errorText]="loginForm.controls['userName'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'" label="Usuario" placeholder="Usuario" labelPlacement="stacked" class="border-login" formControlName="userName"></ion-input>
+              <ion-input [errorText]="loginForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'" label="E-mail" placeholder="E-mail" labelPlacement="stacked" class="border-login" formControlName="email"></ion-input>
             </ion-item>
             <ion-item>
               <ion-input errorText="Este campo es requerido." label="Contraseña" placeholder="********"  labelPlacement="stacked" type="password" class="border-login" helperText="Mínimo 8 caracteres" formControlName="password">

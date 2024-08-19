@@ -1,0 +1,10 @@
+.check{
+  padding-left: 20px;
+  position: relative;
+  color: var(--ion-color-success);
+  &::after{
+    position: absolute;
+    left: 0;
+    content: '✓';
+  }
+}

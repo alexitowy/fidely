@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup = new FormGroup({
-    userName: new FormControl('', [Validators.email, Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required)
   });
 
