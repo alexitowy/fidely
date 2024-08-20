@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "486735140956",
+    "project_id": "fidelity-back-pre",
+    "storage_bucket": "fidelity-back-pre.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486735140956:android:ec68924a1c3c9126922e99",
+        "android_client_info": {
+          "package_name": "com.cofanes.fidely_pre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPYA7zQr9Oll_Mvc3rWTODXgjfcbQR3to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

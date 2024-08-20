@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
 
 @Component({
   selector: 'app-login',
@@ -27,4 +28,10 @@ export class LoginPage implements OnInit {
   goToForgotPage(){
     this.router.navigate(['/forgot-password']);
   }
+
+  async loginWithGoogle(){
+    const result = await FirebaseAuthentication.signInWithGoogle();
+    console.log(result)
+    return result.user;
+  };
 }
