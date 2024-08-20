@@ -51,7 +51,7 @@ export class FirebaseAuthenticationService {
 
   public async getRedirectResult(): Promise<SignInResult | undefined> {
     if (Capacitor.isNativePlatform()) {
-      return;
+      return undefined;
     }
     return FirebaseAuthentication.getRedirectResult();
   }
