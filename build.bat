@@ -110,7 +110,7 @@ ECHO ____________________GOOGLE SERVICE SOBREESCRITO____________________
 ECHO.
 ECHO COPIANDO STRINGS...
 ECHO.
-COPY /y .\build-resource\strings\%env%\strings.xml android\app\src\main\res\values\ >nul
+COPY /y .\build-resource\android\strings\%env%\strings.xml android\app\src\main\res\values\ >nul
 ECHO STRINGS SOBREESCRITOS
 
 ECHO.

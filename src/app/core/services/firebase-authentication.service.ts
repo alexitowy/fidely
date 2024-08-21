@@ -71,22 +71,22 @@ export class FirebaseAuthenticationService {
     await FirebaseAuthentication.setLanguageCode({ languageCode });
   }
 
-  public async signInWithApple(): Promise<void> {
-    await FirebaseAuthentication.signInWithApple();
+  public async signInWithApple(): Promise<SignInResult> {
+    return await FirebaseAuthentication.signInWithApple();
   }
 
-  public async signInWithFacebook(): Promise<void> {
-    await FirebaseAuthentication.signInWithFacebook();
+  public async signInWithFacebook(): Promise<SignInResult> {
+    return await FirebaseAuthentication.signInWithFacebook();
   }
 
-  public async signInWithGoogle(): Promise<void> {
-    await FirebaseAuthentication.signInWithGoogle({
+  public async signInWithGoogle(): Promise<SignInResult> {
+    return await FirebaseAuthentication.signInWithGoogle({
       mode: 'redirect',
     });
   }
 
-  public async signInWithTwitter(): Promise<void> {
-    await FirebaseAuthentication.signInWithTwitter();
+  public async signInWithTwitter(): Promise<SignInResult> {
+    return await FirebaseAuthentication.signInWithTwitter();
   }
 
   public async signOut(): Promise<void> {
