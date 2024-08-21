@@ -108,6 +108,12 @@ COPY /y .\build-resource\android\GA\%env%\google-services.json android\app\ >nul
 ECHO ____________________GOOGLE SERVICE SOBREESCRITO____________________
 
 ECHO.
+ECHO COPIANDO STRINGS...
+ECHO.
+COPY /y .\build-resource\res\values\strings.xml android\app\src\main\res\values\ >nul
+ECHO STRINGS SOBREESCRITOS
+
+ECHO.
 ECHO COPIANDO RESOURCES...
 ECHO.
 @REM COPY /y .\build-resource\android\res\xml\ android\app\src\main\res\xml\ >nul

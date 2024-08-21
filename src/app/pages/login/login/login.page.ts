@@ -34,4 +34,16 @@ export class LoginPage implements OnInit {
     console.log(result)
     return result.user;
   };
+
+  async loginWithFacebook(){
+    const result = await FirebaseAuthentication.signInWithFacebook();
+    console.log(result)
+    return result.user;
+  };
+
+  async loginWithX(){
+    const result = await FirebaseAuthentication.signInWithTwitter();
+    console.log(result)
+    return result.user;
+  };
 }
