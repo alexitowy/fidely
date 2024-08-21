@@ -4,7 +4,7 @@
     <string name="title_activity_main">FIDELY BETA</string>
     <string name="package_name">com.cofanes.fidely_dev</string>
     <string name="custom_url_scheme">com.cofanes.fidely_dev</string>
-    <string name="facebook_app_id">1550027839053278</string>
+    <string name="facebook_app_id">"1550027839053278"</string>
 <string name="fb_login_protocol_scheme">fb1550027839053278</string>
 <string name="facebook_client_token">e4318072a4719203d3d3b1cb26e72cc7</string>
 </resources>
