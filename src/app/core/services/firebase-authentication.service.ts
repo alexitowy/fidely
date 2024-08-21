@@ -8,6 +8,8 @@ import {
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { Observable, ReplaySubject, lastValueFrom, take } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { initializeApp } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +48,7 @@ export class FirebaseAuthenticationService {
      *
      * Read more: https://github.com/robingenz/capacitor-firebase/blob/main/packages/authentication/docs/firebase-js-sdk.md
      */
-    // initializeApp(environment.firebase);
+    initializeApp(environment.firebase);
   }
 
   public async getRedirectResult(): Promise<SignInResult | undefined> {
