@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "424791863353",
+    "project_id": "fidelity-back",
+    "storage_bucket": "fidelity-back.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424791863353:android:6e34ee0ad61876a42b5de8",
+        "android_client_info": {
+          "package_name": "com.cofanes.fidely_dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424791863353-f9di6mlar0qdpm2g8720kd8c16u474et.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cofanes.fidely_dev",
+            "certificate_hash": "35e5fca3c9b0ee2f0f2776d72339c8437105023e"
+          }
+        },
+        {
+          "client_id": "424791863353-4abagd9loakjl99gfroccnpseu8idu38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAD5uxn_WQGi6HKkQkA25HWz8ErfpbZ0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424791863353-4abagd9loakjl99gfroccnpseu8idu38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.cofanes.fidely_dev',
-  appName: 'FIDELY BETA',
+  appId: 'APP_PACKAGE',
+  appName: 'APP_NAME',
   webDir: 'www',
   cordova: {},
   server: {

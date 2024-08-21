@@ -11,7 +11,9 @@
               <ion-input [errorText]="loginForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'" label="E-mail" placeholder="E-mail" labelPlacement="stacked" class="border-login" formControlName="email"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input errorText="Este campo es requerido." label="Contraseña" placeholder="********"  labelPlacement="stacked" type="password" class="border-login" helperText="Mínimo 8 caracteres" formControlName="password">
+              <ion-input errorText="Este campo es requerido." label="Contraseña" placeholder="********"
+                labelPlacement="stacked" type="password" class="border-login" helperText="Mínimo 8 caracteres"
+                formControlName="password">
                 <ion-input-password-toggle slot="end"></ion-input-password-toggle>
               </ion-input>
             </ion-item>
@@ -19,22 +21,32 @@
         </form>
         <ion-button expand="block" class="ion-padding-vertical-20" (click)="send()">Iniciar sesión</ion-button>
 
-      <div class="ion-text-center ion-margin-vertical-20">
-        <strong (click)="goToForgotPage()" class="ion-font-size-14 message">¿Olvidó su contraseña?</strong>
-        <p class="space">o</p>
-      </div>
+        <div class="ion-text-center ion-margin-vertical-20">
+          <strong (click)="goToForgotPage()" class="ion-font-size-14 message">¿Olvidó su contraseña?</strong>
+          <p class="space">o</p>
+        </div>
 
-      <div>
-        <ion-button color="secondary" expand="block" fill="outline" class="ion-padding-top-12">
-          <ion-icon class="button__icon--position-left" slot="start" name="logo-google"></ion-icon>
-          Continuar con Google</ion-button>
-        <ion-button color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
-          <ion-icon class="button__icon--position-left" slot="start"  name="logo-apple"></ion-icon>
-          Continuar con Apple</ion-button>
-      </div>
-      <div class="ion-text-center ion-margin-top-20 ion-padding-top-20">
-        <p class="ion-font-size-14">¿No tienes una cuenta?<strong routerLink="/register" class="register"> Regístrate</strong></p>
-      </div>
+        <div>
+          <ion-button (click)="loginWithGoogle()" color="secondary" expand="block" fill="outline"
+            class="ion-padding-top-12">
+            <ion-icon class="button__icon--position-left" slot="start" name="logo-facebook"></ion-icon>
+            Continuar con Google</ion-button>
+          <ion-button (click)="loginWithFacebook()" color="secondary" expand="block" fill="outline"
+            class="ion-padding-top-12">
+            <ion-icon class="button__icon--position-left" slot="start" name="logo-x"></ion-icon>
+            Continuar con Facebook</ion-button>
+          <ion-button (click)="loginWithX()" color="secondary" expand="block" fill="outline"
+            class="ion-padding-top-12">
+            <ion-icon class="button__icon--position-left" slot="start" name="logo-google"></ion-icon>
+            Continuar con X</ion-button>
+          <ion-button color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
+            <ion-icon class="button__icon--position-left" slot="start" name="logo-apple"></ion-icon>
+            Continuar con Apple</ion-button>
+        </div>
+        <div class="ion-text-center ion-margin-top-20 ion-padding-top-20">
+          <p class="ion-font-size-14">¿No tienes una cuenta?<strong routerLink="/register" class="register">
+              Regístrate</strong></p>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
