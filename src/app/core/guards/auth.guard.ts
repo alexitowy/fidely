@@ -9,14 +9,14 @@ export class AuthGuard {
   constructor(
     private readonly firebaseAuthenticationService: FirebaseAuthenticationService,
     private readonly navCtr: NavController
-  ) {}
+  ) { }
 
   public async canActivate(): Promise<boolean> {
     const user = await this.firebaseAuthenticationService.getCurrentUser();
+    console.log('GUAR',user)
     if (user) {
       return true;
     }
-    this.navCtr.navigateRoot(['/login']);
-    return false;
+    return this.navCtr.navigateRoot('/login');
   }
 }

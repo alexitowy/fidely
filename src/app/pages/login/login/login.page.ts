@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
+import { SignInResult } from '@capacitor-firebase/authentication';
+import { NavController } from '@ionic/angular';
+import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup = new FormGroup({
@@ -15,35 +18,77 @@ export class LoginPage implements OnInit {
     password: new FormControl('', Validators.required)
   });
 
-  constructor(private router:Router) { }
+  constructor(
+    private firebaseSrv: FirebaseAuthenticationService,
+    private utilsSrv: UtilsService,
+    private navCtrl: NavController
+  ) { }
 
-  ngOnInit(){}
+  ngOnInit() { }
 
-  onSubmit(){}
+  onSubmit() { }
 
-  send(){
-    console.log(this.loginForm);
+  async signInWith(provider: SignInProvider): Promise<void> {
+    const loadingElement = await this.utilsSrv.presentLoading();
+    let result: SignInResult;
+    try {
+      switch (provider) {
+        case SignInProvider.apple:
+          result = await this.firebaseSrv.signInWithApple();
+          break;
+        case SignInProvider.facebook:
+          result = await this.firebaseSrv.signInWithFacebook();
+          break;
+        case SignInProvider.google:
+          result = await this.firebaseSrv.signInWithGoogle();
+          break;
+        case SignInProvider.twitter:
+          result = await this.firebaseSrv.signInWithTwitter();
+          break;
+      }
+      console.log(result.user);
+      this.navigateToHome();
+    } finally {
+      await loadingElement.dismiss();
+      this.utilsSrv.presentToastSuccess(
+        'Bienvenido a Fidely'
+      )
+    }
   }
 
-  goToForgotPage(){
-    this.router.navigate(['/forgot-password']);
+  send() {
+    this.utilsSrv.presentLoading();
   }
 
-  async loginWithGoogle(){
-    const result = await FirebaseAuthentication.signInWithGoogle();
-    console.log(result)
-    return result.user;
-  };
+  goToForgotPage() {
+    this.navCtrl.navigateForward('forgot-password')
+  }
 
-  async loginWithFacebook(){
-    const result = await FirebaseAuthentication.signInWithFacebook();
-    console.log(result)
-    return result.user;
-  };
+  public async signInWithApple(): Promise<void> {
+    await this.signInWith(SignInProvider.apple);
+  }
 
-  async loginWithX(){
-    const result = await FirebaseAuthentication.signInWithTwitter();
-    console.log(result)
-    return result.user;
-  };
+  public async signInWithFacebook(): Promise<void> {
+    await this.signInWith(SignInProvider.facebook);
+  }
+
+  public async signInWithGoogle(): Promise<void> {
+    await this.signInWith(SignInProvider.google);
+  }
+
+  public async signInWithTwitter(): Promise<void> {
+    await this.signInWith(SignInProvider.twitter);
+  }
+
+  navigateToHome(): void {
+    const user = this.firebaseSrv.getCurrentUser();
+    this.navCtrl.navigateForward('/home');
+  }
+}
+
+enum SignInProvider {
+  apple= 'apple',
+  facebook= 'facebook',
+  google= 'google',
+  twitter= 'twitter',
 }

@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { LoadingController, ToastController, ToastOptions } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
 
-  constructor(private readonly toastController: ToastController) { }
-
+  constructor(
+    private readonly toastController: ToastController,
+    private readonly loadingController: LoadingController,
+    private readonly router: Router
+  ) { }
 
   async presentToast(
     text: string,
@@ -52,6 +56,19 @@ export class UtilsService {
     position: 'top' | 'middle' | 'bottom' = 'bottom'
   ) {
     this.presentToast(text, position, 'success');
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 2000,
+      spinner: 'bubbles'
+    });
+    await loading.present();
+    return loading;
+  }
+
+  routerLink(url: string) {
+    this.router.navigateByUrl(url);
   }
 
 }
