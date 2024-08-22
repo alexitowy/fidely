@@ -13,10 +13,10 @@ export class AuthGuard {
 
   public async canActivate(): Promise<boolean> {
     const user = await this.firebaseAuthenticationService.getCurrentUser();
-    console.log('GUAR',user)
     if (user) {
       return true;
     }
-    return this.navCtr.navigateRoot('/login');
+    this.navCtr.navigateRoot(['/login']);
+    return false;
   }
 }

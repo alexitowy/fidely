@@ -13,9 +13,9 @@ export class NoAuthGuard {
 
   public async canActivate(): Promise<boolean> {
     const user = await this.firebaseAuthenticationService.getCurrentUser();
-    console.log('NO GUAR',user)
     if (user) {
-      return  this.navCtr.navigateRoot('/home');
+      this.navCtr.navigateRoot(['/']);
+      return false;
     }
     return true;
   }
