@@ -5,6 +5,9 @@ import {
   Validators,
   ValidationErrors,
 } from '@angular/forms';
+import { NavController } from '@ionic/angular';
+import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-register',
@@ -44,13 +47,28 @@ export class RegisterPage implements OnInit {
     }
   );
 
-  constructor() {}
+  constructor(
+    private readonly firebaseAuthService: FirebaseAuthenticationService,
+    private readonly utilsService: UtilsService,
+    private readonly navController: NavController
+  ) {}
 
   ngOnInit() {}
 
-  register() {
-    console.log(this.registerForm);
-    // this.registerForm.markAllAsTouched();
+  async register() {
+    if(this.registerForm.valid){
+      const email = this.registerForm.controls['email'].value;
+      const password = this.registerForm.controls['password'].value;
+      this.utilsService.presentLoading();
+
+      this.firebaseAuthService.CreateWithEmailAndPassword(email, password).then((data)=>{
+        this.utilsService.hiddenLoading();
+        this.utilsService.presentToastSuccess('Su usuario se ha creado correctamente.');
+        this.navController.navigateRoot('/home');
+      });
+    }else {
+      this.registerForm.markAllAsTouched();
+    }
   }
 
   checkValidationMinLength() {

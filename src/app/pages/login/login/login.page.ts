@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignInResult } from '@capacitor-firebase/authentication';
 import { NavController } from '@ionic/angular';
+import { SignInProvider } from 'src/app/core/enums/singInProvider.enum';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
@@ -29,7 +30,7 @@ export class LoginPage implements OnInit {
   onSubmit() { }
 
   async signInWith(provider: SignInProvider): Promise<void> {
-    const loadingElement = await this.utilsSrv.presentLoading();
+    this.utilsSrv.presentLoading();
     let result: SignInResult;
     try {
       switch (provider) {
@@ -48,16 +49,29 @@ export class LoginPage implements OnInit {
       }
       console.log(result.user);
       this.navigateToHome();
+    }catch (err){
+      this.utilsSrv.presentToastDanger('No se ha completado el inicio de sesión.');
     } finally {
-      await loadingElement.dismiss();
-      this.utilsSrv.presentToastSuccess(
-        'Bienvenido a Fidely'
-      )
+      this.utilsSrv.hiddenLoading();
     }
   }
 
   send() {
-    this.utilsSrv.presentLoading();
+    if(this.loginForm.valid){
+      const email = this.loginForm.controls['email'].value;
+      const password = this.loginForm.controls['password'].value;
+      this.utilsSrv.presentLoading();
+      this.firebaseSrv.signInWithEmailAndPassword(email, password).then(()=>{
+        this.loginForm.reset();
+        this.navigateToHome();
+      }).catch((err)=>{
+        this.utilsSrv.presentToastDanger('Los datos introducidos son incorrectos.');
+      }).finally(()=>{
+        this.utilsSrv.hiddenLoading();
+      });
+    }else{
+      this.loginForm.markAllAsTouched();
+    }
   }
 
   goToForgotPage() {
@@ -86,9 +100,4 @@ export class LoginPage implements OnInit {
   }
 }
 
-enum SignInProvider {
-  apple= 'apple',
-  facebook= 'facebook',
-  google= 'google',
-  twitter= 'twitter',
-}
+

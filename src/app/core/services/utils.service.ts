@@ -6,7 +6,7 @@ import { LoadingController, ToastController, ToastOptions } from '@ionic/angular
   providedIn: 'root'
 })
 export class UtilsService {
-
+  loading: HTMLIonLoadingElement;
   constructor(
     private readonly toastController: ToastController,
     private readonly loadingController: LoadingController,
@@ -31,7 +31,7 @@ export class UtilsService {
 
   presentToastDanger(
     text: string,
-    duration = 1500,
+    duration = 7000,
     position: 'top' | 'middle' | 'bottom' = 'bottom'
   ) {
     this.presentToast(text, position, 'danger', duration);
@@ -59,12 +59,16 @@ export class UtilsService {
   }
 
   async presentLoading() {
-    const loading = await this.loadingController.create({
-      duration: 2000,
-      spinner: 'bubbles'
-    });
-    await loading.present();
-    return loading;
+    if(!this.loading){
+      this.loading = await this.loadingController.create({
+        spinner: 'bubbles'
+      });
+      await this.loading.present();
+    }
+  }
+
+  hiddenLoading(){
+    this.loading.dismiss();
   }
 
   routerLink(url: string) {
