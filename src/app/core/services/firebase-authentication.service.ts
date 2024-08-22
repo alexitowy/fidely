@@ -82,9 +82,7 @@ export class FirebaseAuthenticationService {
   }
 
   public async signInWithGoogle(): Promise<SignInResult> {
-    return await FirebaseAuthentication.signInWithGoogle({
-      mode: 'redirect',
-    });
+    return await FirebaseAuthentication.signInWithGoogle();
   }
 
   public async signInWithTwitter(): Promise<SignInResult> {

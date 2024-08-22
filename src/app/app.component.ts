@@ -8,8 +8,6 @@ import { FirebaseAuthenticationService } from './core/services/firebase-authenti
 })
 export class AppComponent {
   constructor(private readonly firebaseAuthenticationService: FirebaseAuthenticationService) {
-    firebaseAuthenticationService.initialize().then((data) => {
-      console.log(data);
-    });
+    firebaseAuthenticationService.initialize();
   }
 }
