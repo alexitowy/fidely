@@ -89,6 +89,10 @@ export class FirebaseAuthenticationService {
     return await FirebaseAuthentication.signInWithTwitter();
   }
 
+  public async signInWithEmailAndPassword(email: string, password: string): Promise<SignInResult> {
+    return await FirebaseAuthentication.signInWithEmailAndPassword({ email, password });
+  }
+
   public async signOut(): Promise<void> {
     await FirebaseAuthentication.signOut();
   }
