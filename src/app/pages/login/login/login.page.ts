@@ -75,6 +75,7 @@ export class LoginPage implements OnInit {
   }
 
   goToForgotPage() {
+    this.loginForm.reset();
     this.navCtrl.navigateForward('forgot-password')
   }
 

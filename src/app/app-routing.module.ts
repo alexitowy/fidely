@@ -17,7 +17,6 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule),
-    canActivate: [NoAuthGuard]
   },
   {
     path: 'home',
@@ -25,14 +24,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-  }
+
 ];
 
 @NgModule({
