@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
+import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -18,7 +21,11 @@ export class ForgotPasswordPage implements OnInit {
   validators: this.validations('email', 'confirmEmail')
 })
 
-  constructor() { }
+  constructor(
+    private readonly utilsService: UtilsService,
+    private readonly firebaseAuthService: FirebaseAuthenticationService,
+    private readonly navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
@@ -57,8 +64,22 @@ export class ForgotPasswordPage implements OnInit {
     }
   }
 
-  register(){
-    console.log(this.forgotForm);
+  resetPassword(){
 
+    if(this.forgotForm.valid){
+      const email = this.forgotForm.controls['email'].value;
+      this.utilsService.presentLoading();
+      this.firebaseAuthService.resetPassword(email).then(()=>{
+        this.utilsService.presentToastSuccess('Te hemos enviado un correo para restablecer tu contraseña.');
+        this.navCtrl.navigateRoot('/login');
+      }).catch((err)=>{
+        console.log(err);
+      }).finally(()=>{
+        this.utilsService.hiddenLoading();
+      });
+
+    }else{
+      this.forgotForm.markAllAsTouched();
+    }
   }
 }

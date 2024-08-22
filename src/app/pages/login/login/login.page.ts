@@ -20,8 +20,8 @@ export class LoginPage implements OnInit {
   });
 
   constructor(
-    private firebaseSrv: FirebaseAuthenticationService,
-    private utilsSrv: UtilsService,
+    private firebaseAuthService: FirebaseAuthenticationService,
+    private utilsService: UtilsService,
     private navCtrl: NavController
   ) { }
 
@@ -30,29 +30,29 @@ export class LoginPage implements OnInit {
   onSubmit() { }
 
   async signInWith(provider: SignInProvider): Promise<void> {
-    this.utilsSrv.presentLoading();
+    this.utilsService.presentLoading();
     let result: SignInResult;
     try {
       switch (provider) {
         case SignInProvider.apple:
-          result = await this.firebaseSrv.signInWithApple();
+          result = await this.firebaseAuthService.signInWithApple();
           break;
         case SignInProvider.facebook:
-          result = await this.firebaseSrv.signInWithFacebook();
+          result = await this.firebaseAuthService.signInWithFacebook();
           break;
         case SignInProvider.google:
-          result = await this.firebaseSrv.signInWithGoogle();
+          result = await this.firebaseAuthService.signInWithGoogle();
           break;
         case SignInProvider.twitter:
-          result = await this.firebaseSrv.signInWithTwitter();
+          result = await this.firebaseAuthService.signInWithTwitter();
           break;
       }
       console.log(result.user);
       this.navigateToHome();
     }catch (err){
-      this.utilsSrv.presentToastDanger('No se ha completado el inicio de sesión.');
+      this.utilsService.presentToastDanger('No se ha completado el inicio de sesión.');
     } finally {
-      this.utilsSrv.hiddenLoading();
+      this.utilsService.hiddenLoading();
     }
   }
 
@@ -60,14 +60,14 @@ export class LoginPage implements OnInit {
     if(this.loginForm.valid){
       const email = this.loginForm.controls['email'].value;
       const password = this.loginForm.controls['password'].value;
-      this.utilsSrv.presentLoading();
-      this.firebaseSrv.signInWithEmailAndPassword(email, password).then(()=>{
+      this.utilsService.presentLoading();
+      this.firebaseAuthService.signInWithEmailAndPassword(email, password).then(()=>{
         this.loginForm.reset();
         this.navigateToHome();
       }).catch((err)=>{
-        this.utilsSrv.presentToastDanger('Los datos introducidos son incorrectos.');
+        this.utilsService.presentToastDanger('Los datos introducidos son incorrectos.');
       }).finally(()=>{
-        this.utilsSrv.hiddenLoading();
+        this.utilsService.hiddenLoading();
       });
     }else{
       this.loginForm.markAllAsTouched();
@@ -95,7 +95,7 @@ export class LoginPage implements OnInit {
   }
 
   navigateToHome(): void {
-    const user = this.firebaseSrv.getCurrentUser();
+    const user = this.firebaseAuthService.getCurrentUser();
     this.navCtrl.navigateForward('/home');
   }
 }
