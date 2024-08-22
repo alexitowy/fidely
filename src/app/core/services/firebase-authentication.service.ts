@@ -97,6 +97,10 @@ export class FirebaseAuthenticationService {
     return await FirebaseAuthentication.createUserWithEmailAndPassword({ email, password });
   }
 
+  public async resetPassword(email: string): Promise<void> {
+    await FirebaseAuthentication.sendPasswordResetEmail({ email });
+  }
+
   public async signOut(): Promise<void> {
     await FirebaseAuthentication.signOut();
   }
