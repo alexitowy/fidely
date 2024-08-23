@@ -1,0 +1,30 @@
+  .card-content{
+    min-height: 120px;
+  }
+
+  ion-item{
+    overflow: visible;
+  }
+
+.card-content_info{
+    border-left: 1px solid #ededed;
+    padding-left: 10px;
+}
+
+.card-content_badge{
+  padding-left: 7px;
+  padding-right: 7px;
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 12px;
+}
+
+.card-seal{
+  box-shadow: 0px 0px 5px #999;
+}
+
+.card-content-seal{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

@@ -4,18 +4,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { CardComponent } from './components/card/card.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    CardComponent
   ],
   exports: [
     HeaderComponent,
     ReactiveFormsModule,
-    SearchComponent
+    SearchComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

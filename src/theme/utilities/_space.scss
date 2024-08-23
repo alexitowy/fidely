@@ -1,4 +1,5 @@
 $sizes: (
+  '0': 0,
   '4': 0.25rem,
   '8': 0.5rem,
   '12': 0.75rem,
@@ -41,7 +42,7 @@ $sizes: (
   .ion-padding-bottom-#{$name}{
     padding-bottom: $size!important;
   }
-  .ion-padding-left#{$name}{
+  .ion-padding-left-#{$name}{
     padding-left: $size!important;
   }
   .ion-padding-right-#{$name}{
