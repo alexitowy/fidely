@@ -70,4 +70,4 @@ testem.log
 Thumbs.db
 /ios
 /android/*
-build-resources/strings
+/build-resources/strings
