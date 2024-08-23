@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SearchComponent
   ],
   exports: [
     HeaderComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SearchComponent
   ],
   imports: [
     CommonModule,

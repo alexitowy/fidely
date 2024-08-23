@@ -59,12 +59,10 @@ export class UtilsService {
   }
 
   async presentLoading() {
-    if(!this.loading){
       this.loading = await this.loadingController.create({
         spinner: 'bubbles'
       });
-      await this.loading.present();
-    }
+    await this.loading.present();
   }
 
   hiddenLoading(){

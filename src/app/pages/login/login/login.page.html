@@ -27,19 +27,19 @@
         </div>
 
         <div>
-          <ion-button (click)="signInWithGoogle()" color="secondary" expand="block" fill="outline"
+          <ion-button (click)="signInWith(providers.google)" color="secondary" expand="block" fill="outline"
             class="ion-padding-top-12">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-google"></ion-icon>
             Continuar con Google</ion-button>
-          <ion-button (click)="signInWithFacebook()" color="secondary" expand="block" fill="outline"
+          <ion-button (click)="signInWith(providers.facebook)" color="secondary" expand="block" fill="outline"
             class="ion-padding-top-12">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-facebook"></ion-icon>
             Continuar con Facebook</ion-button>
-          <ion-button (click)="signInWithTwitter()" color="secondary" expand="block" fill="outline"
+          <ion-button (click)="signInWith(providers.twitter)" color="secondary" expand="block" fill="outline"
             class="ion-padding-top-12">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-x"></ion-icon>
             Continuar con X</ion-button>
-          <ion-button (click)="signInWithApple()" color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
+          <ion-button (click)="signInWith(providers.apple)" color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-apple"></ion-icon>
             Continuar con Apple</ion-button>
         </div>

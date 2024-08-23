@@ -64,7 +64,7 @@ export class RegisterPage implements OnInit {
       this.firebaseAuthService.CreateWithEmailAndPassword(email, password).then((data)=>{
         this.utilsService.hiddenLoading();
         this.utilsService.presentToastSuccess('Su usuario se ha creado correctamente.');
-        this.navController.navigateRoot('/home');
+        this.navController.navigateRoot('/tabs');
       });
     }else {
       this.registerForm.markAllAsTouched();

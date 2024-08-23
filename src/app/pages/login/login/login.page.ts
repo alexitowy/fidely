@@ -14,6 +14,8 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 
 export class LoginPage implements OnInit {
 
+  providers = SignInProvider;
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required)
@@ -61,6 +63,7 @@ export class LoginPage implements OnInit {
       const email = this.loginForm.controls['email'].value;
       const password = this.loginForm.controls['password'].value;
       this.utilsService.presentLoading();
+
       this.firebaseAuthService.signInWithEmailAndPassword(email, password).then(()=>{
         this.loginForm.reset();
         this.navigateToHome();
@@ -79,25 +82,9 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateForward('forgot-password')
   }
 
-  public async signInWithApple(): Promise<void> {
-    await this.signInWith(SignInProvider.apple);
-  }
-
-  public async signInWithFacebook(): Promise<void> {
-    await this.signInWith(SignInProvider.facebook);
-  }
-
-  public async signInWithGoogle(): Promise<void> {
-    await this.signInWith(SignInProvider.google);
-  }
-
-  public async signInWithTwitter(): Promise<void> {
-    await this.signInWith(SignInProvider.twitter);
-  }
-
   navigateToHome(): void {
     const user = this.firebaseAuthService.getCurrentUser();
-    this.navCtrl.navigateForward('/home');
+    this.navCtrl.navigateForward('/tabs');
   }
 }
 
