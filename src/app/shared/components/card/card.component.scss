@@ -11,6 +11,11 @@
     padding-left: 10px;
 }
 
+.card-content-icons{
+  position: absolute;
+  right: 0;
+}
+
 .card-content_badge{
   padding-left: 7px;
   padding-right: 7px;
@@ -24,7 +29,18 @@
   box-shadow: 0px 0px 5px #999;
 }
 
-.card-content-seal{
+.card-content-seal-3{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-content-seal-4{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.card-content-seal-5{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
