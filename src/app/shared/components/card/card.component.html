@@ -1,0 +1,32 @@
+<ion-card class="">
+
+  <ion-card-content class="card-content">
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      </ion-thumbnail>
+     <div class="card-content_info">
+      <ion-card-title class="ion-font-size-16">Maderoterapia</ion-card-title>
+      <ion-label class="ion-font-size-14">Servicios: 1 de 6</ion-label>
+      <ion-label class="ion-font-size-14">1 tratamiento gratis</ion-label>
+     </div>
+     <div class="ion-padding-left-20">
+     <ion-button fill="clear">
+        <ion-icon size="large" color="danger" slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+      <ion-button class="ion-margin-left-16" fill="clear">
+        <ion-icon size="large" slot="icon-only" name="chevron-down-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-badge class="card-content_badge" color="tertiary" slot="end">Médicina estética</ion-badge>
+    </ion-item>
+  </ion-card-content>
+  <ion-card class="card-seal">
+    <ion-card-content>
+      <div class="card-content-seal">
+        <img *ngFor="let item of [1,2]" src="../../../../assets/logo-pink.png" alt="">
+        <img *ngFor="let item of [1,2,3,4,5,6]" src="../../../../assets/logo-white.png" alt="">
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-card>
