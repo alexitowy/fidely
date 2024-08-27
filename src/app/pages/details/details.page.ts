@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPage implements OnInit {
 
+  viewSelected = 'overview';
+
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  handlerChange(event: any){
+    this.viewSelected = event.detail.value;
+    console.log(this.viewSelected);
+  }
 }
