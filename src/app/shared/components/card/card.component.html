@@ -24,9 +24,8 @@
   </ion-card-content>
   <ion-card  *ngIf="showIcons && isOpen"  class="card-seal">
     <ion-card-content>
-      <div [class]="getClass()">
-        <img *ngFor="let item of getRange(1,+card.stamps.complete)" [src]="card.stamps.imgComplete" alt="">
-        <img *ngFor="let item of getRange(1,+card.stamps.limit - +card.stamps.complete)" [src]="card.stamps.imgDefault" alt="">
+      <div [class]="classStamps">
+        <img *ngFor="let stamp of stamps" [src]="stamp.img" alt="">
       </div>
     </ion-card-content>
   </ion-card>
