@@ -5,6 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { CardComponent } from './components/card/card.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { BondsComponent } from './components/bonds/bonds.component';
 
 
 
@@ -12,13 +15,19 @@ import { CardComponent } from './components/card/card.component';
   declarations: [
     HeaderComponent,
     SearchComponent,
-    CardComponent
+    CardComponent,
+    OverviewComponent,
+    GalleryComponent,
+    BondsComponent
   ],
   exports: [
     HeaderComponent,
     ReactiveFormsModule,
     SearchComponent,
-    CardComponent
+    CardComponent,
+    OverviewComponent,
+    GalleryComponent,
+    BondsComponent
   ],
   imports: [
     CommonModule,
