@@ -1,7 +1,13 @@
-ion-item{
+ion-item.item{
   --inner-padding-end: 0px;
   &::part(native){
     --padding-start: 0px;
+  }
+}
+ion-item.item-list{
+  --inner-padding-end: inherit;
+  &::part(native){
+    --padding-start: inherit;
   }
 }
 

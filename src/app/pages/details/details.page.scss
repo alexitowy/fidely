@@ -1,5 +1,17 @@
-.icon-back-details{
+.icon-back-details {
   position: absolute;
   top: calc(var(--ion-safe-area-top) + 8px);
   left: 8px;
+}
+
+.container-img {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-img-detail {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
