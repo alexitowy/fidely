@@ -11,7 +11,7 @@ export class AccountPage implements OnInit {
     {
       img: 'assets/user.png',
       text: 'Datos personales',
-      url: ''
+      url: '/tabs/profile'
     },
     {
       img: 'assets/card.png',

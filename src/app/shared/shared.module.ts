@@ -21,7 +21,8 @@ import { RouterLink } from '@angular/router';
     OverviewComponent,
     GalleryComponent,
     BondsComponent,
-    CardAccountComponent
+    CardAccountComponent,
+
   ],
   exports: [
     HeaderComponent,
