@@ -1,28 +1,30 @@
-<ion-card class="">
-
+<ion-card>
   <ion-card-content class="card-content">
     <ion-item lines="none">
       <ion-thumbnail slot="start">
         <img alt="Silhouette of mountains" [src]="card.icon" />
       </ion-thumbnail>
-     <div class="card-content_info">
-      <ion-card-title class="ion-font-size-16">{{card.title}}</ion-card-title>
-      <ion-label class="ion-font-size-14">Servicios: {{card.currentCountService}} de {{card.maxCountService}}</ion-label>
-      <ion-label class="ion-font-size-14">{{card.award}}</ion-label>
-     </div>
-     <div class="ion-padding-left-20 card-content-icons">
-     <ion-button (click)="setFavorite()" *ngIf="showIcons" fill="clear">
-        <ion-icon size="large" color="danger" slot="icon-only" [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
-      </ion-button>
-      <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16" fill="clear">
-        <ion-icon size="large" slot="icon-only" [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
-
-      </ion-button>
-    </div>
-    <ion-badge *ngIf="!showIcons" class="card-content_badge" [color]="card.categoryColor" slot="end">{{card.categoryName}}</ion-badge>
+      <div class="card-content_info">
+        <ion-card-title color="fontGrey" class="ion-font-size-16">{{card.title}}</ion-card-title>
+        <ion-label class="ion-font-size-14">Servicios: {{card.currentCountService}} de
+          {{card.maxCountService}}</ion-label>
+        <ion-label class="ion-font-size-14">{{card.award}}</ion-label>
+      </div>
+      <div class="ion-padding-left-20 card-content-icons">
+        <ion-button (click)="setFavorite()" *ngIf="showIcons" fill="clear">
+          <ion-icon size="large" color="danger" slot="icon-only"
+            [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
+        </ion-button>
+        <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16" fill="clear">
+          <ion-icon size="large" slot="icon-only"
+            [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
+        </ion-button>
+      </div>
+      <ion-badge *ngIf="!showIcons" class="card-content_badge" [color]="card.categoryColor"
+        slot="end">{{card.categoryName}}</ion-badge>
     </ion-item>
   </ion-card-content>
-  <ion-card  *ngIf="showIcons && isOpen"  class="card-seal">
+  <ion-card *ngIf="showIcons && isOpen" class="card-seal">
     <ion-card-content>
       <div [class]="classStamps">
         <img *ngFor="let stamp of stamps" [src]="stamp.img" alt="">
