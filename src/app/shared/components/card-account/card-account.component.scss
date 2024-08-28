@@ -1,0 +1,12 @@
+.card-image-size{
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+}
+
+ion-card{
+  height: 130px;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+}
