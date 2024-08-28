@@ -1,26 +1,46 @@
-<h2 class="ion-padding-horizontal-20">Boaba Belleza</h2>
-<p class="ion-padding-horizontal-20">
+<h2 class="ion-padding-horizontal-20">Descripción</h2>
+<p class="ion-padding-horizontal-20 fontGrey">
   Bienvenidos a Baobá Belleza, tu Centro Médico Estético de referencia en pleno corazón de la Capital de España.
   Nuestro objetivo es cubrir todas las necesidades y metas de nuestros clientes en campo de la Belleza, la Salud y
   el
   Bienestar.
 </p>
-<p class="ion-padding-horizontal-20">
+<p class="ion-padding-horizontal-20 fontGrey">
   En Baobá basamos nuestra filosofía de trabajo en la profesionalidad de la cuidada selección de personal, en una
   atención exquisita y cercana con nuestros clientes y en la meta de una calidad óptima en los servicios que
   ofrecemos. Creemos firmemente en la importancia del factor humano en un Centro Médico Estético.
 </p>
-<ion-list>
+<ion-list lines="full">
   <ion-item class="item-list">
-    <ion-icon aria-hidden="true" name="airplane" slot="start"></ion-icon>
-    <ion-label>Airplane Mode</ion-label>
+    <ion-icon aria-hidden="true" name="location-outline" slot="start" color="fontGrey"></ion-icon>
+    <ion-label color="fontGrey">C/ Juan Álvarez Mendizabal, 3, Madrid</ion-label>
   </ion-item>
   <ion-item class="item-list">
-    <ion-icon aria-hidden="true" name="wifi" slot="start"></ion-icon>
-    <ion-label>Wi-Fi</ion-label>
+    <ion-icon aria-hidden="true" name="phone-portrait-outline" slot="start" color="fontGrey"></ion-icon>
+    <ion-label color="fontGrey">609483726</ion-label>
   </ion-item>
-  <ion-item class="item-list">
-    <ion-icon aria-hidden="true" name="bluetooth" slot="start"></ion-icon>
-    <ion-label>Bluetooth</ion-label>
-  </ion-item>
+ <!--  <ion-item class="item-list">
+    <ion-icon aria-hidden="true" name="time-outline" slot="start" color="fontGrey"></ion-icon>
+    <ion-label color="fontGrey">Horarios</ion-label>
+  </ion-item> -->
+  <ion-accordion-group class="ion-padding-horizontal-16 ">
+    <ion-accordion class="accordion-group" value="first">
+      <ion-item slot="header">
+        <ion-icon aria-hidden="true" name="time-outline" slot="start" color="fontGrey"></ion-icon>
+        <ion-label color="fontGrey">Horarios</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="time-content" *ngFor="let clock of clocks">
+          <p>{{clock.day}}</p>
+          <p>{{clock.time}}</p>
+        </div>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-list>
+<div class="ion-padding-16">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.329592622765!2d-3.71663662409533!3d40.42370015521512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e0!3m2!1ses!2ses!4v1724835500375!5m2!1ses!2ses" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+

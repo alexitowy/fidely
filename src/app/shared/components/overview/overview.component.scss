@@ -1,0 +1,23 @@
+.fontGrey{
+  color: var(--ion-color-fontGrey);
+}
+
+
+  .accordion-group{
+    .item::part(native){
+      background: white;
+      color: var(--ion-color-fontGrey);
+    }
+  }
+
+.time-content{
+  display: flex;
+  justify-content: space-between;
+  p{
+    margin: 0;
+    margin-bottom: 5px;
+    min-width: 88.5px;
+  }
+}
+
+

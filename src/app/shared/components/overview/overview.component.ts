@@ -7,6 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent  implements OnInit {
 
+  clocks = [
+    {
+      day: 'Lunes',
+      time: '10:00-21:00'
+    },
+    {
+      day: 'Martes',
+      time: '10:00-21:00'
+    },
+    {
+      day: 'Miércoles',
+      time: '10:00-21:00'
+    },
+    {
+      day: 'Jueves',
+      time: '10:00-21:00'
+    },
+    {
+      day: 'Viernes',
+      time: '10:00-21:00'
+    },
+    {
+      day: 'Sábado',
+      time: '12:00-20:00'
+    },
+    {
+      day: 'Domingo',
+      time: 'Cerrado'
+    },
+  ]
+
   constructor() { }
 
   ngOnInit() {}
