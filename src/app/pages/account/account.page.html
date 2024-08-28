@@ -1,13 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>account</ion-title>
+    <ion-title>Hola, Jhon Doe</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon size="large" slot="start" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">account</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <div class="container-qr">
+          <img src="assets/frame.png" alt="qr">
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center" size="12">
+        <ion-label>Fidely v1.0.0</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding-top-20 ion-font-size-20" size="12">
+        <ion-label>Mi cuenta</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let option of optionsAccount" size="6" class="ion-padding-8">
+        <app-card-account [data]="option"></app-card-account>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-font-size-20" size="12">
+        <ion-label color="danger">Eliminar cuenta</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>
