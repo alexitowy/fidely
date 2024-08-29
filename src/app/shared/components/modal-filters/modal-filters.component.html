@@ -1,0 +1,31 @@
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()" ><ion-icon slot="start" name="close"></ion-icon></ion-button>
+          </ion-buttons>
+          <ion-title>Filtrar</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12"><ion-chip (click)="touchFilter(filter)" *ngFor="let filter of filters" color="primary" mode="ios" [outline]="!filter.active">
+              <ion-label>{{filter.name}}</ion-label>
+             </ion-chip></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button (click)="clear()" expand="block" fill="outline" shape="round">
+                Limpiar
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button (click)="confirm()" expand="block" fill="solid" shape="round">
+              Filtrar
+            </ion-button>
+          </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+
+

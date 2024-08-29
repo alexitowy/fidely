@@ -4,11 +4,13 @@
       <ion-searchbar class="ion-padding-right-0" placeholder="Buscar"></ion-searchbar>
     </ion-col>
     <ion-col class="ion-padding-left-16" size="2">
-      <ion-button fill="clear">
+      <div *ngIf="countFilter > 0" class="badge-icon">{{countFilter}}</div>
+      <ion-button (click)="openModal()" fill="clear">
         <ion-icon size="large" slot="icon-only" name="filter-circle-outline"></ion-icon>
       </ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>
+
 
 

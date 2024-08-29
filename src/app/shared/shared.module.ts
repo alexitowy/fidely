@@ -10,6 +10,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { BondsComponent } from './components/bonds/bonds.component';
 import { CardAccountComponent } from './components/card-account/card-account.component';
 import { RouterLink } from '@angular/router';
+import { ModalFiltersComponent } from './components/modal-filters/modal-filters.component';
 
 
 
@@ -22,7 +23,7 @@ import { RouterLink } from '@angular/router';
     GalleryComponent,
     BondsComponent,
     CardAccountComponent,
-
+    ModalFiltersComponent
   ],
   exports: [
     HeaderComponent,
@@ -32,7 +33,8 @@ import { RouterLink } from '@angular/router';
     OverviewComponent,
     GalleryComponent,
     BondsComponent,
-    CardAccountComponent
+    CardAccountComponent,
+    ModalFiltersComponent
   ],
   imports: [
     CommonModule,
