@@ -1,0 +1,33 @@
+.image-profile {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+ion-datetime-button {
+  width: 100%;
+
+  &::part(native) {
+    width: 100%;
+    text-align: start;
+    margin: 0;
+    margin-top: 1px;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #dbdde8;
+    color: #676767;
+  }
+}
+
+.content-date {
+  ion-label {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  &::part(native) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
