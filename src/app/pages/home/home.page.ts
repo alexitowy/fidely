@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomePage implements OnInit {
 
   cards = [];
 
-  cardsService = [
+  cardsService: DataCard[] = [
     {
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Maderoterapia',
@@ -27,8 +28,6 @@ export class HomePage implements OnInit {
         imgComplete: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-pink.png?alt=media&token=f5f65854-a040-4129-913e-58b91a061a63',
         imgDefault: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=c3f6954e-08ee-4ca1-b0f2-7c3224c1e62f',
       }
-
-
     },
     {
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
