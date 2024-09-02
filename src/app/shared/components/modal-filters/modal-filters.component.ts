@@ -30,6 +30,6 @@ export class ModalFiltersComponent  implements OnInit {
     return this.modalCtrl.dismiss(this.filtersCopy, 'confirm');
   }
   clear(){
-    this.filters.forEach(filter => filter.active = false);
+    this.filtersCopy.forEach(filter => filter.active = false);
   }
 }
