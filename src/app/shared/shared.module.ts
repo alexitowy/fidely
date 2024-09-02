@@ -1,18 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import { IonicModule } from '@ionic/angular';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from './components/search/search.component';
-import { CardComponent } from './components/card/card.component';
-import { OverviewComponent } from './components/overview/overview.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { BondsComponent } from './components/bonds/bonds.component';
 import { CardAccountComponent } from './components/card-account/card-account.component';
-import { RouterLink } from '@angular/router';
+import { CardComponent } from './components/card/card.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { HeaderComponent } from './components/header/header.component';
 import { ModalFiltersComponent } from './components/modal-filters/modal-filters.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { SearchComponent } from './components/search/search.component';
+import { SwiperComponent } from './components/swiper/swiper.component';
 
+import { register } from 'swiper/element/bundle';
 
+register();
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ModalFiltersComponent } from './components/modal-filters/modal-filters.
     GalleryComponent,
     BondsComponent,
     CardAccountComponent,
-    ModalFiltersComponent
+    ModalFiltersComponent,
+    SwiperComponent
   ],
   exports: [
     HeaderComponent,
@@ -34,7 +38,8 @@ import { ModalFiltersComponent } from './components/modal-filters/modal-filters.
     GalleryComponent,
     BondsComponent,
     CardAccountComponent,
-    ModalFiltersComponent
+    ModalFiltersComponent,
+    SwiperComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +47,9 @@ import { ModalFiltersComponent } from './components/modal-filters/modal-filters.
     ReactiveFormsModule,
     FormsModule,
     RouterLink
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class SharedModule { }

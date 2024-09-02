@@ -1,14 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
-export class GalleryComponent  implements OnInit {
+export class GalleryComponent implements OnInit {
+  img: DataSwiper[];
+  configParams: any = {
+    slidesPerView: 1,
+    navigation: true,
+   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.img = [
+      {
+        url: 'https://www.baobabelleza.com/wp-content/uploads/2024/06/pestanas_lifting_3D-300x300-1.png',
+      },
+      {
+        url: 'https://www.baobabelleza.com/wp-content/uploads/2024/06/manicura-_-unas-gel-acrilico-300x300-1.jpg',
+      },
+    ];
+  }
 }
