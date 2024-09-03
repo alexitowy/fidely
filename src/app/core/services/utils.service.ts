@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController, ToastOptions } from '@ionic/angular';
+import { ActionSheetController, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class UtilsService {
   constructor(
     private readonly toastController: ToastController,
     private readonly loadingController: LoadingController,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly actionSheetCtrl: ActionSheetController
   ) { }
 
   async presentToast(
@@ -73,4 +74,25 @@ export class UtilsService {
     this.router.navigateByUrl(url);
   }
 
+  async confirmDelete(){
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Quieres eliminar la tarjeta?',
+      buttons: [
+        {
+          text: 'Sí',
+          role: 'destructive',
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    actionSheet.present();
+
+    const { role } = await actionSheet.onWillDismiss();
+
+    return role === 'destructive';
+  }
 }
