@@ -1,1 +1,1 @@
-<app-card *ngFor="let card of cardsService" [card]="card" [iconAdd]="true" [showIcons]="false"></app-card>
+<app-card *ngFor="let card of cardBackend" [card]="card" [iconAdd]="true" [showIcons]="false" (action)="addCard($event)"></app-card>
