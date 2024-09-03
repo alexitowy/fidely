@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+
 import { BondsComponent } from './components/bonds/bonds.component';
 import { CardAccountComponent } from './components/card-account/card-account.component';
 import { CardComponent } from './components/card/card.component';
@@ -12,8 +13,10 @@ import { ModalFiltersComponent } from './components/modal-filters/modal-filters.
 import { OverviewComponent } from './components/overview/overview.component';
 import { SearchComponent } from './components/search/search.component';
 import { SwiperComponent } from './components/swiper/swiper.component';
+import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 
 import { register } from 'swiper/element/bundle';
+
 
 register();
 
@@ -27,7 +30,8 @@ register();
     BondsComponent,
     CardAccountComponent,
     ModalFiltersComponent,
-    SwiperComponent
+    SwiperComponent,
+    ModalConfirmComponent
   ],
   exports: [
     HeaderComponent,
@@ -39,7 +43,8 @@ register();
     BondsComponent,
     CardAccountComponent,
     ModalFiltersComponent,
-    SwiperComponent
+    SwiperComponent,
+    ModalConfirmComponent
   ],
   imports: [
     CommonModule,
