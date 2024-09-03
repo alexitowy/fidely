@@ -1,5 +1,6 @@
 export interface DataCard{
 
+    id: string,
     icon: string,
     title: string,
     currentCountService: string,
@@ -8,7 +9,8 @@ export interface DataCard{
     favorite: boolean,
     categoryName: string,
     categoryColor: string,
-    stamps: Stamps
+    stamps: Stamps,
+    addCard?: boolean
 }
 
 export interface Stamps{
