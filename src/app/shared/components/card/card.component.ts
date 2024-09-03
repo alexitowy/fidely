@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -11,6 +11,8 @@ export class CardComponent implements OnInit{
   @Input() showIcons: boolean = true;
   @Input() iconAdd: boolean = false;
   @Input() card: DataCard;
+
+  @Output() action = new EventEmitter<DataCard>();
 
   isOpen = false;
 
@@ -51,4 +53,9 @@ export class CardComponent implements OnInit{
       return 'card-content-seal-5';
     }
   }
+
+  actionTouch(){
+    this.action.emit(this.card);
+  }
+
 }

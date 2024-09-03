@@ -16,7 +16,7 @@
       </div>
       <div class="ion-padding-left-20 card-content-icons">
         <div>
-          <ion-button (click)="setFavorite()" *ngIf="showIcons" fill="clear">
+          <ion-button (click)="actionTouch()" *ngIf="showIcons" fill="clear">
             <ion-icon size="large" color="danger" slot="icon-only"
               [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
           </ion-button>
@@ -26,8 +26,8 @@
           </ion-button>
         </div>
         <div *ngIf="iconAdd" class="ion-padding-right-16">
-          <ion-button expand="block" fill="clear" shape="round" >
-            <ion-icon size="large" slot="icon-only" name="add-circle-outline"></ion-icon>
+          <ion-button (click)="actionTouch()" expand="block" fill="clear" shape="round" >
+            <ion-icon size="large" slot="icon-only" [name]="card.addCard? 'remove-circle-outline': 'add-circle-outline'"></ion-icon>
           </ion-button>
         </div>
       </div>
