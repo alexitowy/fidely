@@ -11,16 +11,23 @@
         <ion-label class="ion-font-size-14">{{card.award}}</ion-label>
       </div>
       <div class="ion-padding-left-20 card-content-icons">
-        <ion-button (click)="setFavorite()" *ngIf="showIcons" fill="clear">
-          <ion-icon size="large" color="danger" slot="icon-only"
-            [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
-        </ion-button>
-        <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16" fill="clear">
-          <ion-icon size="large" slot="icon-only"
-            [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
-        </ion-button>
+        <div>
+          <ion-button (click)="setFavorite()" *ngIf="showIcons" fill="clear">
+            <ion-icon size="large" color="danger" slot="icon-only"
+              [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
+          </ion-button>
+          <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16" fill="clear">
+            <ion-icon size="large" slot="icon-only"
+              [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
+          </ion-button>
+        </div>
+        <div *ngIf="iconAdd" class="ion-padding-right-16">
+          <ion-button expand="block" fill="clear" shape="round" >
+            <ion-icon size="large" slot="icon-only" name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
       </div>
-      <ion-badge *ngIf="!showIcons" class="card-content_badge" [color]="card.categoryColor"
+      <ion-badge *ngIf="!showIcons && !iconAdd" class="card-content_badge" [color]="card.categoryColor"
         slot="end">{{card.categoryName}}</ion-badge>
     </ion-item>
   </ion-card-content>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit{
 
   @Input() showIcons: boolean = true;
-  @Input() card: any;
+  @Input() iconAdd: boolean = false;
+  @Input() card: DataCard;
 
   isOpen = false;
 
