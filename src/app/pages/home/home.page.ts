@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
 
   cardsService: DataCard[] = [
     {
+      id: '1',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Maderoterapia',
       currentCountService: '1',
@@ -30,6 +31,7 @@ export class HomePage implements OnInit {
       }
     },
     {
+      id: '2',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
       title: 'Corte',
       currentCountService: '1',
@@ -46,6 +48,7 @@ export class HomePage implements OnInit {
       }
     },
     {
+      id: '3',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Alisado',
       currentCountService: '1',
@@ -62,6 +65,7 @@ export class HomePage implements OnInit {
       }
     },
     {
+      id: '4',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
       title: 'Estética',
       currentCountService: '1',
@@ -78,6 +82,7 @@ export class HomePage implements OnInit {
       }
     },
     {
+      id: '5',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Limpieza Facial',
       currentCountService: '1',
