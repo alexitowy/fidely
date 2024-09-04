@@ -13,18 +13,22 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: ()=> import('./pages/home/home.module').then( m => m.HomePageModule),
+        //canActivate: [AuthGuard]
       },
       {
         path: 'account',
-        loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule)
+        loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule),
+        //canActivate: [AuthGuard]
       },
       {
         path: 'profile',
-        loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+        loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+        //canActivate: [AuthGuard]
       },
       {
         path: 'view-search',
-        loadChildren: () => import('./pages/view-search/view-search.module').then( m => m.ViewSearchPageModule)
+        loadChildren: () => import('./pages/view-search/view-search.module').then( m => m.ViewSearchPageModule),
+        //canActivate: [AuthGuard]
       },
       {
         path: '',
