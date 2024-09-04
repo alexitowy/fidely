@@ -11,28 +11,26 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-
 export class LoginPage implements OnInit {
-
   providers = SignInProvider;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
   });
 
   constructor(
     private firebaseAuthService: FirebaseAuthenticationService,
     private utilsService: UtilsService,
     private navCtrl: NavController
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  onSubmit() { }
+  onSubmit() {}
 
   async signInWith(provider: SignInProvider): Promise<void> {
-    this.utilsService.presentLoading();
+    await this.utilsService.presentLoading();
     let result: SignInResult;
     try {
       switch (provider) {
@@ -49,43 +47,43 @@ export class LoginPage implements OnInit {
           result = await this.firebaseAuthService.signInWithTwitter();
           break;
       }
-      console.log(result.user);
-      this.navigateToHome();
-    }catch (err){
-      this.utilsService.presentToastDanger('No se ha completado el inicio de sesión.');
+      this.navCtrl.navigateForward('/tabs');
+    } catch (err) {
+      this.utilsService.presentToastDanger(
+        'No se ha completado el inicio de sesión.'
+      );
     } finally {
       this.utilsService.hiddenLoading();
     }
   }
 
   send() {
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
       const email = this.loginForm.controls['email'].value;
       const password = this.loginForm.controls['password'].value;
       this.utilsService.presentLoading();
 
-      this.firebaseAuthService.signInWithEmailAndPassword(email, password).then(()=>{
-        this.loginForm.reset();
-        this.navigateToHome();
-      }).catch((err)=>{
-        this.utilsService.presentToastDanger('Los datos introducidos son incorrectos.');
-      }).finally(()=>{
-        this.utilsService.hiddenLoading();
-      });
-    }else{
+      this.firebaseAuthService
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          this.loginForm.reset();
+          this.navCtrl.navigateForward('/tabs');
+        })
+        .catch((err) => {
+          this.utilsService.presentToastDanger(
+            'Los datos introducidos son incorrectos.'
+          );
+        })
+        .finally(() => {
+          this.utilsService.hiddenLoading();
+        });
+    } else {
       this.loginForm.markAllAsTouched();
     }
   }
 
   goToForgotPage() {
     this.loginForm.reset();
-    this.navCtrl.navigateForward('forgot-password')
-  }
-
-  navigateToHome(): void {
-    const user = this.firebaseAuthService.getCurrentUser();
-    this.navCtrl.navigateForward('/tabs');
+    this.navCtrl.navigateForward('forgot-password');
   }
 }
-
-

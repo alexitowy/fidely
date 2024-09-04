@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -151,7 +152,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
-    private readonly navCtr: NavController) { }
+    private readonly navCtr: NavController,
+  ) { }
 
   ngOnInit() {
     this.cards = this.cardsStores;

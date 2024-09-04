@@ -36,7 +36,7 @@ export class AccountPage implements OnInit {
     {
       img: 'assets/go.png',
       text: 'Cerrar sesión',
-      url: ''
+      url: '/login'
     },
   ]
 
