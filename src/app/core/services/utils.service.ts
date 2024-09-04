@@ -1,9 +1,15 @@
+import { LiteralArray } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActionSheetController, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
+import {
+  ActionSheetController,
+  LoadingController,
+  ToastController,
+  ToastOptions,
+} from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilsService {
   loading: HTMLIonLoadingElement;
@@ -12,7 +18,7 @@ export class UtilsService {
     private readonly loadingController: LoadingController,
     private readonly router: Router,
     private readonly actionSheetCtrl: ActionSheetController
-  ) { }
+  ) {}
 
   async presentToast(
     text: string,
@@ -60,13 +66,13 @@ export class UtilsService {
   }
 
   async presentLoading() {
-      this.loading = await this.loadingController.create({
-        spinner: 'bubbles'
-      });
+    this.loading = await this.loadingController.create({
+      spinner: 'bubbles',
+    });
     await this.loading.present();
   }
 
-  hiddenLoading(){
+  hiddenLoading() {
     this.loading.dismiss();
   }
 
@@ -74,7 +80,7 @@ export class UtilsService {
     this.router.navigateByUrl(url);
   }
 
-  async confirmDelete(){
+  async confirmDelete() {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Quieres eliminar la tarjeta?',
       buttons: [
