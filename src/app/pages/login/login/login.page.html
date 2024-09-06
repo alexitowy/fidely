@@ -19,7 +19,7 @@
             </ion-item>
           </ion-list>
         </form>
-        <ion-button type="submit" expand="block" class="ion-padding-vertical-20" (click)="send()">Iniciar sesión</ion-button>
+        <ion-button type="submit" expand="block" class="ion-padding-vertical-20 principal-btns" (click)="send()">Iniciar sesión</ion-button>
 
         <div class="ion-text-center ion-margin-vertical-20">
           <strong (click)="goToForgotPage()" class="ion-font-size-14 message">¿Olvidó su contraseña?</strong>
@@ -28,18 +28,18 @@
 
         <div>
           <ion-button (click)="signInWith(providers.google)" color="secondary" expand="block" fill="outline"
-            class="ion-padding-top-12">
+            class="ion-padding-top-12 principal-btns">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-google"></ion-icon>
             Continuar con Google</ion-button>
           <ion-button (click)="signInWith(providers.facebook)" color="secondary" expand="block" fill="outline"
-            class="ion-padding-top-12">
+            class="ion-padding-top-12 principal-btns">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-facebook"></ion-icon>
             Continuar con Facebook</ion-button>
           <ion-button (click)="signInWith(providers.twitter)" color="secondary" expand="block" fill="outline"
-            class="ion-padding-top-12">
+            class="ion-padding-top-12 principal-btns">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-x"></ion-icon>
             Continuar con X</ion-button>
-          <ion-button (click)="signInWith(providers.apple)" color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6">
+          <ion-button (click)="signInWith(providers.apple)" color="secondary" expand="block" class="ion-padding-vertical-12 ion-margin-left-6 principal-btns">
             <ion-icon class="button__icon--position-left" slot="start" name="logo-apple"></ion-icon>
             Continuar con Apple</ion-button>
         </div>
