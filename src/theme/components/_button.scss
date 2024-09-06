@@ -1,6 +1,29 @@
 ion-button{
-  --border-radius: 5px!important;
-  min-height: 52px;
+  &.principal-btns{
+    --border-radius: 5px!important;
+    min-height: 52px;
+  }
+  &.small{
+    width: 10.375rem;
+    height: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+  &.medium{
+    width: 13rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+  &.large{
+    width: 15.625rem;
+    height: 3.25rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+  &.button-round{
+    border-radius: 50%;
+  }
 }
 /*
 .md{
