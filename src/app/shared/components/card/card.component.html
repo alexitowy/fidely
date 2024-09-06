@@ -6,6 +6,7 @@
       </ion-thumbnail>
       <div class="card-content_info">
         <ion-card-title color="fontGrey" class="ion-font-size-16">{{card.title}}</ion-card-title>
+        <p color="fontGrey" class="ion-font-size-14 ion-padding-bottom-8">{{card.subtitle}}</p>
         <ion-label *ngIf="!iconAdd" class="ion-font-size-14">
           Servicios: {{card.currentCountService}} de {{card.maxCountService}}
         </ion-label>
@@ -16,23 +17,27 @@
       </div>
       <div class="ion-padding-left-20 card-content-icons">
         <div>
-          <ion-button (click)="actionTouch()" *ngIf="showIcons" fill="clear">
-            <ion-icon size="large" color="danger" slot="icon-only"
-              [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
-          </ion-button>
-          <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16" fill="clear">
-            <ion-icon size="large" slot="icon-only"
-              [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
-          </ion-button>
+          <div>
+            <ion-button class="ion-padding-bottom-12" (click)="actionTouch()" *ngIf="showIcons" fill="clear">
+              <ion-icon size="large" color="danger" slot="icon-only"
+                [name]="card.favorite? 'heart': 'heart-outline'"></ion-icon>
+            </ion-button>
+            <ion-button (click)="setOpen()" *ngIf="showIcons" class="ion-margin-left-16 ion-padding-bottom-12" fill="clear">
+              <ion-icon size="large" slot="icon-only"
+                [name]="isOpen? 'chevron-up-outline': 'chevron-down-outline' "></ion-icon>
+            </ion-button>
+          </div>
         </div>
         <div *ngIf="iconAdd" class="ion-padding-right-16">
           <ion-button (click)="actionTouch()" expand="block" fill="clear" shape="round" >
             <ion-icon size="large" slot="icon-only" [name]="card.addCard? 'remove-circle-outline': 'add-circle-outline'"></ion-icon>
           </ion-button>
         </div>
+        <div>
+          <ion-badge *ngIf="showIcons && !iconAdd" class="card-content_badge" [color]="card.categoryColor"
+          slot="end">{{card.categoryName}}</ion-badge>
+        </div>
       </div>
-      <ion-badge *ngIf="!showIcons && !iconAdd" class="card-content_badge" [color]="card.categoryColor"
-        slot="end">{{card.categoryName}}</ion-badge>
     </ion-item>
   </ion-card-content>
   <ion-card *ngIf="showIcons && isOpen" class="card-seal">
