@@ -1,0 +1,20 @@
+<app-search></app-search>
+<div>
+  <app-swiper [dataImg]="[{url:'https://picsum.photos/200/80'},{url:'https://picsum.photos/200/80'}]"></app-swiper>
+</div>
+<div>
+  <app-swiper [dataImg]="[{url:'https://picsum.photos/200/80'},{url:'https://picsum.photos/200/80'}]"></app-swiper>
+</div>
+<ion-grid class="ion-padding-0" fixed>
+  <ion-row class="ion-padding-left-16">
+    <ion-col size="10">
+      <h5 class="ion-margin-vertical-8">Resultados: 3</h5>
+    </ion-col>
+    <ion-col class="ion-padding-left-16" size="2">
+      <ion-button  fill="clear">
+        <ion-icon size="MD" slot="icon-only" name="map-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<app-card [card]="card" *ngFor="let card of cards"></app-card>
