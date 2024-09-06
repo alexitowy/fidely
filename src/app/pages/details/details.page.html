@@ -1,7 +1,10 @@
 <ion-content>
   <ion-icon routerLink="/tabs/view-search" class="icon-back-details" size="large" name="chevron-back-outline"></ion-icon>
-  <ion-button class="icon-share-details" shape="round" color="light" size="large">
-    <ion-icon (click)="share()" slot="icon-only"   name="share-outline"></ion-icon>
+  <ion-button class="icon-share-details" color="light" shape="round">
+    <ion-icon (click)="share()" size="SM" slot="icon-only" name="share-outline"></ion-icon>
+  </ion-button>
+  <ion-button class="icon-heart-details" color="light" shape="round">
+    <ion-icon (click)="share()" size="SM" slot="icon-only" name="heart-outline"></ion-icon>
   </ion-button>
 
   <div class="container-img">
@@ -20,14 +23,14 @@
     <ion-row>
       <ion-col size="12">
         <ion-segment (ionChange)="handlerChange($event)" [value]="viewSelected">
+          <ion-segment-button value="bonds">
+            <ion-label>Tarjetas</ion-label>
+          </ion-segment-button>
           <ion-segment-button value="overview">
             <ion-label>Resumen</ion-label>
           </ion-segment-button>
           <ion-segment-button value="gallery">
             <ion-label>Galería</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="bonds">
-            <ion-label>Tarjetas</ion-label>
           </ion-segment-button>
         </ion-segment>
       </ion-col>
