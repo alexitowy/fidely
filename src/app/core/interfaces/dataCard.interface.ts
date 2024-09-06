@@ -3,6 +3,7 @@ export interface DataCard{
     id: string,
     icon: string,
     title: string,
+    subtitle: string,
     currentCountService: string,
     maxCountService: string,
     award: string,
