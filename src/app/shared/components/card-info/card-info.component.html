@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-card-content>
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" [src]="card.icon" />
+      </ion-thumbnail>
+      <div class="card-content_info">
+        <ion-card-title color="fontGrey" class="ion-font-size-16">{{card.title}}</ion-card-title>
+        <ion-label class="ion-font-size-14">
+          {{card.desc}} servicios
+        </ion-label>
+      </div>
+      <div>
+        <ion-badge class="card-content_badge" [color]="card.categoryColor"
+        slot="end">{{card.categoryName}}</ion-badge>
+      </div>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
