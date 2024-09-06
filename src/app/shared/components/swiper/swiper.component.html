@@ -1,5 +1,5 @@
 <swiper-container #swiper init="false">
-  <swiper-slide class="ion-padding-20" *ngFor="let item of dataImg">
+  <swiper-slide *ngFor="let item of dataImg">
     <img class="slide-img" [src]="item.url" alt="">
   </swiper-slide>
 </swiper-container>
