@@ -1,35 +1,32 @@
-ion-button{
-  &.principal-btns{
-    --border-radius: 5px!important;
+ion-button {
+  &.principal-btns {
+    --border-radius: 5px !important;
     min-height: 52px;
   }
-  &.small{
+  &.small {
     width: 10.375rem;
     height: 2rem;
     font-size: 0.75rem;
     letter-spacing: 0;
   }
-  &.medium{
+  &.medium {
     width: 13rem;
     height: 2.5rem;
     font-size: 1rem;
     letter-spacing: 0;
   }
-  &.large{
+  &.large {
     width: 15.625rem;
     height: 3.25rem;
     font-size: 1rem;
     letter-spacing: 0;
   }
-  &.button-round{
+  &.button-round {
     border-radius: 50%;
   }
 }
-/*
-.md{
-  ion-button.button-native{
-    --padding-top: 0.75rem;
-    --padding-buttom: 0.75rem;
-  }
+
+ion-back-button {
+  --padding-start: 10px;
+  --padding-top: 5px;
 }
- */
