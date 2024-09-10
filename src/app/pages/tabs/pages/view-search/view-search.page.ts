@@ -24,6 +24,34 @@ export class ViewSearchPage implements OnInit {
     }
   ];
 
+  lstFavoriteCards = [
+    {
+      id: '1',
+      name: 'Baoba Belleza',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
+    },
+    {
+      id: '2',
+      name: 'Baoba Belleza',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
+    },
+    {
+      id: '3',
+      name: 'Baoba Belleza',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
+    },
+    {
+      id: '4',
+      name: 'Baoba Belleza',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
+    },
+    {
+      id: '5',
+      name: 'Baoba Belleza',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
+    },
+  ];
+
 
   cards: DataCard[] = [
     {

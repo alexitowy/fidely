@@ -1,29 +1,37 @@
-<app-search></app-search>
-<div>
-  <app-swiper  [dataImg]="lstSwiper"></app-swiper>
-</div>
-<div>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2" *ngFor="let card of cards">
-        <ion-card>
-          <img [src]="card.icon" alt="logo">
-        </ion-card>
+<ion-header>
+  <ion-toolbar>
+    <app-search></app-search>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <app-swiper  [dataImg]="lstSwiper"></app-swiper>
+  </div>
+  <div>
+    <ion-grid>
+      <ion-row class="content-favorite ion-padding-top-12">
+        <ion-col size="3" *ngFor="let card of lstFavoriteCards">
+          <div class="ion-margin-0">
+            <img class="content-favorite-img"[src]="card.icon" alt="logo">
+            <p class="content-favorite-text">{{card.name}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-grid class="ion-padding-0" fixed>
+    <ion-row class="ion-padding-left-16">
+      <ion-col size="10">
+        <h5 class="ion-margin-vertical-8">Resultados: 3</h5>
+      </ion-col>
+      <ion-col class="ion-padding-left-16" size="2">
+        <ion-button fill="clear">
+          <ion-icon size="MD" slot="icon-only" name="map-outline"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <app-card-info [card]="card" *ngFor="let card of cards"></app-card-info>  
+</ion-content>
 
-</div>
-<ion-grid class="ion-padding-0" fixed>
-  <ion-row class="ion-padding-left-16">
-    <ion-col size="10">
-      <h5 class="ion-margin-vertical-8">Resultados: 3</h5>
-    </ion-col>
-    <ion-col class="ion-padding-left-16" size="2">
-      <ion-button fill="clear">
-        <ion-icon size="MD" slot="icon-only" name="map-outline"></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<app-card-info [card]="card" *ngFor="let card of cards"></app-card-info>
+
