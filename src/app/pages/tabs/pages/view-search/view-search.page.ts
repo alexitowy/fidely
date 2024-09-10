@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
+import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
+
+
 
 @Component({
   selector: 'app-view-search',
@@ -8,6 +11,20 @@ import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 })
 export class ViewSearchPage implements OnInit {
 
+  lstSwiper: DataSwiper[] = [
+    {
+      id: '1',
+      img: '',
+      url: 'https://picsum.photos/200/80',
+    },
+    {
+      id: '2',
+      img: '',
+      url: 'https://picsum.photos/200/80',
+    }
+  ];
+
+
   cards: DataCard[] = [
     {
       id: '1',
@@ -15,6 +32,7 @@ export class ViewSearchPage implements OnInit {
       title: 'Maderoterapia',
       subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 tratamiento gratis',
@@ -36,6 +54,7 @@ export class ViewSearchPage implements OnInit {
       title: 'Corte',
       subtitle: 'Brave tradicional',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -57,6 +76,7 @@ export class ViewSearchPage implements OnInit {
       title: 'Alisado',
       subtitle: 'Zaccha',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -78,6 +98,7 @@ export class ViewSearchPage implements OnInit {
       title: 'Estética',
       subtitle: 'Nails Beauty',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -99,6 +120,7 @@ export class ViewSearchPage implements OnInit {
       title: 'Limpieza Facial',
       subtitle: 'Starbella',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
