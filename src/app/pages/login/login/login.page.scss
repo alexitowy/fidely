@@ -1,12 +1,22 @@
 
 .logo-img{
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 0px auto;
 }
 
 .message{
   color: var(--ion-color-primary);
+}
+.principal-btns{
+  &::part(native){
+    border: none;
+    box-shadow: 0 5px 5px -2px;
+  }
+}
+.container-btns{
+  display: flex;
+  justify-content: space-around;
 }
 
 .space{
@@ -35,7 +45,10 @@
     z-index: 1;
   }
 }
-
+.login-button-rrss{
+  width: 30px;
+  height: 30px;
+}
 .button__icon--position-left{
   position: absolute;
   left: 20px;
