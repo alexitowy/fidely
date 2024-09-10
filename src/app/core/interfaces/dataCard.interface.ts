@@ -4,6 +4,7 @@ export interface DataCard {
   title: string;
   subtitle: string;
   desc: string;
+  url: string;
   currentCountService: string;
   maxCountService: string;
   award: string;
@@ -25,6 +26,7 @@ export interface DataCardInfo {
   id: string;
   icon: string;
   title: string;
+  subtitle: string;
   desc: string;
   categoryName: string;
   categoryColor: string;
