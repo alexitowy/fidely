@@ -1,3 +1,5 @@
 export interface DataSwiper{
-  url: string
+  id: string;
+  img: string;
+  url: string;
 }
