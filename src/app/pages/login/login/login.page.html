@@ -1,128 +1,130 @@
 <ion-content>
-  <div class="ion-margin-top-60 ion-margin-bottom-4">
-    <ion-img
-      alt="logo"
-      src="assets/logo_fidely1.png"
-      class="logo-img"
-    ></ion-img>
-  </div>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <form [formGroup]="loginForm">
-          <ion-list lines="none">
-            <ion-item>
-              <ion-input
-                [errorText]="loginForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'"
-                label="E-mail"
-                placeholder="E-mail"
-                labelPlacement="stacked"
-                class="border-login"
-                formControlName="email"
-              ></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input
-                errorText="Este campo es requerido."
-                label="Contraseña"
-                placeholder="********"
-                labelPlacement="stacked"
-                type="password"
-                class="border-login"
-                helperText="Mínimo 8 caracteres"
-                formControlName="password"
-              >
-                <ion-input-password-toggle
-                  slot="end"
-                ></ion-input-password-toggle>
-              </ion-input>
-            </ion-item>
-          </ion-list>
-        </form>
-        <ion-button
-          type="submit"
-          expand="block"
-          class="ion-padding-vertical-20 principal-btns"
-          (click)="send()"
-          >Iniciar sesión</ion-button
-        >
-        <div class="ion-text-center ion-margin-vertical-20">
-          <strong (click)="goToForgotPage()" class="ion-font-size-14 message"
-            >¿Olvidó su contraseña?</strong
+  <div class="container-login">
+    <div class="ion-margin-bottom-4">
+      <ion-img
+        alt="logo"
+        src="assets/logo_fidely1.png"
+        class="logo-img"
+      ></ion-img>
+    </div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <form [formGroup]="loginForm">
+            <ion-list lines="none">
+              <ion-item>
+                <ion-input
+                  [errorText]="loginForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'"
+                  label="E-mail"
+                  placeholder="E-mail"
+                  labelPlacement="stacked"
+                  class="border-login"
+                  formControlName="email"
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input
+                  errorText="Este campo es requerido."
+                  label="Contraseña"
+                  placeholder="********"
+                  labelPlacement="stacked"
+                  type="password"
+                  class="border-login"
+                  helperText="Mínimo 8 caracteres"
+                  formControlName="password"
+                >
+                  <ion-input-password-toggle
+                    slot="end"
+                  ></ion-input-password-toggle>
+                </ion-input>
+              </ion-item>
+            </ion-list>
+          </form>
+          <ion-button
+            type="submit"
+            expand="block"
+            class="ion-padding-vertical-20 principal-btns"
+            (click)="send()"
+            >Iniciar sesión</ion-button
           >
-          <p class="space">o</p>
-        </div>
-        <ion-grid class="container-btns">
-          <ion-row>
-            <ion-col size="3">
-              <ion-button
-                (click)="signInWith(providers.google)"
-                color="secondary"
-                fill="outline"
-                class="ion-padding-top-12 principal-btns"
-              >
-                <img
-                  class="login-button-rrss"
-                  src="assets/logo-de-google.svg"
-                  alt=""
-                />
-              </ion-button>
-            </ion-col>
-            <ion-col size="3">
-              <ion-button
-                (click)="signInWith(providers.facebook)"
-                color="secondary"
-                fill="outline"
-                class="ion-padding-top-12 principal-btns"
-              >
-                <img
-                  class="login-button-rrss"
-                  src="assets/facebook-nuevo.svg"
-                  alt=""
-                />
-              </ion-button>
-            </ion-col>
-            <ion-col size="3">
-              <ion-button
-                (click)="signInWith(providers.twitter)"
-                color="secondary"
-                fill="outline"
-                class="ion-padding-top-12 principal-btns"
-              >
-                <img
-                  class="login-button-rrss"
-                  src="assets/logo-twitterx.svg"
-                  alt=""
-                />
-              </ion-button>
-            </ion-col>
-            <ion-col size="3">
-              <ion-button
-                (click)="signInWith(providers.apple)"
-                color="secondary"
-                fill="outline"
-                class="ion-padding-top-12 principal-btns"
-              >
-                <img
-                  class="login-button-rrss"
-                  src="assets/apple-logo.svg"
-                  alt=""
-                />
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <div class="ion-text-center ion-margin-top-20">
-          <p class="ion-font-size-14">
-            ¿No tienes una cuenta?<strong
-              routerLink="/register"
-              class="register"
+          <div class="ion-text-center ion-margin-vertical-20">
+            <strong (click)="goToForgotPage()" class="ion-font-size-14 message"
+              >¿Olvidó su contraseña?</strong
             >
-              Regístrate</strong
-            >
-          </p>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <p class="space">o</p>
+          </div>
+          <ion-grid class="container-btns">
+            <ion-row>
+              <ion-col size="3">
+                <ion-button
+                  (click)="signInWith(providers.google)"
+                  color="secondary"
+                  fill="outline"
+                  class="ion-padding-top-12 principal-btns"
+                >
+                  <img
+                    class="login-button-rrss"
+                    src="assets/logo-de-google.svg"
+                    alt=""
+                  />
+                </ion-button>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button
+                  (click)="signInWith(providers.facebook)"
+                  color="secondary"
+                  fill="outline"
+                  class="ion-padding-top-12 principal-btns"
+                >
+                  <img
+                    class="login-button-rrss"
+                    src="assets/facebook-nuevo.svg"
+                    alt=""
+                  />
+                </ion-button>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button
+                  (click)="signInWith(providers.twitter)"
+                  color="secondary"
+                  fill="outline"
+                  class="ion-padding-top-12 principal-btns"
+                >
+                  <img
+                    class="login-button-rrss"
+                    src="assets/logo-twitterx.svg"
+                    alt=""
+                  />
+                </ion-button>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button
+                  (click)="signInWith(providers.apple)"
+                  color="secondary"
+                  fill="outline"
+                  class="ion-padding-top-12 principal-btns"
+                >
+                  <img
+                    class="login-button-rrss"
+                    src="assets/apple-logo.svg"
+                    alt=""
+                  />
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <div class="ion-text-center ion-margin-top-20">
+            <p class="ion-font-size-14">
+              ¿No tienes una cuenta?<strong
+                routerLink="/register"
+                class="register"
+              >
+                Regístrate</strong
+              >
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
