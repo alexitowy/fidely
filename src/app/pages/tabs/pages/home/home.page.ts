@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
       title: 'Maderoterapia',
       subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 tratamiento gratis',
@@ -38,6 +39,7 @@ export class HomePage implements OnInit {
       title: 'Corte',
       subtitle: 'Brave tradicional',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -59,6 +61,7 @@ export class HomePage implements OnInit {
       title: 'Alisado',
       subtitle: 'Zaccha',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -80,6 +83,7 @@ export class HomePage implements OnInit {
       title: 'Estética',
       subtitle: 'Nails Beauty',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -101,6 +105,7 @@ export class HomePage implements OnInit {
       title: 'Limpieza Facial',
       subtitle: 'Starbella',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
@@ -121,7 +126,8 @@ export class HomePage implements OnInit {
     {
       id: '1',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Baoba Belleza',
+      title: 'Maderoterapia',
+      subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       categoryName: 'Medicina estética',
       categoryColor: 'category1',
@@ -129,7 +135,8 @@ export class HomePage implements OnInit {
     {
       id: '2',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
-      title: 'Brave tradicional',
+      title: 'Corte',
+      subtitle: 'Brave tradicional',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       categoryName: 'Barbería',
       categoryColor: 'category2',
@@ -137,7 +144,8 @@ export class HomePage implements OnInit {
     {
       id: '3',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Zaccha',
+      title: 'Alisado',
+      subtitle: 'Zaccha',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       categoryName: 'Peluquería',
       categoryColor: 'category3',
@@ -145,7 +153,8 @@ export class HomePage implements OnInit {
     {
       id: '4',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
-      title: 'Nails Beauty',
+      title: 'Estética',
+      subtitle: 'Nails Beauty',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       categoryName: 'Salón de uñas',
       categoryColor: 'category4',
@@ -153,7 +162,8 @@ export class HomePage implements OnInit {
     {
       id: '5',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Starbella',
+      title: 'Limpieza Facial',
+      subtitle: 'Starbella',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       categoryName: 'Cuidado de la piel',
       categoryColor: 'category5',
@@ -167,7 +177,6 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.cards = this.cardsService;
-    this.cards = this.cardBack;
   }
 
   async logOut() {
