@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignInResult } from '@capacitor-firebase/authentication';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { SignInProvider } from 'src/app/core/enums/singInProvider.enum';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
@@ -13,19 +13,26 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 })
 export class LoginPage implements OnInit {
   providers = SignInProvider;
-
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required),
   });
+  isPlatformIos: boolean;
+  size = 3;
 
   constructor(
-    private firebaseAuthService: FirebaseAuthenticationService,
-    private utilsService: UtilsService,
-    private navCtrl: NavController
+    private readonly firebaseAuthService: FirebaseAuthenticationService,
+    private readonly utilsService: UtilsService,
+    private readonly navCtrl: NavController,
+    private readonly platform: Platform
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isPlatformIos = this.platform.is('ios');
+    if(!this.isPlatformIos){
+      this.size =  4;
+    }
+  }
 
   onSubmit() {}
 

@@ -1,13 +1,15 @@
 <ion-content>
   <div class="container-login">
-    <div class="ion-margin-bottom-4">
-      <ion-img
-        alt="logo"
-        src="assets/logo_fidely1.png"
-        class="logo-img"
-      ></ion-img>
-    </div>
-    <ion-grid fixed>
+    <ion-grid class="container-login" fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-img
+          alt="logo"
+          src="assets/logo_fidely1.png"
+          class="logo-img"
+        ></ion-img>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col size="12">
           <form [formGroup]="loginForm">
@@ -55,7 +57,7 @@
           </div>
           <ion-grid class="container-btns">
             <ion-row>
-              <ion-col size="3">
+              <ion-col [size]="size">
                 <ion-button
                   (click)="signInWith(providers.google)"
                   color="secondary"
@@ -69,7 +71,7 @@
                   />
                 </ion-button>
               </ion-col>
-              <ion-col size="3">
+              <ion-col [size]="size">
                 <ion-button
                   (click)="signInWith(providers.facebook)"
                   color="secondary"
@@ -83,7 +85,7 @@
                   />
                 </ion-button>
               </ion-col>
-              <ion-col size="3">
+              <ion-col [size]="size">
                 <ion-button
                   (click)="signInWith(providers.twitter)"
                   color="secondary"
@@ -97,7 +99,7 @@
                   />
                 </ion-button>
               </ion-col>
-              <ion-col size="3">
+              <ion-col [size]="size" *ngIf="isPlatformIos">
                 <ion-button
                   (click)="signInWith(providers.apple)"
                   color="secondary"
