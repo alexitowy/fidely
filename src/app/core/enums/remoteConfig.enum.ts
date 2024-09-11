@@ -1,4 +1,4 @@
 export enum KeyRemoteConfig {
-    TERMINOS = 'terminos',
-    CONDICIONES = 'condiciones',
+    TERMS = 'terms',
+    CONDITIONS = 'conditions',
 }
