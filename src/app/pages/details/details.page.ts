@@ -8,7 +8,7 @@ import { Share } from '@capacitor/share';
 })
 export class DetailsPage implements OnInit {
 
-  viewSelected = 'overview';
+  viewSelected = 'bonds';
 
   constructor() { }
 
@@ -16,12 +16,9 @@ export class DetailsPage implements OnInit {
   }
   handlerChange(event: any){
     this.viewSelected = event.detail.value;
-    console.log(this.viewSelected);
   }
 
   async share(){
-    console.log(await Share.canShare());
-
      await Share.share({
       title: 'test',
       text: 'test',
