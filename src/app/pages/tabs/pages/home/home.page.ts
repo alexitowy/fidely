@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { DataCard, DataCardInfo } from 'src/app/core/interfaces/dataCard.interface';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 
 @Component({
@@ -9,8 +9,7 @@ import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-au
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  cards = [];
-  cardsService: DataCard[] = [
+  cards: DataCard[] = [
     {
       id: '1',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
@@ -122,65 +121,23 @@ export class HomePage implements OnInit {
       },
     },
   ];
-  cardBack: DataCardInfo[] = [
-    {
-      id: '1',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Maderoterapia',
-      subtitle: 'Baoba Belleza',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      categoryName: 'Medicina estética',
-      categoryColor: 'category1',
-    },
-    {
-      id: '2',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
-      title: 'Corte',
-      subtitle: 'Brave tradicional',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      categoryName: 'Barbería',
-      categoryColor: 'category2',
-    },
-    {
-      id: '3',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Alisado',
-      subtitle: 'Zaccha',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      categoryName: 'Peluquería',
-      categoryColor: 'category3',
-    },
-    {
-      id: '4',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
-      title: 'Estética',
-      subtitle: 'Nails Beauty',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      categoryName: 'Salón de uñas',
-      categoryColor: 'category4',
-    },
-    {
-      id: '5',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Limpieza Facial',
-      subtitle: 'Starbella',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      categoryName: 'Cuidado de la piel',
-      categoryColor: 'category5',
-    },
-  ];
 
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
     private readonly navCtr: NavController
   ) {}
 
-  ngOnInit() {
-    this.cards = this.cardsService;
-  }
+  ngOnInit() {}
 
   async logOut() {
     await this.firebaseAuthService.signOut();
     this.navCtr.navigateRoot('/login');
+  }
+  touchFavCard(card: DataCard) {
+    if (card.favorite === true) {
+      card.favorite = false;
+    } else {
+      card.favorite = true;
+    }
   }
 }
