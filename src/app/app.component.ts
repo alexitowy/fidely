@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseAuthenticationService } from './core/services/firebase-authentication.service';
+import { FirebaseRemoteConfigService } from './core/services/firebase-remote-config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,8 @@ import { FirebaseAuthenticationService } from './core/services/firebase-authenti
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private readonly firebaseAuthenticationService: FirebaseAuthenticationService) {
-    firebaseAuthenticationService.initialize();
+  constructor(private readonly firebaseAuthenticationService: FirebaseAuthenticationService,
+              private readonly firebaseRemoteConfigService: FirebaseRemoteConfigService
+  ) {
   }
 }
