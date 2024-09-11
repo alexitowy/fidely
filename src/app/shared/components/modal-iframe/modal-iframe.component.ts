@@ -16,7 +16,7 @@ export class ModalIframeComponent  implements OnInit {
   content: any;
 
   constructor(
-    private readonly modalCtrl: ModalController,
+    public readonly modalCtrl: ModalController,
     private readonly firebaseRemoteConfigService: FirebaseRemoteConfigService,
     private readonly sanitizer: DomSanitizer
     ) {}
@@ -28,11 +28,5 @@ export class ModalIframeComponent  implements OnInit {
       this.content = await this.firebaseRemoteConfigService.getValueString(KeyRemoteConfig.CONDITIONS);
     }
     this.content = this.sanitizer.bypassSecurityTrustResourceUrl(this.content);
-    console.log(this.content);
-    
-  }
-
-  close() {
-    return this.modalCtrl.dismiss(null, 'close');
   }
 }

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{title}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="close()">
+      <ion-button (click)="modalCtrl.dismiss(null, 'close')">
         <ion-icon name="close-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
