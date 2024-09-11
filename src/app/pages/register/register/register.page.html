@@ -6,7 +6,6 @@
     <ion-title>Únete a Fidely</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -19,13 +18,13 @@
         <form [formGroup]="registerForm">
           <ion-list lines="none">
             <ion-item>
-              <ion-input errorText="Este campo es requerido." label="Usuario" placeholder="Usuario" labelPlacement="stacked" formControlName="userName"></ion-input>
+              <ion-input errorText="Este campo es requerido." label="Nombre" placeholder="Nombre" labelPlacement="stacked" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input errorText="Este campo es requerido." label="Apellidos" placeholder="Apellidos" labelPlacement="stacked" formControlName="lastName"></ion-input>
             </ion-item>
             <ion-item>
               <ion-input [errorText]="registerForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'" label="E-mail" placeholder="E-mail" labelPlacement="stacked" formControlName="email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input [errorText]="getMsgErrorEmail()"  label="Confirmar e-mail" placeholder="Confirmar e-mail" labelPlacement="stacked" formControlName="confirmEmail"></ion-input>
             </ion-item>
             <ion-item>
               <ion-input [errorText]="registerForm.controls['password'].errors?.['required'] ? 'Este campo es requerido.':'Debe tener un mínimo de 6 a 10 caracteres, una letra mayúscula, un número y un caracter especial.'"  label="Contraseña" placeholder="********"  labelPlacement="stacked" type="password" formControlName="password" >
@@ -47,10 +46,7 @@
           </ion-list>
         </form>
         <ion-button (click)="register()" expand="block" class="ion-padding-vertical-20 ion-margin-top-24 principal-btns">Registrarme</ion-button>
-
       </ion-col>
-
     </ion-row>
   </ion-grid>
-
 </ion-content>

@@ -17,12 +17,9 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class RegisterPage implements OnInit {
   registerForm: FormGroup = new FormGroup(
     {
-      userName: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.email, Validators.required]),
-      confirmEmail: new FormControl('', [
-        Validators.email,
-        Validators.required,
-      ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -41,7 +38,6 @@ export class RegisterPage implements OnInit {
     },
     {
       validators: [
-        this.EqualsValidators('email', 'confirmEmail'),
         this.EqualsValidators('password', 'confirmPassword'),
       ],
     }
@@ -108,7 +104,6 @@ export class RegisterPage implements OnInit {
 
   EqualsValidators(item1: string, item2: string) {
     return (form: FormControl): ValidationErrors => {
-      console.log(form);
       if (form.get(item1).value !== form.get(item2).value) {
         let currentErrors = form.get(item2).errors;
         if(currentErrors === null){
@@ -119,24 +114,12 @@ export class RegisterPage implements OnInit {
         form.get(item2).setErrors(currentErrors);
         return null;
       }
-      console.log(form.get(item2).errors);
       if(form.get(item2).errors !== null){
         delete form.get(item2).errors['missMatch'];
       }
       return null;
     };
   }
-
-  getMsgErrorEmail() {
-    if (this.registerForm.controls['confirmEmail'].errors?.['required']) {
-      return 'Este campo es requerido.';
-    } else if (this.registerForm.controls['confirmEmail'].errors?.['email']) {
-      return 'No es un formato válido.';
-    } else {
-      return 'El e-mail no coincide.';
-    }
-  }
-
   getMsgErrorPassword() {
     if (this.registerForm.controls['confirmPassword'].errors?.['required']) {
       return 'Este campo es requerido';
