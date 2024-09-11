@@ -51,10 +51,7 @@ export class RegisterPage implements OnInit {
     private readonly modalCtrl: ModalController
   ) {}
 
-  ngOnInit() {
-    console.log(this.registerForm.controls['terms']);
-
-  }
+  ngOnInit() {}
 
   async register() {
     
