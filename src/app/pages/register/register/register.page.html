@@ -1,7 +1,11 @@
 <ion-header class="ion-no-border" [translucent]="true">
   <ion-toolbar>
     <ion-buttons>
-      <ion-back-button mode="ios" text="" default-href="/login"></ion-back-button>
+      <ion-back-button
+        mode="ios"
+        text=""
+        default-href="/login"
+      ></ion-back-button>
     </ion-buttons>
     <ion-title>Únete a Fidely</ion-title>
   </ion-toolbar>
@@ -9,7 +13,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-        <ion-title>Únete a Fidely</ion-title>
+      <ion-title>Únete a Fidely</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-grid fixed>
@@ -18,34 +22,96 @@
         <form [formGroup]="registerForm">
           <ion-list lines="none">
             <ion-item>
-              <ion-input errorText="Este campo es requerido." label="Nombre" placeholder="Nombre" labelPlacement="stacked" formControlName="name"></ion-input>
+              <ion-input
+                errorText="Este campo es requerido."
+                label="Nombre"
+                placeholder="Nombre"
+                labelPlacement="stacked"
+                formControlName="name"
+              ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input errorText="Este campo es requerido." label="Apellidos" placeholder="Apellidos" labelPlacement="stacked" formControlName="lastName"></ion-input>
+              <ion-input
+                errorText="Este campo es requerido."
+                label="Apellidos"
+                placeholder="Apellidos"
+                labelPlacement="stacked"
+                formControlName="lastName"
+              ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input [errorText]="registerForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'" label="E-mail" placeholder="E-mail" labelPlacement="stacked" formControlName="email"></ion-input>
+              <ion-input
+                [errorText]="registerForm.controls['email'].errors?.['required'] ? 'Este campo es requerido.':'No es un formato válido.'"
+                label="E-mail"
+                placeholder="E-mail"
+                labelPlacement="stacked"
+                formControlName="email"
+              ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input [errorText]="registerForm.controls['password'].errors?.['required'] ? 'Este campo es requerido.':'Debe tener un mínimo de 6 a 10 caracteres, una letra mayúscula, un número y un caracter especial.'"  label="Contraseña" placeholder="********"  labelPlacement="stacked" type="password" formControlName="password" >
-                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+              <ion-input
+                [errorText]="registerForm.controls['password'].errors?.['required'] ? 'Este campo es requerido.':'Debe tener un mínimo de 6 a 10 caracteres, una letra mayúscula, un número y un caracter especial.'"
+                label="Contraseña"
+                placeholder="********"
+                labelPlacement="stacked"
+                type="password"
+                formControlName="password"
+              >
+                <ion-input-password-toggle
+                  slot="end"
+                ></ion-input-password-toggle>
               </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input [errorText]="getMsgErrorPassword()"  label="Confirmar contraseña"
-              placeholder="********"  labelPlacement="stacked" type="password" formControlName="confirmPassword" >
-                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+              <ion-input
+                [errorText]="getMsgErrorPassword()"
+                label="Confirmar contraseña"
+                placeholder="********"
+                labelPlacement="stacked"
+                type="password"
+                formControlName="confirmPassword"
+              >
+                <ion-input-password-toggle
+                  slot="end"
+                ></ion-input-password-toggle>
               </ion-input>
             </ion-item>
-            <p [ngClass]="{'check': checkValidationMinLength()}">Debe tener un mínimo de 6 a 10 caracteres.</p>
-            <p [ngClass]="{'check': checkValidationUppercase()}">Una letra mayúscula.</p>
+            <p [ngClass]="{'check': checkValidationMinLength()}">
+              Debe tener un mínimo de 6 a 10 caracteres.
+            </p>
+            <p [ngClass]="{'check': checkValidationUppercase()}">
+              Una letra mayúscula.
+            </p>
             <p [ngClass]="{'check': checkValidationNumber()}">Un número.</p>
-            <p [ngClass]="{'check': checkValidationCharacter()}">Un caracter especial.</p>
-            <br>
-            <ion-checkbox errorText="Debe aceptar los términos" labelPlacement="end" formControlName="terms"><small> Acepta los términos y política de privacidad</small></ion-checkbox>
+            <p [ngClass]="{'check': checkValidationCharacter()}">
+              Un caracter especial.
+            </p>
+            <br />
+            <div class="container-check">
+              <div class="container-check-text">
+                <ion-checkbox
+                  errorText="Debe aceptar los términos"
+                  labelPlacement="end"
+                  formControlName="terms"
+                >
+                </ion-checkbox>
+                <ion-text>Acepta los <span class="terms-color" (click)="openModal('Términos')">términos</span> y <span class="terms-color" (click)="openModal('Condiciones')">política</span> de privacidad</ion-text>
+              </div>
+              <ion-text
+                *ngIf="registerForm.controls['terms'].invalid && registerForm.controls['terms'].touched"
+                class="ion-font-size-12"
+                color="danger"
+                >Debe aceptar los términos</ion-text
+              >
+            </div>
           </ion-list>
         </form>
-        <ion-button (click)="register()" expand="block" class="ion-padding-vertical-20 ion-margin-top-24 principal-btns">Registrarme</ion-button>
+        <ion-button
+          (click)="register()"
+          expand="block"
+          class="ion-padding-vertical-20 ion-margin-top-24 principal-btns"
+          >Registrarme</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>

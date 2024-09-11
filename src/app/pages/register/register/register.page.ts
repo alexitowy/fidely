@@ -5,9 +5,10 @@ import {
   Validators,
   ValidationErrors,
 } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { ModalIframeComponent } from 'src/app/shared/components/modal-iframe/modal-iframe.component';
 
 @Component({
   selector: 'app-register',
@@ -46,12 +47,17 @@ export class RegisterPage implements OnInit {
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
     private readonly utilsService: UtilsService,
-    private readonly navController: NavController
+    private readonly navController: NavController,
+    private readonly modalCtrl: ModalController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.registerForm.controls['terms']);
+
+  }
 
   async register() {
+    
     if(this.registerForm.valid){
       const email = this.registerForm.controls['email'].value;
       const password = this.registerForm.controls['password'].value;
@@ -129,4 +135,19 @@ export class RegisterPage implements OnInit {
       return 'La contraseña no coincide.';
     }
   }
-}
+  async openModal(title: string){
+    const modal = await this.modalCtrl.create({
+      component: ModalIframeComponent,
+      componentProps: {
+        title: title,
+      }
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+    
+    }
+  }
+  }

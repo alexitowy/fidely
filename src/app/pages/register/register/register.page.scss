@@ -8,3 +8,18 @@
     content: '✓';
   }
 }
+ion-checkbox {
+  --checkbox-background-checked: var(--ion-color-primary);
+}
+.container-check{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.container-check-text{
+  display: flex;
+  gap: 10px;
+}
+.terms-color{
+  color: var(--ion-color-primary);
+}
