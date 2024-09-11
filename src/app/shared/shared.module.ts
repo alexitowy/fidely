@@ -17,6 +17,7 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
 
 import { register } from 'swiper/element/bundle';
 import { CardInfoComponent } from './components/card-info/card-info.component';
+import { ModalIframeComponent } from './components/modal-iframe/modal-iframe.component';
 
 
 register();
@@ -33,7 +34,8 @@ register();
     ModalFiltersComponent,
     SwiperComponent,
     ModalConfirmComponent,
-    CardInfoComponent
+    CardInfoComponent,
+    ModalIframeComponent
   ],
   exports: [
     HeaderComponent,
@@ -47,7 +49,8 @@ register();
     ModalFiltersComponent,
     SwiperComponent,
     ModalConfirmComponent,
-    CardInfoComponent
+    CardInfoComponent,
+    ModalIframeComponent
   ],
   imports: [
     CommonModule,
