@@ -16,7 +16,6 @@ import { initializeApp } from 'firebase/app';
 })
 export class FirebaseAuthenticationService {
   private currentUserSubject = new ReplaySubject<User | null>(1);
-
   constructor(
     private readonly platform: Platform,
     private readonly ngZone: NgZone,
@@ -32,6 +31,7 @@ export class FirebaseAuthenticationService {
     FirebaseAuthentication.getCurrentUser().then((result) => {
       this.currentUserSubject.next(result.user);
     });
+    this.initialize();
   }
 
   public get currentUser$(): Observable<User | null> {
@@ -39,7 +39,7 @@ export class FirebaseAuthenticationService {
   }
 
 
-  public async initialize(): Promise<void> {
+  private async initialize(): Promise<void> {
     if (this.platform.is('capacitor')) {
       return;
     }
