@@ -10,17 +10,23 @@ import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
   styleUrls: ['./view-search.page.scss'],
 })
 export class ViewSearchPage implements OnInit {
-
+  configParams: any = {
+    slidesPerView: 1,
+    navigation: false,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    autoHeight: true
+   };
   lstSwiper: DataSwiper[] = [
     {
       id: '1',
       img: '',
-      url: 'https://picsum.photos/200/80',
+      url: 'https://picsum.photos/400/120',
     },
     {
       id: '2',
       img: '',
-      url: 'https://picsum.photos/200/80',
+      url: 'https://picsum.photos/400/120',
     }
   ];
 

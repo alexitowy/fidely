@@ -11,6 +11,8 @@ export class GalleryComponent implements OnInit {
   configParams: any = {
     slidesPerView: 1,
     navigation: true,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
    };
 
   constructor() {}
