@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  name: 'preProduction',
   firebase : {
     apiKey: "AIzaSyDtXlliSPMprLuMScTYN-ZOk6r7fRsc590",
     authDomain: "fidelity-back-pre.firebaseapp.com",
