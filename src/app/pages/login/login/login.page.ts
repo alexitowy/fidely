@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
           result = await this.firebaseAuthService.signInWithTwitter();
           break;
       }
-      this.navCtrl.navigateForward('/tabs');
+      this.navCtrl.navigateRoot('/tabs');
     } catch (err) {
       this.utilsService.presentToastDanger(
         'No se ha completado el inicio de sesión.'
@@ -74,7 +74,7 @@ export class LoginPage implements OnInit {
         .signInWithEmailAndPassword(email, password)
         .then(() => {
           this.loginForm.reset();
-          this.navCtrl.navigateForward('/tabs');
+          this.navCtrl.navigateRoot('/tabs');
         })
         .catch((err) => {
           this.utilsService.presentToastDanger(
