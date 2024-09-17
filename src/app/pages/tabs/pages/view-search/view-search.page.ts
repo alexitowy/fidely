@@ -30,6 +30,7 @@ export class ViewSearchPage implements OnInit {
     }
   ];
 
+  // TODO esta es tu variable de empresas favoritas que debes llenar con lo que te venga de localstorage
   lstFavoriteCards = [
     {
       id: '1',
@@ -175,6 +176,7 @@ export class ViewSearchPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // TODO aqui recuperar el listado de empresas favoritas y asignarla a tu variable local para mostrarlas 
   }
 
 }
