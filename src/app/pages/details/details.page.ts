@@ -13,7 +13,7 @@ export class DetailsPage implements OnInit {
   shop = {
     id:'1',
     favorite: false,
-    cover: 'https/firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?format=webp&width=1440&height=960',
+    cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
     logo: 'https://www.baobabelleza.com/wp-content/uploads/2018/10/Logo_home160x160.png',
     name: 'Baoba Belleza',
     category: 'Medicina estética',
