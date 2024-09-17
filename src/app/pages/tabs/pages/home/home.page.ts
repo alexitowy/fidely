@@ -132,14 +132,11 @@ export class HomePage implements OnInit{
   ) {}
   async ngOnInit(){
     this.favoriteCards = (await this.localStorageService.get(KeyStorage.FAVORITE)) || [];
-    console.log(this.favoriteCards);
-    console.log(this.cards);
     if(this.favoriteCards.length > 0){
       this.cards.forEach(
         (card) => {
           const favoriteCard = this.favoriteCards.find(favCard => favCard.id === card.id);
-          console.log(this.favoriteCards);
-          if(favoriteCard !== null){
+          if(favoriteCard !== undefined){
             card.favorite = true;
           }
         }
