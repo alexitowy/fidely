@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit{
+
+  favoriteCards: DataCard[];
   cards: DataCard[] = [
     {
       id: '1',
@@ -20,7 +24,7 @@ export class HomePage implements OnInit {
       currentCountService: '1',
       maxCountService: '6',
       award: '1 tratamiento gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Medicina estética',
       categoryColor: 'category1',
       stamps: {
@@ -64,7 +68,7 @@ export class HomePage implements OnInit {
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Peluquería',
       categoryColor: 'category3',
       stamps: {
@@ -108,7 +112,7 @@ export class HomePage implements OnInit {
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Cuidado de la piel',
       categoryColor: 'category5',
       stamps: {
@@ -121,23 +125,40 @@ export class HomePage implements OnInit {
       },
     },
   ];
-
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
-    private readonly navCtr: NavController
+    private readonly navCtr: NavController,
+    private readonly localStorageService: LocalStorageService,
   ) {}
-
-  ngOnInit() {}
-
+  async ngOnInit(){
+    this.favoriteCards = (await this.localStorageService.get(KeyStorage.FAVORITE)) || [];
+    console.log(this.favoriteCards);
+    console.log(this.cards);
+    if(this.favoriteCards.length > 0){
+      this.cards.forEach(
+        (card) => {
+          const favoriteCard = this.favoriteCards.find(favCard => favCard.id === card.id);
+          console.log(this.favoriteCards);
+          if(favoriteCard !== null){
+            card.favorite = true;
+          }
+        }
+      )
+    }
+  }
   async logOut() {
     await this.firebaseAuthService.signOut();
     this.navCtr.navigateRoot('/login');
   }
-  touchFavCard(card: DataCard) {
+  async touchFavCard(card: DataCard) {
+    this.favoriteCards = (await this.localStorageService.get(KeyStorage.FAVORITE)) || [];
     if (card.favorite === true) {
       card.favorite = false;
+      this.favoriteCards = this.favoriteCards.filter(favCard => favCard.id !== card.id);
     } else {
       card.favorite = true;
+      this.favoriteCards.push(card);
     }
+    await this.localStorageService.set(KeyStorage.FAVORITE, this.favoriteCards);
   }
 }
