@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Share } from '@capacitor/share';
+import { NavController } from '@ionic/angular';
+import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-details',
@@ -9,7 +12,7 @@ import { Share } from '@capacitor/share';
 export class DetailsPage implements OnInit {
 
   viewSelected = 'bonds';
-
+  favoriteShops: any[];
   shop = {
     id:'1',
     favorite: false,
@@ -17,21 +20,37 @@ export class DetailsPage implements OnInit {
     logo: 'https://www.baobabelleza.com/wp-content/uploads/2018/10/Logo_home160x160.png',
     name: 'Baoba Belleza',
     category: 'Medicina estética',
-  }
+  };
 
-  constructor() { }
+  constructor(
+    private readonly navCtrl: NavController,
+    private readonly localStorageService: LocalStorageService,
+  ) { }
 
-  ngOnInit() {
-    // TODO aquí recuperar el listado de empresas favoritas del localstorage
-    // para por el id que tenemos en la variable shop poder hacer un match con las que vienen de local storage 
-    // y poder decir si esta en el listado de favoritas del localstorage entonces a sho.favorite le cambio el valor a true caso contrario lo dejo en false
+  async ngOnInit() {
+    this.favoriteShops = (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
+    if(this.favoriteShops.length > 0){
+      const favoriteShop = this.favoriteShops.find(favShop => favShop.id === this.shop.id);
+      if(favoriteShop !== undefined){
+        this.shop.favorite = true;
+      }
+    }
   }
   handlerChange(event: any){
     this.viewSelected = event.detail.value;
   }
 
-  toogleFavorite(){
-    //TODO aquí hacer la logica del favorito que no esta
+  async toogleFavorite(){
+    this.favoriteShops = (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
+
+    if(this.shop.favorite === true){
+      this.favoriteShops = this.favoriteShops.filter(shop => shop.id !== this.shop.id);   
+      this.shop.favorite = false;
+    }else{
+      this.shop.favorite = true;
+      this.favoriteShops.push(this.shop);
+    }
+    await this.localStorageService.set(KeyStorage.SHOPFAVORITES, this.favoriteShops);
   }
 
   async share(){
@@ -41,5 +60,9 @@ export class DetailsPage implements OnInit {
       url: 'https://maps.app.goo.gl/KnEHFvo8GiyVDgNn7',
       dialogTitle: 'testing'
     });
+  }
+
+  backNavigate(){
+    this.navCtrl.back();
   }
 }

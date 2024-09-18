@@ -1,11 +1,10 @@
 <ion-content>
-  <ion-icon routerLink="/tabs/view-search" class="icon-back-details" size="large" name="chevron-back-outline"></ion-icon>
+  <ion-icon (click)="backNavigate()" class="icon-back-details" size="large" name="chevron-back-outline"></ion-icon>
   <ion-button (click)="share()" class="icon-share-details" color="light" shape="round">
     <ion-icon  size="SM" slot="icon-only" name="share-outline"></ion-icon>
   </ion-button>
   <ion-button (click)="toogleFavorite()"  class="icon-heart-details" color="light" shape="round">
-    <!-- TODO aquí condicionar que se vea un icono si es o no favorito -->
-    <ion-icon size="SM" slot="icon-only" name="heart-outline"></ion-icon>
+    <ion-icon size="SM" slot="icon-only" [name]="shop.favorite? 'heart': 'heart-outline' "></ion-icon>
   </ion-button>
 
   <div class="container-img">
