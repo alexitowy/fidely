@@ -1,4 +1,5 @@
 import { Component, Input} from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { DataCardInfo } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -9,7 +10,11 @@ import { DataCardInfo } from 'src/app/core/interfaces/dataCard.interface';
 export class CardInfoComponent{
   @Input() card: DataCardInfo;
 
-  constructor() {}
+  constructor(
+    private readonly navCtrl: NavController
+  ) {}
 
-
+  toNavigate(){
+    this.navCtrl.navigateForward(`/details/${this.card.id}`);
+  }
 }

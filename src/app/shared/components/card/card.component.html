@@ -1,7 +1,7 @@
 <ion-card>
   <ion-card-content class="card-content">
     <ion-item lines="none">
-      <ion-thumbnail slot="start">
+      <ion-thumbnail (click)="toNavigate()" slot="start">
         <img alt="Silhouette of mountains" [src]="card.icon" />
       </ion-thumbnail>
       <div class="card-content_info">

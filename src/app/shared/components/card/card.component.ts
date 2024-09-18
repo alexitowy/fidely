@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -17,7 +18,9 @@ export class CardComponent implements OnInit {
   classStamps = 'card-content-seal-3';
   stamps = [];
 
-  constructor() {}
+  constructor(
+    private readonly navCtrl: NavController
+  ) {}
 
   ngOnInit(): void {
     if (this.showIcons) {
@@ -52,5 +55,9 @@ export class CardComponent implements OnInit {
 
   actionTouch() {
     this.action.emit(this.card);
+  }
+
+  toNavigate(){
+    this.navCtrl.navigateForward(`/details/${this.card.id}`);
   }
 }
