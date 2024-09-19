@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
-
-
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-view-search',
@@ -15,8 +15,8 @@ export class ViewSearchPage implements OnInit {
     navigation: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
-    autoHeight: true
-   };
+    autoHeight: true,
+  };
   lstSwiper: DataSwiper[] = [
     {
       id: '1',
@@ -27,39 +27,9 @@ export class ViewSearchPage implements OnInit {
       id: '2',
       img: '',
       url: 'https://picsum.photos/400/120',
-    }
-  ];
-
-  // TODO esta es tu variable de empresas favoritas que debes llenar con lo que te venga de localstorage
-  lstFavoriteCards = [
-    {
-      id: '1',
-      name: 'Baoba Belleza',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-    },
-    {
-      id: '2',
-      name: 'Baoba Belleza',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-    },
-    {
-      id: '3',
-      name: 'Baoba Belleza',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-    },
-    {
-      id: '4',
-      name: 'Baoba Belleza',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-    },
-    {
-      id: '5',
-      name: 'Baoba Belleza',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
     },
   ];
-
-
+  lstFavoriteCards: any[];
   cards: DataCard[] = [
     {
       id: '1',
@@ -173,10 +143,11 @@ export class ViewSearchPage implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private readonly localStorageService: LocalStorageService) {}
 
-  ngOnInit() {
-    // TODO aqui recuperar el listado de empresas favoritas y asignarla a tu variable local para mostrarlas 
+  async ngOnInit() {
+    this.lstFavoriteCards =
+      (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
+    console.log(this.lstFavoriteCards);
   }
-
 }

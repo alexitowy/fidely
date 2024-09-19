@@ -7,12 +7,12 @@
   <div>
     <app-swiper [dataImg]="lstSwiper" [swiperParams]="configParams"></app-swiper>
   </div>
-  <div>
+  <div *ngIf="lstFavoriteCards && lstFavoriteCards.length > 0">
     <ion-grid>
       <ion-row class="content-favorite ion-padding-top-12">
         <ion-col size="3" *ngFor="let card of lstFavoriteCards">
           <div class="ion-margin-0">
-            <img class="content-favorite-img"[src]="card.icon" alt="logo">
+            <img class="content-favorite-img" [src]="card.logo" alt="logo">
             <p class="content-favorite-text">{{card.name}}</p>
           </div>
         </ion-col>
@@ -31,7 +31,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-card-info [card]="card" *ngFor="let card of cards"></app-card-info>  
+  <app-card-info [card]="card" *ngFor="let card of cards"></app-card-info>
 </ion-content>
-
-
