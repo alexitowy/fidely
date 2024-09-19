@@ -30,8 +30,8 @@ export class DetailsPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-     this.route.queryParams.subscribe(params => {
-      const id: any = params ['id'] || null;
+     this.route.params.subscribe(params => {
+      const id = params ['id'];
       console.log(id);
 
     })
