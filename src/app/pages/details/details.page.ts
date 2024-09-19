@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Share } from '@capacitor/share';
 import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
@@ -25,9 +26,16 @@ export class DetailsPage implements OnInit {
   constructor(
     private readonly navCtrl: NavController,
     private readonly localStorageService: LocalStorageService,
-  ) { }
+    private readonly route: ActivatedRoute,
+  ) {}
 
   async ngOnInit() {
+     this.route.queryParams.subscribe(params => {
+      const id: any = params ['id'] || null;
+      console.log(id);
+
+    })
+
     this.favoriteShops = (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
     if(this.favoriteShops.length > 0){
       const favoriteShop = this.favoriteShops.find(favShop => favShop.id === this.shop.id);
@@ -44,7 +52,7 @@ export class DetailsPage implements OnInit {
     this.favoriteShops = (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
 
     if(this.shop.favorite === true){
-      this.favoriteShops = this.favoriteShops.filter(shop => shop.id !== this.shop.id);   
+      this.favoriteShops = this.favoriteShops.filter(shop => shop.id !== this.shop.id);
       this.shop.favorite = false;
     }else{
       this.shop.favorite = true;
