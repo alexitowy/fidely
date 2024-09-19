@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
@@ -143,11 +144,17 @@ export class ViewSearchPage implements OnInit {
     },
   ];
 
-  constructor(private readonly localStorageService: LocalStorageService) {}
+  constructor(private readonly localStorageService: LocalStorageService,
+    private readonly navCtrl: NavController
+  ) {}
 
   async ngOnInit() {
     this.lstFavoriteCards =
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
     console.log(this.lstFavoriteCards);
+  }
+
+  toNavigate(card: DataCard){
+    this.navCtrl.navigateForward(`/details/${card.id}`);
   }
 }
