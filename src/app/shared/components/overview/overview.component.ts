@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
   selector: 'app-overview',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent  implements OnInit {
-
+  @Input() shop: DataCard;
   clocks = [
     {
       day: 'Lunes',
