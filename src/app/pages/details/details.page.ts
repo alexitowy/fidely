@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Share } from '@capacitor/share';
 import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
@@ -10,35 +11,25 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class DetailsPage {
   viewSelected = 'bonds';
   favoriteShops: any[];
-  shop = {
-    id: '1',
-    favorite: false,
-    cover:
-      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
-    logo: 'https://www.baobabelleza.com/wp-content/uploads/2018/10/Logo_home160x160.png',
-    name: 'Baoba Belleza',
-    category: 'Medicina estética',
-  };
+  shop: DataCard;
 
   constructor(
     private readonly navCtrl: NavController,
     private readonly localStorageService: LocalStorageService,
     private readonly route: ActivatedRoute
-  ) {}
-
-  async ngOnInit() {
-    this.route.params.subscribe((params) => {
+  ) {
+    this.route.params.subscribe(async (params) => {
       const id = params['id'];
-      console.log(id);
+      const shops = (await this.localStorageService.get(KeyStorage.SHOPS)) || [];
+      this.shop = shops.find((shop: DataCard) => shop.id === id);
+      this.checkIsFavorite();
     });
+  }
 
-    const shops = (await this.localStorageService.get(KeyStorage.SHOPS)) || [];
-    this.shop = shops.find((shop) => shop.id === this.shop.id);
-
-
+  async checkIsFavorite() {
     this.favoriteShops =
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
     if (this.favoriteShops.length > 0) {

@@ -36,13 +36,15 @@ export class ViewSearchPage implements OnInit {
       id: '1',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Maderoterapia',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 tratamiento gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Medicina estética',
       categoryColor: 'category1',
       stamps: {
@@ -58,6 +60,8 @@ export class ViewSearchPage implements OnInit {
       id: '2',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
       title: 'Corte',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Brave tradicional',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
@@ -80,13 +84,15 @@ export class ViewSearchPage implements OnInit {
       id: '3',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Alisado',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Zaccha',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Peluquería',
       categoryColor: 'category3',
       stamps: {
@@ -102,6 +108,8 @@ export class ViewSearchPage implements OnInit {
       id: '4',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Fimage-regular.svg?alt=media&token=19e15e71-c6f8-4754-888b-816c834f4628',
       title: 'Estética',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Nails Beauty',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
@@ -124,13 +132,15 @@ export class ViewSearchPage implements OnInit {
       id: '5',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Limpieza Facial',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Starbella',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
       currentCountService: '1',
       maxCountService: '6',
       award: '1 servicio gratis',
-      favorite: true,
+      favorite: false,
       categoryName: 'Cuidado de la piel',
       categoryColor: 'category5',
       stamps: {
@@ -154,7 +164,6 @@ export class ViewSearchPage implements OnInit {
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
       
     await this.localStorageService.set(KeyStorage.SHOPS, this.cards);
-    console.log(this.cards);
   }
 
   toNavigate(card: DataCard) {

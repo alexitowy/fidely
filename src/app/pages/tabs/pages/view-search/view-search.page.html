@@ -12,8 +12,8 @@
       <ion-row class="content-favorite ion-padding-top-12">
         <ion-col size="3" *ngFor="let card of lstFavoriteCards">
           <div (click)="toNavigate(card)" class="ion-margin-0">
-            <img class="content-favorite-img" [src]="card.logo" alt="logo">
-            <p class="content-favorite-text">{{card.name}}</p>
+            <img class="content-favorite-img" [src]="card.icon" alt="logo">
+            <p class="content-favorite-text">{{card.title}}</p>
           </div>
         </ion-col>
       </ion-row>

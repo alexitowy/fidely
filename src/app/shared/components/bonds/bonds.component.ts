@@ -17,6 +17,8 @@ export class BondsComponent implements OnInit {
       id: '1',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Maderoterapia',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: '',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
@@ -39,6 +41,8 @@ export class BondsComponent implements OnInit {
       id: '2',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Dermatología',
+      cover:
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: '',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',

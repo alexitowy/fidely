@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="shop">
   <ion-icon (click)="backNavigate()" class="icon-back-details" size="large" name="chevron-back-outline"></ion-icon>
   <ion-button (click)="share()" class="icon-share-details" color="light" shape="round">
     <ion-icon  size="SM" slot="icon-only" name="share-outline"></ion-icon>
@@ -11,13 +11,13 @@
     <img class="container-img-detail" alt="fontBaoba" [src]="shop.cover" />
   </div>
   <div class="container-img-logo">
-    <img [src]="shop.logo" alt="">
+    <img [src]="shop.icon" alt="">
   </div>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-        <h2>{{ shop.name}}</h2>
-        <ion-badge color="primary" >{{ shop.category}}</ion-badge>
+        <h2>{{ shop.title}}</h2>
+        <ion-badge [color]="shop.categoryColor" >{{ shop.categoryName}}</ion-badge>
       </ion-col>
     </ion-row>
     <ion-row>

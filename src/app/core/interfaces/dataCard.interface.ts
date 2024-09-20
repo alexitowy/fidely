@@ -1,6 +1,7 @@
 export interface DataCard {
   id: string;
   icon: string;
+  cover: string;
   title: string;
   subtitle: string;
   desc: string;
