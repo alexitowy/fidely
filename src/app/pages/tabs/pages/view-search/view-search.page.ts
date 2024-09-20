@@ -144,17 +144,20 @@ export class ViewSearchPage implements OnInit {
     },
   ];
 
-  constructor(private readonly localStorageService: LocalStorageService,
+  constructor(
+    private readonly localStorageService: LocalStorageService,
     private readonly navCtrl: NavController
   ) {}
 
   async ngOnInit() {
     this.lstFavoriteCards =
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
-    console.log(this.lstFavoriteCards);
+      
+    await this.localStorageService.set(KeyStorage.SHOPS, this.cards);
+    console.log(this.cards);
   }
 
-  toNavigate(card: DataCard){
+  toNavigate(card: DataCard) {
     this.navCtrl.navigateForward(`/details/${card.id}`);
   }
 }
