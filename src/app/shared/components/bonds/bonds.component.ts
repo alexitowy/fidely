@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
@@ -10,6 +10,8 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./bonds.component.scss'],
 })
 export class BondsComponent implements OnInit {
+  @Input() shop: DataCard;
+  
   cardsStorage: DataCard[];
 
   cardBackend: DataCard[] = [
