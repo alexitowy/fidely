@@ -12,23 +12,25 @@ export interface DataCard {
   favorite: boolean;
   categoryName: string;
   categoryColor: string;
-  stamps: Stamps;
-  addCard?: boolean;
-}
-
-export interface Stamps {
-  limit: string;
-  complete: string;
-  imgComplete: string;
-  imgDefault: string;
+  cards: DataCardInfo[];
+  gallery: DataSwiper[];
 }
 
 export interface DataCardInfo {
   id: string;
-  icon: string;
-  title: string;
-  subtitle: string;
-  desc: string;
-  categoryName: string;
-  categoryColor: string;
+  limit: string;
+  complete: string;
+  imgComplete: string;
+  imgDefault: string;
+  addCard?: boolean;
+}
+export interface DataSwiper{
+  id: string;
+  img: string;
+  url: string;
+}
+
+export interface EventCardComponent{
+  card: DataCard;
+  stamp: DataCardInfo;
 }
