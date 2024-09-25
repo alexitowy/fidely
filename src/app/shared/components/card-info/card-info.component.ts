@@ -1,6 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { DataCardInfo } from 'src/app/core/interfaces/dataCard.interface';
+import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
+
 
 @Component({
   selector: 'app-card-info',
@@ -8,7 +9,7 @@ import { DataCardInfo } from 'src/app/core/interfaces/dataCard.interface';
   styleUrls: ['./card-info.component.scss'],
 })
 export class CardInfoComponent{
-  @Input() card: DataCardInfo;
+  @Input() card: DataCard;
 
   constructor(
     private readonly navCtrl: NavController
