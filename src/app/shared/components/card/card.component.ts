@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
+import { DataCard, DataCardInfo, EventCardComponent } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
   selector: 'app-card',
@@ -11,8 +11,11 @@ export class CardComponent implements OnInit {
   @Input() showIcons: boolean = true;
   @Input() iconAdd: boolean = false;
   @Input() card: DataCard;
+  @Input() stamp: DataCardInfo
 
-  @Output() action = new EventEmitter<DataCard>();
+  @Output() action = new EventEmitter<EventCardComponent>();
+
+
 
   isOpen = false;
   classStamps = 'card-content-seal-3';
@@ -25,11 +28,11 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     if (this.showIcons) {
       this.classStamps = this.getClass();
-      for (let index = 1; index <= +this.card.stamps.limit; index = index + 1) {
-        if (index <= +this.card.stamps.complete) {
-          this.stamps.push({ img: this.card.stamps.imgComplete });
+      for (let index = 1; index <= +this.stamp?.limit; index = index + 1) {
+        if (index <= +this.stamp.complete) {
+          this.stamps?.push({ img: this.stamp?.imgComplete });
         } else {
-          this.stamps.push({ img: this.card.stamps.imgDefault });
+          this.stamps?.push({ img: this.stamp?.imgDefault });
         }
       }
     }
@@ -44,9 +47,13 @@ export class CardComponent implements OnInit {
   }
 
   getClass() {
-    if (+this.card.stamps.limit === 6) {
+    console.log(this.stamp);
+    console.log(this.card);
+
+
+    if (+this.stamp?.limit === 6) {
       return 'card-content-seal-3';
-    } else if (+this.card.stamps.limit === 8) {
+    } else if (+this.stamp?.limit === 8) {
       return 'card-content-seal-4';
     } else {
       return 'card-content-seal-5';
@@ -54,7 +61,7 @@ export class CardComponent implements OnInit {
   }
 
   actionTouch() {
-    this.action.emit(this.card);
+    this.action.emit({card: this.card, stamp: this.stamp});
   }
 
   toNavigate(){
