@@ -37,12 +37,12 @@
     </ion-row>
   </ion-grid>
   <ng-container  *ngIf="viewSelected === 'overview'">
-    <app-overview></app-overview>
+    <app-overview [shop]="shop"></app-overview>
   </ng-container>
   <ng-container *ngIf="viewSelected === 'gallery'">
-    <app-gallery></app-gallery>
+    <app-gallery [shop]="shop"></app-gallery>
   </ng-container>
   <ng-container *ngIf="viewSelected === 'bonds'">
-    <app-bonds></app-bonds>
+    <app-bonds [shop]="shop"></app-bonds>
   </ng-container>
 </ion-content>

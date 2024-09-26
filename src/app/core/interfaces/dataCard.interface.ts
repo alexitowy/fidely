@@ -1,4 +1,4 @@
-export interface DataCard {
+export interface CardShop {
   id: string;
   icon: string;
   cover: string;
@@ -6,14 +6,10 @@ export interface DataCard {
   subtitle: string;
   desc: string;
   url: string;
-  currentCountService: string;
-  maxCountService: string;
-  award: string;
   favorite: boolean;
   categoryName: string;
   categoryColor: string;
-  stamps: Stamps;
-  addCard?: boolean;
+  bonds : CardBons[];
 }
 
 export interface Stamps {
@@ -23,12 +19,16 @@ export interface Stamps {
   imgDefault: string;
 }
 
-export interface DataCardInfo {
+export interface CardBons {
   id: string;
   icon: string;
   title: string;
   subtitle: string;
   desc: string;
-  categoryName: string;
-  categoryColor: string;
+  currentCountService: string;
+  maxCountService: string;
+  award: string;
+  favorite: boolean;
+  isAdd: boolean
+  stamps: Stamps;
 }

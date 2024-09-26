@@ -1,6 +1,6 @@
 export enum KeyStorage {
-  FAVORITE = 'favorite',
-  CARDS = 'cards',
+  BONDSFAVORITE = 'favorite',
+  BONDS = 'cards',
   SHOPFAVORITES = 'shopfavorites',
   SHOPS = 'shops',
 }

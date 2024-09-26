@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
   selector: 'app-card',
@@ -10,9 +9,9 @@ import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
 export class CardComponent implements OnInit {
   @Input() showIcons: boolean = true;
   @Input() iconAdd: boolean = false;
-  @Input() card: DataCard;
+  @Input() card: any;
 
-  @Output() action = new EventEmitter<DataCard>();
+  @Output() action = new EventEmitter<any>();
 
   isOpen = false;
   classStamps = 'card-content-seal-3';
@@ -55,9 +54,5 @@ export class CardComponent implements OnInit {
 
   actionTouch() {
     this.action.emit(this.card);
-  }
-
-  toNavigate(){
-    this.navCtrl.navigateForward(`/details/${this.card.id}`);
   }
 }

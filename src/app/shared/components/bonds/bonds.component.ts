@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
-import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
+import { CardBons, CardShop } from 'src/app/core/interfaces/dataCard.interface';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
@@ -10,60 +10,10 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./bonds.component.scss'],
 })
 export class BondsComponent implements OnInit {
-  @Input() shop: DataCard;
+  @Input() shop: CardShop;
   
-  cardsStorage: DataCard[];
+  cardsStorage: CardBons[];
 
-  cardBackend: DataCard[] = [
-    {
-      id: '1',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Maderoterapia',
-      cover:
-      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
-      subtitle: '',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      url: '',
-      currentCountService: '1',
-      maxCountService: '6',
-      award: '1 tratamiento gratis',
-      favorite: true,
-      categoryName: 'Medicina estética',
-      categoryColor: 'category1',
-      stamps: {
-        limit: '8',
-        complete: '2',
-        imgComplete:
-          'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-pink.png?alt=media&token=f5f65854-a040-4129-913e-58b91a061a63',
-        imgDefault:
-          'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=c3f6954e-08ee-4ca1-b0f2-7c3224c1e62f',
-      },
-    },
-    {
-      id: '2',
-      icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
-      title: 'Dermatología',
-      cover:
-      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
-      subtitle: '',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      url: '',
-      currentCountService: '1',
-      maxCountService: '6',
-      award: '1 tratamiento gratis',
-      favorite: true,
-      categoryName: 'Medicina',
-      categoryColor: 'category1',
-      stamps: {
-        limit: '6',
-        complete: '3',
-        imgComplete:
-          'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-pink.png?alt=media&token=f5f65854-a040-4129-913e-58b91a061a63',
-        imgDefault:
-          'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=c3f6954e-08ee-4ca1-b0f2-7c3224c1e62f',
-      },
-    },
-  ];
 
   constructor(
     private readonly localStorageService: LocalStorageService,
@@ -71,50 +21,43 @@ export class BondsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.cardsStorage =
-      (await this.localStorageService.get(KeyStorage.CARDS)) || [];
+    this.cardsStorage = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
 
-    this.cardBackend.forEach((item) => {
-      this.cardsStorage.forEach((itemStorage) => {
-        if (item.id === itemStorage.id) {
-          item.addCard = true;
-        }
-      });
+    this.shop.bonds.forEach((item) => {
+      const bond = this.cardsStorage.find((itemStorage) => itemStorage.id === item.id);
+      if (bond) {
+        item.isAdd = true;
+      }
     });
   }
 
-  async addCard(card: DataCard) {
-    this.cardsStorage =
-      (await this.localStorageService.get(KeyStorage.CARDS)) || [];
-    if (card.addCard) {
-
+  async addCard(bond: any) {
+    this.cardsStorage = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
+    if (bond.isAdd) {
       const confirmModal = await this.utilsService.confirmDelete();
-
-      if (confirmModal === true) {
+      if (confirmModal) {
         this.cardsStorage = this.cardsStorage.filter(
-          (item) => item.id !== card.id
+          (item) => item.id !== bond.id
         );
-        await this.localStorageService.set(KeyStorage.CARDS, this.cardsStorage);
-
-        this.cardBackend.map((item) => {
-          if (item.id === card.id) {
-            item.addCard = false;
+        await this.localStorageService.set(KeyStorage.BONDS, this.cardsStorage);
+        this.shop.bonds.map((item) => {
+          if (item.id === bond.id) {
+            item.isAdd = false;
           }
         });
         this.utilsService.presentToastSuccess('Tarjeta eliminada con éxito.')
       }
     } else {
       this.utilsService.presentToastSuccess('Tarjeta añadida.');
-
       if (this.cardsStorage.length === 0) {
-        await this.localStorageService.set(KeyStorage.CARDS, [card]);
+        await this.localStorageService.set(KeyStorage.BONDS, [bond]);
       } else {
-        this.cardsStorage.push(card);
-        await this.localStorageService.set(KeyStorage.CARDS, this.cardsStorage);
+        this.cardsStorage.push(bond);
+        await this.localStorageService.set(KeyStorage.BONDS, this.cardsStorage);
       }
-      this.cardBackend.map((item) => {
-        if (item.id === card.id) {
-          item.addCard = true;
+      this.shop.bonds.map((item) => {
+        if (item.id === bond.id) {
+          item.isAdd = true;
         }
       });
     }
