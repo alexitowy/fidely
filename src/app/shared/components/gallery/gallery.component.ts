@@ -19,5 +19,4 @@ export class GalleryComponent  {
 
   constructor() {}
 
- 
 }
