@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
@@ -37,7 +37,7 @@ export class ViewSearchPage implements OnInit {
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       title: 'Baoba Belleza',
       cover:
-        'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
+      'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
