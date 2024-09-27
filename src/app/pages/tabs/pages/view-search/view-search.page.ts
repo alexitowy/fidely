@@ -85,8 +85,19 @@ export class ViewSearchPage implements OnInit {
               'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=c3f6954e-08ee-4ca1-b0f2-7c3224c1e62f',
           }
         }
+      ],
+      gallery: [
+        {
+          id: '1',
+          img: '',
+          url: 'https://picsum.photos/400/120',
+        },
+        {
+          id: '2',
+          img: '',
+          url: 'https://picsum.photos/400/120',
+        },
       ]
-      
     },
     {
       id: '2',
@@ -121,6 +132,18 @@ export class ViewSearchPage implements OnInit {
               'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=c3f6954e-08ee-4ca1-b0f2-7c3224c1e62f',
           }
         }
+      ],
+      gallery: [
+        {
+          id: '1',
+          img: '',
+          url: 'https://picsum.photos/400/120',
+        },
+        {
+          id: '2',
+          img: '',
+          url: 'https://picsum.photos/400/120',
+        },
       ]
     }
     ];
