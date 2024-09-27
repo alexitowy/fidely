@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
+import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
+import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
 
 @Component({
   selector: 'app-gallery',
@@ -7,7 +8,7 @@ import { DataCard } from 'src/app/core/interfaces/dataCard.interface';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
-  @Input() shop: DataCard;
+  @Input() shop: CardShop;
 
   configParams: any = {
     slidesPerView: 1,

@@ -8,7 +8,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="ion-padding-vertical-0" size="12">
-        <app-card [card]="card" (action)="touchFavCard($event)" *ngFor="let card of cards; let i = index" [stamp]="card.cards[i]"></app-card>
+        <app-card [card]="card" (action)="touchFavCard($event)" *ngFor="let card of bonds"></app-card>
       </ion-col>
     </ion-row>
   </ion-grid>
