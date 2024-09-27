@@ -1,3 +1,5 @@
+import { DataSwiper } from "./dataSwiper.interface";
+
 export interface CardShop {
   id: string;
   icon: string;
@@ -10,6 +12,7 @@ export interface CardShop {
   categoryName: string;
   categoryColor: string;
   bonds : CardBons[];
+  gallery: DataSwiper[];
 }
 
 export interface Stamps {

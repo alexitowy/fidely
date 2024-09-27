@@ -7,7 +7,7 @@ import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent  {
   @Input() shop: CardShop;
 
   configParams: any = {
@@ -19,5 +19,5 @@ export class GalleryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+ 
 }
