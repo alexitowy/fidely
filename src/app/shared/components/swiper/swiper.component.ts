@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { DataSwiper } from 'src/app/core/interfaces/dataCard.interface';
+import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
 import { SwiperOptions } from 'swiper/types';
 
 @Component({
