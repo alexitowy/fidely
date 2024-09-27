@@ -7,7 +7,7 @@ import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent  {
   @Input() shop: CardShop;
 
   img: DataSwiper[];
@@ -20,18 +20,5 @@ export class GalleryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    this.img = [
-      {
-        id: '',
-        img: 'Baoba',
-        url: 'https://www.baobabelleza.com/wp-content/uploads/2024/06/pestanas_lifting_3D-300x300-1.png',
-      },
-      {
-        id: '',
-        img: 'Baoba',
-        url: 'https://www.baobabelleza.com/wp-content/uploads/2024/06/manicura-_-unas-gel-acrilico-300x300-1.jpg',
-      },
-    ];
-  }
+
 }
