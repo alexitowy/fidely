@@ -74,6 +74,6 @@ export class DetailsPage {
   }
 
   backNavigate() {
-    this.navCtrl.back();
+    this.navCtrl.navigateRoot('/tabs/view-search');
   }
 }
