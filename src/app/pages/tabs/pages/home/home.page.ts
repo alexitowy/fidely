@@ -19,12 +19,11 @@ export class HomePage{
     private readonly localStorageService: LocalStorageService
   ) {}
 
-  
   async ionViewWillEnter(){
     this.bonds = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
-    //TODO ordenar por favoritos y tener en cuenta cuando se cambi un favorito volver a ordenar
-
+    this.sortFavorite();
   }
+
   async logOut() {
     await this.firebaseAuthService.signOut();
     this.navCtr.navigateRoot('/login');
@@ -45,8 +44,19 @@ export class HomePage{
         }
       });
       card.favorite = true;
-
     }
     await this.localStorageService.set(KeyStorage.BONDS, this.bonds);
+    this.sortFavorite();
+  }
+
+  private sortFavorite() {
+    this.bonds = this.bonds.sort((a: CardBons, b: CardBons) => {
+      if (a.favorite === b.favorite) {
+        return 0;
+      } else if (a.favorite === true) {
+        return -1;
+      }
+      return 1;
+    });
   }
 }
