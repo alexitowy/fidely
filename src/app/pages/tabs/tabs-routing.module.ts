@@ -28,8 +28,13 @@ const routes: Routes = [
       {
         path: 'view-search',
         loadChildren: () => import('./pages/view-search/view-search.module').then( m => m.ViewSearchPageModule),
-        //canActivate: [AuthGuard]
+        //canActivate: [AuthGuard],
       },
+      {
+        path: 'details/:id',
+        loadChildren: () => import('../details/details.module').then( m => m.DetailsPageModule)
+      },
+
       {
         path: '',
         pathMatch: 'full',
