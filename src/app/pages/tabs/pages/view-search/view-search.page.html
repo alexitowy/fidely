@@ -32,4 +32,9 @@
     </ion-row>
   </ion-grid>
   <app-card-info [card]="card" *ngFor="let card of cards"></app-card-info>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openQr()">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
