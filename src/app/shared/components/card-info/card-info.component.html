@@ -1,5 +1,5 @@
-<ion-card>
-  <ion-card-content class="ion-padding-vertical-0">
+<ion-card class="">
+  <ion-card-content class="ion-padding-vertical-0 card">
     <ion-item lines="none">
       <ion-thumbnail (click)="toNavigate()" slot="start">
         <img alt="Silhouette of mountains" [src]="card.icon" />
@@ -7,15 +7,13 @@
       <div class="card-content-div ion-padding-20">
         <div class="card-content_info">
           <ion-card-title color="fontGrey" class="ion-font-size-16 ion-margin-bottom-4">{{card.subtitle}}</ion-card-title>
-          <ion-label class="ion-font-size-12 ion-margin-bottom-8">
+          <ion-label class="ion-font-size-12 ion-margin-bottom-8 content-label">
             {{card.desc}}
           </ion-label>
         </div>
-        <div>
-          <ion-badge class="card-content_badge" [color]="card.categoryColor"
-          slot="end">{{card.categoryName}}</ion-badge>
-        </div>
       </div>
     </ion-item>
+      <ion-badge class="card-content_badge" [color]="card.categoryColor"
+      slot="end">{{card.categoryName}}</ion-badge>
   </ion-card-content>
 </ion-card>

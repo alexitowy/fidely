@@ -1,5 +1,20 @@
 .card-content_badge{
   position: absolute;
-  top: 80px;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.card{
+  min-height: 124px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.content-label{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
 }
