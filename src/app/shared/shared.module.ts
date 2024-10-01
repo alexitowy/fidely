@@ -19,6 +19,7 @@ import { register } from 'swiper/element/bundle';
 import { CardInfoComponent } from './components/card-info/card-info.component';
 import { ModalIframeComponent } from './components/modal-iframe/modal-iframe.component';
 import { CardBondsComponent } from './components/card-bonds/card-bonds.component';
+import { ModalQrComponent } from './components/modal-qr/modal-qr.component';
 
 
 register();
@@ -37,7 +38,8 @@ register();
     ModalConfirmComponent,
     CardInfoComponent,
     ModalIframeComponent,
-    CardBondsComponent
+    CardBondsComponent,
+    ModalQrComponent
   ],
   exports: [
     HeaderComponent,
@@ -53,7 +55,8 @@ register();
     ModalConfirmComponent,
     CardInfoComponent,
     ModalIframeComponent,
-    CardBondsComponent
+    CardBondsComponent,
+    ModalQrComponent
   ],
   imports: [
     CommonModule,
