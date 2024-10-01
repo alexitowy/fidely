@@ -13,8 +13,9 @@
 }
 
 .content-label{
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 200px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
