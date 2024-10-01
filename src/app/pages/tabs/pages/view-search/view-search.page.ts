@@ -40,7 +40,7 @@ export class ViewSearchPage {
       title: 'Baoba Belleza',
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Baoba Belleza',
-      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
+      desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España. Céntro Médico Estético de referencia en pleno corazón de la capital de España. Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
       url: '',
       favorite: false,
       categoryName: 'Medicina estética',
