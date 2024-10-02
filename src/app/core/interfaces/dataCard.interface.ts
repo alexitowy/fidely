@@ -11,6 +11,7 @@ export interface CardShop {
   favorite: boolean;
   categoryName: string;
   categoryColor: string;
+  categoryId: string;
   bonds : CardBons[];
   gallery: DataSwiper[];
 }
