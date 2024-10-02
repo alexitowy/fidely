@@ -536,6 +536,7 @@ export class ViewSearchPage {
     }
   ];
   cardsView: CardShop[] = [];
+  noResults: boolean;
 
   constructor(
     private readonly localStorageService: LocalStorageService,
@@ -565,13 +566,17 @@ export class ViewSearchPage {
   }
 
   search(wordSearch: string): void {
-    if (wordSearch === '') {
-      this.cardsView = [...this.cards];
-    } else {
-      this.cardsView = this.cards.filter(
-        (card: CardShop) => {
-          return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
-        });
+    if (typeof wordSearch === 'string') {
+      if (wordSearch === '') {
+        this.cardsView = [...this.cards];
+        this.noResults = false;
+      } else {
+        this.cardsView = this.cards.filter(
+          (card: CardShop) => {
+            return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
+          });
+        this.noResults = this.cardsView.length === 0;
+      }
     }
   }
 }

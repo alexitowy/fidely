@@ -30,6 +30,12 @@
         </ion-button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col class="msg-no-results"9 *ngIf="noResults" size="12">
+        <img class="img-search" src="assets/search.svg" alt="">
+        <p class="no-results">No se encotraron resultados.</p>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <app-card-info [card]="card" *ngFor="let card of cardsView"></app-card-info>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
