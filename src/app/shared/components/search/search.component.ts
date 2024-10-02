@@ -101,6 +101,8 @@ export class SearchComponent  implements OnInit {
   }
 
   handleInput(event: CustomEvent){
+    console.log('componen',event);
+    
     this.search.emit(event.detail.value.trim());   
   }
 }
