@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
     password: new FormControl('', Validators.required),
   });
   isPlatformIos: boolean;
-  size = 3;
+  size: number = 3;
 
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
@@ -27,14 +27,14 @@ export class LoginPage implements OnInit {
     private readonly platform: Platform
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.isPlatformIos = this.platform.is('ios');
     if(!this.isPlatformIos){
       this.size =  4;
     }
   }
 
-  onSubmit() {}
+  onSubmit(): void {}
 
   async signInWith(provider: SignInProvider): Promise<void> {
     await this.utilsService.presentLoading();
@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
     }
   }
 
-  send() {
+  send(): void {
     if (this.loginForm.valid) {
       const email = this.loginForm.controls['email'].value;
       const password = this.loginForm.controls['password'].value;
@@ -89,7 +89,7 @@ export class LoginPage implements OnInit {
     }
   }
 
-  goToForgotPage() {
+  goToForgotPage(): void {
     this.loginForm.reset();
     this.navCtrl.navigateForward('forgot-password');
   }

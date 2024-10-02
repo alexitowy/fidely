@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -6,7 +6,7 @@ import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
 })
-export class OverviewComponent  implements OnInit {
+export class OverviewComponent {
   @Input() shop: CardShop;
   clocks = [
     {
@@ -39,11 +39,5 @@ export class OverviewComponent  implements OnInit {
     },
   ]
 
-  constructor() { }
-
-  ngOnInit() {
-    console.log();
-    
-  }
-
+  constructor() {}
 }

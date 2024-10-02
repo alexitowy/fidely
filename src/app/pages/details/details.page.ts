@@ -29,7 +29,7 @@ export class DetailsPage {
     });
   }
 
-  async checkIsFavorite() {
+  async checkIsFavorite(): Promise<void> {
     this.favoriteShops =
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
     if (this.favoriteShops.length > 0) {
@@ -45,7 +45,7 @@ export class DetailsPage {
     this.viewSelected = event.detail.value;
   }
 
-  async toogleFavorite() {
+  async toogleFavorite(): Promise<void> {
     this.favoriteShops =
       (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
 
@@ -64,7 +64,7 @@ export class DetailsPage {
     );
   }
 
-  async share() {
+  async share(): Promise<void> {
     await Share.share({
       title: 'test',
       text: 'test',
@@ -73,7 +73,7 @@ export class DetailsPage {
     });
   }
 
-  backNavigate() {
+  backNavigate(): void {
     this.navCtrl.navigateRoot('/tabs/view-search');
   }
 }

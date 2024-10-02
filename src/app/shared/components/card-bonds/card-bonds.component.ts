@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -6,18 +6,13 @@ import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
   templateUrl: './card-bonds.component.html',
   styleUrls: ['./card-bonds.component.scss'],
 })
-export class CardBondsComponent  implements OnInit {
+export class CardBondsComponent {
 @Input() bond: CardBons;
 @Output() addBond = new EventEmitter<CardBons>();
 
   constructor() { }
 
-  ngOnInit() {
-    console.log('bond component', this.bond);
-    
-  }
-
-  actionTouch() {
+  actionTouch(): void {
     this.addBond.emit(this.bond);
   }
 }

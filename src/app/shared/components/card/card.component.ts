@@ -13,9 +13,9 @@ export class CardComponent implements OnInit {
 
   @Output() action = new EventEmitter<any>();
 
-  isOpen = false;
-  classStamps = 'card-content-seal-3';
-  stamps = [];
+  isOpen: boolean = false;
+  classStamps: string = 'card-content-seal-3';
+  stamps: any = [];
 
   constructor(
     private readonly navCtrl: NavController
@@ -34,11 +34,11 @@ export class CardComponent implements OnInit {
     }
   }
 
-  setOpen() {
+  setOpen(): void {
     this.isOpen = !this.isOpen;
   }
 
-  setFavorite() {
+  setFavorite(): void {
     this.card.favorite = !this.card.favorite;
   }
 
@@ -52,7 +52,7 @@ export class CardComponent implements OnInit {
     }
   }
 
-  actionTouch() {
+  actionTouch(): void {
     this.action.emit(this.card);
   }
 }

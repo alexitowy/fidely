@@ -14,7 +14,7 @@ export class CardInfoComponent{
     private readonly navCtrl: NavController
   ) {}
 
-  toNavigate(){
+  toNavigate(): void{
     this.navCtrl.navigateForward(`/tabs/details/${this.card.id}`);
   }
 }

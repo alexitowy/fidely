@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalFiltersComponent } from '../modal-filters/modal-filters.component';
 
@@ -7,57 +7,57 @@ import { ModalFiltersComponent } from '../modal-filters/modal-filters.component'
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent  implements OnInit {
+export class SearchComponent {
   @Output() search = new EventEmitter<string>();
 
-  countFilter = 0;
+  countFilter: number = 0;
   data = [
     {
-      name:'Peluquería',
+      name: 'Peluquería',
       active: false,
     },
     {
-      name:'Barbería',
+      name: 'Barbería',
       active: false,
     },
     {
-      name:'Salón de uñas',
+      name: 'Salón de uñas',
       active: false,
     },
     {
-      name:'Depilación',
+      name: 'Depilación',
       active: false,
     },
     {
-      name:'Cejas y pestañas',
+      name: 'Cejas y pestañas',
       active: false,
     },
     {
-      name:'Cuidado de la piel',
+      name: 'Cuidado de la piel',
       active: false,
     },
     {
-      name:'Masajes',
+      name: 'Masajes',
       active: false,
     },
     {
-      name:'Maquillaje',
+      name: 'Maquillaje',
       active: false,
     },
     {
-      name:'Spa',
+      name: 'Spa',
       active: false,
     },
     {
-      name:'Tienda de tatuajes',
+      name: 'Tienda de tatuajes',
       active: false,
     },
     {
-      name:'Medicina estética',
+      name: 'Medicina estética',
       active: false,
     },
     {
-      name:'Servicios para mascotas',
+      name: 'Servicios para mascotas',
       active: false,
     },
     {
@@ -65,23 +65,22 @@ export class SearchComponent  implements OnInit {
       active: false,
     },
     {
-      name:'Trenzas',
+      name: 'Trenzas',
       active: false,
     },
     {
-      name:'Otros',
+      name: 'Otros',
       active: false,
     }
   ];
 
   constructor(private modalCtrl: ModalController) { }
 
-  ngOnInit() {}
-
-  async openModal(){
+  async openModal(): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ModalFiltersComponent,
-      componentProps:{filters: this.data
+      componentProps: {
+        filters: this.data
       },
       id: 'modalFilters'
     });
@@ -91,18 +90,16 @@ export class SearchComponent  implements OnInit {
     if (role === 'confirm') {
       this.data = data;
       this.countFilter = 0;
-     data.forEach(filter => {
-       if(filter.active === true){
-        this.countFilter++ ;
-       }
-     });
+      data.forEach(filter => {
+        if (filter.active === true) {
+          this.countFilter++;
+        }
+      });
 
     }
   }
 
-  handleInput(event: CustomEvent){
-    console.log('componen',event);
-    
-    this.search.emit(event.detail.value.trim());   
+  handleInput(event: CustomEvent): void {
+    this.search.emit(event.detail.value.trim());
   }
 }

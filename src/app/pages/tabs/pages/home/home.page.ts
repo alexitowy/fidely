@@ -54,7 +54,7 @@ export class HomePage {
     this.sortFavorite();
   }
 
-  private sortFavorite() {
+  private sortFavorite(): void {
     this.bondsView = this.bondsView.sort((a: CardBons, b: CardBons) => {
       if (a.favorite === b.favorite) {
         return 0;
@@ -67,7 +67,6 @@ export class HomePage {
 
   search(wordSearch: string): void {
     if (typeof wordSearch === 'string') {
-      console.log(wordSearch);
       if (wordSearch === '') {
         this.bondsView = [...this.bonds];
         this.noResults = false;

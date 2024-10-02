@@ -552,7 +552,7 @@ export class ViewSearchPage {
     this.cardsView = [...this.cards];
   }
 
-  toNavigate(card: CardShop) {
+  toNavigate(card: CardShop): void {
     this.router.navigate([`/tabs/details/${card.id}`]);
   }
 

@@ -15,7 +15,7 @@ import { ModalIframeComponent } from 'src/app/shared/components/modal-iframe/mod
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
   registerForm: FormGroup = new FormGroup(
     {
       name: new FormControl('', Validators.required),
@@ -49,28 +49,26 @@ export class RegisterPage implements OnInit {
     private readonly utilsService: UtilsService,
     private readonly navController: NavController,
     private readonly modalCtrl: ModalController
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  async register(): Promise<void> {
 
-  async register() {
-    
-    if(this.registerForm.valid){
+    if (this.registerForm.valid) {
       const email = this.registerForm.controls['email'].value;
       const password = this.registerForm.controls['password'].value;
       this.utilsService.presentLoading();
 
-      this.firebaseAuthService.CreateWithEmailAndPassword(email, password).then((data)=>{
+      this.firebaseAuthService.CreateWithEmailAndPassword(email, password).then((data) => {
         this.utilsService.hiddenLoading();
         this.utilsService.presentToastSuccess('Su usuario se ha creado correctamente.');
         this.navController.navigateRoot('/tabs');
       });
-    }else {
+    } else {
       this.registerForm.markAllAsTouched();
     }
   }
 
-  checkValidationMinLength() {
+  checkValidationMinLength(): boolean {
     const value = this.registerForm.controls['password'].value;
     if (value.length >= 6 && value.length <= 10) {
       return true;
@@ -78,7 +76,7 @@ export class RegisterPage implements OnInit {
     return false;
   }
 
-  checkValidationUppercase() {
+  checkValidationUppercase(): boolean {
     const value = this.registerForm.controls['password'].value;
 
     if (value.match(/[A-Z]/g) !== null) {
@@ -87,7 +85,7 @@ export class RegisterPage implements OnInit {
     return false;
   }
 
-  checkValidationNumber() {
+  checkValidationNumber(): boolean {
     const value = this.registerForm.controls['password'].value;
 
     if (value.match(/\d/g) !== null) {
@@ -96,7 +94,7 @@ export class RegisterPage implements OnInit {
     return false;
   }
 
-  checkValidationCharacter() {
+  checkValidationCharacter(): boolean {
     const value = this.registerForm.controls['password'].value;
 
     if (value.match(/[#?!@$ %^&*-]/g) !== null) {
@@ -109,15 +107,15 @@ export class RegisterPage implements OnInit {
     return (form: FormControl): ValidationErrors => {
       if (form.get(item1).value !== form.get(item2).value) {
         let currentErrors = form.get(item2).errors;
-        if(currentErrors === null){
-          currentErrors = {'missMatch': true};
+        if (currentErrors === null) {
+          currentErrors = { 'missMatch': true };
         } else {
           currentErrors['missMatch'] = true;
         }
         form.get(item2).setErrors(currentErrors);
         return null;
       }
-      if(form.get(item2).errors !== null){
+      if (form.get(item2).errors !== null) {
         delete form.get(item2).errors['missMatch'];
       }
       return null;
@@ -126,13 +124,13 @@ export class RegisterPage implements OnInit {
   getMsgErrorPassword() {
     if (this.registerForm.controls['confirmPassword'].errors?.['required']) {
       return 'Este campo es requerido';
-    } else if (this.registerForm.controls['confirmPassword'].errors?.['minLength'] || this.registerForm.controls['confirmPassword'].errors?.['pattern']){
+    } else if (this.registerForm.controls['confirmPassword'].errors?.['minLength'] || this.registerForm.controls['confirmPassword'].errors?.['pattern']) {
       return 'Debe tener un mínimo de 6 a 10 caracteres, una letra mayúscula, un número y un caracter especial.';
     } else {
       return 'La contraseña no coincide.';
     }
   }
-  async openModal(title: string){
+  async openModal(title: string): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ModalIframeComponent,
       componentProps: {
@@ -144,7 +142,7 @@ export class RegisterPage implements OnInit {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
-    
+
     }
   }
-  }
+}

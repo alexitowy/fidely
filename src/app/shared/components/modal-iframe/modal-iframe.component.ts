@@ -21,7 +21,7 @@ export class ModalIframeComponent  implements OnInit {
     private readonly sanitizer: DomSanitizer
     ) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     if(this.title === 'Términos'){
       this.content = await this.firebaseRemoteConfigService.getValueString(KeyRemoteConfig.TERMS);
     }else{

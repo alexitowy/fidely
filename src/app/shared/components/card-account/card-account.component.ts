@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 
@@ -7,7 +7,7 @@ import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-au
   templateUrl: './card-account.component.html',
   styleUrls: ['./card-account.component.scss'],
 })
-export class CardAccountComponent  implements OnInit {
+export class CardAccountComponent{
 
   @Input() data: any;
 
@@ -16,9 +16,7 @@ export class CardAccountComponent  implements OnInit {
     private firebaseAuthService: FirebaseAuthenticationService
   ) {}
 
-  ngOnInit() {}
-
-  async redirectTo(){
+  async redirectTo():  Promise<void> {
     if(this.data.url === '/login'){
      await this.firebaseAuthService.signOut();
     }

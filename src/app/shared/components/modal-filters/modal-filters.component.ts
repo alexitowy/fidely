@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-modal-filters',
@@ -14,22 +13,22 @@ export class ModalFiltersComponent  implements OnInit {
 
   constructor(private modalCtrl: ModalController) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.filtersCopy = JSON.parse(JSON.stringify(this.filters));
 
   }
 
-  touchFilter(filter: any){
+  touchFilter(filter: any): void {
    filter.active = !filter.active;
   }
-  cancel() {
+  cancel(): Promise<boolean> {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  confirm() {
+  confirm(): Promise<boolean> {
     return this.modalCtrl.dismiss(this.filtersCopy, 'confirm');
   }
-  clear(){
+  clear(): void {
     this.filtersCopy.forEach(filter => filter.active = false);
   }
 }

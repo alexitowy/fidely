@@ -20,7 +20,7 @@ export class BondsComponent implements OnInit {
     private readonly utilsService: UtilsService
   ) {}
 
-  async ngOnInit() {
+  async ngOnInit():  Promise<void> {
     this.cardsStorage = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
 
     this.shop.bonds.forEach((item) => {
@@ -31,7 +31,7 @@ export class BondsComponent implements OnInit {
     });
   }
 
-  async addCard(bond: any) {
+  async addCard(bond: any):  Promise<void> {
     this.cardsStorage = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
     if (bond.isAdd) {
       const confirmModal = await this.utilsService.confirmDelete();

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
-import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
 
 @Component({
   selector: 'app-gallery',

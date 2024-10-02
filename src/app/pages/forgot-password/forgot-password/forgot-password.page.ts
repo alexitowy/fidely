@@ -10,7 +10,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./forgot-password.page.scss'],
 })
 export class ForgotPasswordPage implements OnInit {
-  isToastOpen = false;
+  isToastOpen: boolean = false;
   forgotForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
   });
@@ -25,7 +25,7 @@ export class ForgotPasswordPage implements OnInit {
     this.isToastOpen = isOpen;
   }
 
-  resetPassword() {
+  resetPassword(): void {
     if (this.forgotForm.valid) {
       const email = this.forgotForm.controls['email'].value;
       this.utilsService.presentLoading();
@@ -38,7 +38,6 @@ export class ForgotPasswordPage implements OnInit {
           this.navCtrl.navigateRoot('/login');
         })
         .catch((err) => {
-          console.log(err);
         })
         .finally(() => {
           this.utilsService.hiddenLoading();

@@ -8,7 +8,6 @@ import { SwiperOptions } from 'swiper/types';
   styleUrls: ['./swiper.component.scss'],
 })
 export class SwiperComponent  implements OnInit {
-
   @ViewChild('swiper', {static:true}) swiper;
 
   @Input() swiperParams: SwiperOptions = {
@@ -19,9 +18,8 @@ export class SwiperComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     Object.assign(this.swiper.nativeElement, this.swiperParams);
     this.swiper.nativeElement.initialize();
   }
-
 }
