@@ -13,18 +13,21 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class HomePage{
 
   bonds: CardBons[] = [];
+  bondsView: CardBons[] = [];
+
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
     private readonly navCtr: NavController,
     private readonly localStorageService: LocalStorageService
   ) {}
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter(): Promise<void>{
     this.bonds = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
+    this.bondsView = [...this.bonds];
     this.sortFavorite();
   }
 
-  async logOut() {
+  async logOut(): Promise<void> {
     await this.firebaseAuthService.signOut();
     this.navCtr.navigateRoot('/login');
   }
@@ -50,7 +53,7 @@ export class HomePage{
   }
 
   private sortFavorite() {
-    this.bonds = this.bonds.sort((a: CardBons, b: CardBons) => {
+    this.bondsView = this.bondsView.sort((a: CardBons, b: CardBons) => {
       if (a.favorite === b.favorite) {
         return 0;
       } else if (a.favorite === true) {
@@ -59,4 +62,17 @@ export class HomePage{
       return 1;
     });
   }
-}
+
+  search(wordSearch: string): void{
+      if (wordSearch === '') {
+        this.bondsView = [...this.bonds];
+      } else {
+        this.bondsView = this.bonds.filter(
+          (bond: CardBons) => {
+            return bond.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
+          });
+      }
+      this.sortFavorite();
+    }
+  }
+
