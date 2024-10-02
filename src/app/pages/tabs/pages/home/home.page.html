@@ -7,6 +7,12 @@
       </ion-col>
     </ion-row>
     <ion-row>
+      <ion-col class="msg-no-results" *ngIf="noResults" size="12">
+        <img class="img-search" src="assets/search.svg" alt="">
+        <p class="no-results">No se encontraron resultados.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col class="ion-padding-vertical-0" size="12">
         <app-card [card]="card" (action)="touchFavCard($event)" *ngFor="let card of bondsView"></app-card>
       </ion-col>
