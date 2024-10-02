@@ -535,6 +535,7 @@ export class ViewSearchPage {
       ]
     }
   ];
+  cardsView: CardShop[] = [];
 
   constructor(
     private readonly localStorageService: LocalStorageService,
@@ -543,22 +544,34 @@ export class ViewSearchPage {
     private readonly modalCtrl: ModalController
   ) { }
 
-  async ionViewWillEnter() {
+  async ionViewWillEnter(): Promise<void> {
     this.lstFavoriteCards = (await this.localStorageService.get(KeyStorage.SHOPFAVORITES)) || [];
 
     await this.localStorageService.set(KeyStorage.SHOPS, this.cards);
+    this.cardsView = [...this.cards];
   }
 
   toNavigate(card: CardShop) {
     this.router.navigate([`/tabs/details/${card.id}`]);
   }
 
-  async openQr(){
+  async openQr(): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ModalQrComponent,
       id: 'modalQr'
-      }
+    }
     )
-  modal.present();
-}
+    modal.present();
+  }
+
+  search(wordSearch: string): void {
+    if (wordSearch === '') {
+      this.cardsView = [...this.cards];
+    } else {
+      this.cardsView = this.cards.filter(
+        (card: CardShop) => {
+          return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
+        });
+    }
+  }
 }
