@@ -9,67 +9,98 @@ import { ModalFiltersComponent } from '../modal-filters/modal-filters.component'
 })
 export class SearchComponent {
   @Output() search = new EventEmitter<string>();
+  @Output() filterEvent = new EventEmitter<string[]>();
 
   countFilter: number = 0;
   data = [
     {
-      name: 'Peluquería',
-      active: false,
-    },
-    {
-      name: 'Barbería',
-      active: false,
-    },
-    {
-      name: 'Salón de uñas',
-      active: false,
-    },
-    {
-      name: 'Depilación',
-      active: false,
-    },
-    {
-      name: 'Cejas y pestañas',
-      active: false,
-    },
-    {
-      name: 'Cuidado de la piel',
-      active: false,
-    },
-    {
-      name: 'Masajes',
-      active: false,
-    },
-    {
-      name: 'Maquillaje',
-      active: false,
-    },
-    {
-      name: 'Spa',
-      active: false,
-    },
-    {
-      name: 'Tienda de tatuajes',
-      active: false,
-    },
-    {
+      id: '1',
       name: 'Medicina estética',
+      color: 'category1',
       active: false,
     },
     {
-      name: 'Servicios para mascotas',
+      id: '2',
+      name: 'Peluqueria',
+      categoryColor: 'category2',
       active: false,
     },
     {
-      name: 'Pircing',
+      id: '3',
+      name: 'Spa',
+      categoryColor: 'category2',
       active: false,
     },
     {
-      name: 'Trenzas',
+      id: '4',
+      name: 'Belleza',
+      categoryColor: 'category3',
       active: false,
     },
     {
+      id: '5',
+      name: 'Yoga',
+      categoryColor: 'category4',
+      active: false,
+    },
+    {
+      id: '6',
       name: 'Otros',
+      categoryColor: 'category5',
+      active: false,
+    },
+    {
+      id: '7',
+      name: 'Salon de uñas',
+      categoryColor: 'category1',
+      active: false,
+    },
+    {
+      id: '8',
+      name: 'Salud',
+      categoryColor: 'category2',
+      active: false,
+    },
+    {
+      id: '9',
+      name: 'Vegano',
+      categoryColor: 'category3',
+      active: false,
+    },
+    {
+      id: '10',
+      name: 'Compras',
+      categoryColor: 'category4',
+      active: false,
+    },
+    {
+      id: '11',
+      name: 'Deporte',
+      categoryColor: 'category5',
+      active: false,
+    },
+    {
+      id: '12',
+      name: 'Servicios para mascotas',
+      categoryColor: 'category6',
+      active: false,
+    },
+    {
+      id: '13',
+      name: 'Pircing',
+      categoryColor: 'category7',
+      active: false,
+    },
+    {
+      id: '14',
+      name: 'Trenzas',
+      categoryColor: 'category8',
+      active: false,
+    },
+    {
+      id: '15',
+      name: 'Otros',
+      categoryColor: 'category9',
       active: false,
     }
   ];
@@ -95,7 +126,10 @@ export class SearchComponent {
           this.countFilter++;
         }
       });
+      const filters = this.data.filter(
+        (filter) => filter.active).map((item) => item.id)
 
+      this.filterEvent.emit()
     }
   }
 
