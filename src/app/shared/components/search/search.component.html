@@ -1,7 +1,7 @@
 <ion-grid fixed>
   <ion-row>
     <ion-col size="10">
-      <ion-searchbar class="ion-padding-right-0" placeholder="Buscar"></ion-searchbar>
+      <ion-searchbar class="ion-padding-right-0" placeholder="Buscar" [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
     </ion-col>
     <ion-col class="ion-padding-left-16 filter-circle" size="2">
       <div *ngIf="countFilter > 0" class="badge-icon">{{countFilter}}</div>

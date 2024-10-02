@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalFiltersComponent } from '../modal-filters/modal-filters.component';
 
@@ -8,6 +8,7 @@ import { ModalFiltersComponent } from '../modal-filters/modal-filters.component'
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent  implements OnInit {
+  @Output() search = new EventEmitter<string>();
 
   countFilter = 0;
   data = [
@@ -97,5 +98,9 @@ export class SearchComponent  implements OnInit {
      });
 
     }
+  }
+
+  handleInput(event: CustomEvent){
+    this.search.emit(event.detail.value.trim());   
   }
 }
