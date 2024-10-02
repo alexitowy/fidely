@@ -45,6 +45,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Medicina estética',
       categoryColor: 'category1',
+      categoryId: '1',
       bonds: [
         {
           id: 'B1',
@@ -107,6 +108,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Peluqueria',
       categoryColor: 'category2',
+      categoryId: '2',
       bonds: [
         {
           id: 'BA1',
@@ -151,6 +153,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Spa',
       categoryColor: 'category2',
+      categoryId: '3',
       bonds: [
         {
           id: 'B2',
@@ -195,6 +198,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Belleza',
       categoryColor: 'category3',
+      categoryId: '4',
       bonds: [
         {
           id: 'B3',
@@ -239,6 +243,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Yoga',
       categoryColor: 'category4',
+      categoryId: '5',
       bonds: [
         {
           id: 'B4',
@@ -282,6 +287,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Otros',
       categoryColor: 'category5',
+      categoryId:'6',
       bonds: [
         {
           id: 'B5',
@@ -326,6 +332,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Salon de uñas',
       categoryColor: 'category1',
+      categoryId: '7',
       bonds: [
         {
           id: 'B6',
@@ -370,6 +377,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Salud',
       categoryColor: 'category2',
+      categoryId:'8',
       bonds: [
         {
           id: 'B7',
@@ -413,6 +421,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Vegano',
       categoryColor: 'category3',
+      categoryId: '9',
       bonds: [
         {
           id: 'B8',
@@ -457,6 +466,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Compras',
       categoryColor: 'category4',
+      categoryId: '10',
       bonds: [
         {
           id: 'B9',
@@ -501,6 +511,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Deporte',
       categoryColor: 'category5',
+      categoryId: '11',
       bonds: [
         {
           id: 'B10',
