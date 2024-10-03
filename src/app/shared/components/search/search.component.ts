@@ -128,8 +128,7 @@ export class SearchComponent {
       });
       const filters = this.data.filter(
         (filter) => filter.active).map((item) => item.id)
-
-      this.filterEvent.emit()
+      this.filterEvent.emit(filters);
     }
   }
 
