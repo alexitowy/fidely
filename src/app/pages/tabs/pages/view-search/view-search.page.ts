@@ -549,6 +549,7 @@ export class ViewSearchPage {
   cardsView: CardShop[] = [];
   noResults: boolean;
   filters: string[] = [];
+  wordSearch: string = '';
 
   constructor(
     private readonly localStorageService: LocalStorageService,
@@ -579,6 +580,7 @@ export class ViewSearchPage {
 
   search(wordSearch: string): void {
     if (typeof wordSearch === 'string') {
+      this.wordSearch = wordSearch;
       if (wordSearch === '') {
         if (this.filters.length > 0) {
           this.filterArray();
@@ -611,11 +613,20 @@ export class ViewSearchPage {
   filterEvent(event: string[]) {
     this.filters = event;
     if (event.length > 0) {
-      this.cardsView = this.cards.filter((card: CardShop) => {
-        return event.includes(card.categoryId);
-      });
+      this.filterArray();
+      if (this.wordSearch !== '') {
+        this.cardsView = this.cardsView.filter((card: CardShop) => {
+          return card.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
+        });
+      }
     } else {
-      this.cardsView = [...this.cards];
+      if(this.wordSearch !== '') {
+        this.cardsView = this.cards.filter((card: CardShop) => {
+          return card.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
+        });
+      } else {
+        this.cardsView = [...this.cards];
+      }
     }
     this.noResults = this.cardsView.length === 0;
   }
