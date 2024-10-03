@@ -287,7 +287,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Otros',
       categoryColor: 'category5',
-      categoryId:'6',
+      categoryId: '6',
       bonds: [
         {
           id: 'B5',
@@ -377,7 +377,7 @@ export class ViewSearchPage {
       favorite: false,
       categoryName: 'Salud',
       categoryColor: 'category2',
-      categoryId:'8',
+      categoryId: '8',
       bonds: [
         {
           id: 'B7',
@@ -548,6 +548,7 @@ export class ViewSearchPage {
   ];
   cardsView: CardShop[] = [];
   noResults: boolean;
+  filters: string[] = [];
 
   constructor(
     private readonly localStorageService: LocalStorageService,
@@ -579,15 +580,43 @@ export class ViewSearchPage {
   search(wordSearch: string): void {
     if (typeof wordSearch === 'string') {
       if (wordSearch === '') {
-        this.cardsView = [...this.cards];
-        this.noResults = false;
+        if (this.filters.length > 0) {
+          this.filterArray();
+        } else {
+          this.cardsView = [...this.cards];
+        }
+        this.noResults = this.cardsView.length === 0;
       } else {
-        this.cardsView = this.cards.filter(
-          (card: CardShop) => {
+        if (this.filters.length > 0) {
+          this.filterArray();
+          this.cardsView = this.cardsView.filter((card: CardShop) => {
             return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
           });
+        } else {
+          this.cardsView = this.cards.filter((card: CardShop) => {
+            return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
+          });
+        }
         this.noResults = this.cardsView.length === 0;
       }
     }
+  }
+
+  private filterArray() {
+    this.cardsView = this.cards.filter((card: CardShop) => {
+      return this.filters.includes(card.categoryId);
+    });
+  }
+
+  filterEvent(event: string[]) {
+    this.filters = event;
+    if (event.length > 0) {
+      this.cardsView = this.cards.filter((card: CardShop) => {
+        return event.includes(card.categoryId);
+      });
+    } else {
+      this.cardsView = [...this.cards];
+    }
+    this.noResults = this.cardsView.length === 0;
   }
 }
