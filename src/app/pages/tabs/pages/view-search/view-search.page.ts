@@ -612,7 +612,7 @@ export class ViewSearchPage {
 
   filterEvent(event: string[]) {
     this.filters = event;
-    if (event.length > 0) {
+    if (this.filters.length > 0) {
       this.filterArray();
       if (this.wordSearch !== '') {
         this.cardsView = this.cardsView.filter((card: CardShop) => {
