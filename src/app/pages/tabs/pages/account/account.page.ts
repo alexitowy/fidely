@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { ModalQrComponent } from 'src/app/shared/components/modal-qr/modal-qr.component';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-account',
@@ -43,18 +42,14 @@ export class AccountPage implements OnInit {
   ]
 
   constructor(
-    private readonly modalCtrl: ModalController
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
   }
 
-  async openQr(): Promise<void> {
-    const modal = await this.modalCtrl.create({
-      component: ModalQrComponent,
-      id: 'modalQr'
-    }
-    )
-    modal.present();
+  showQr(): void {
+    this.utilsService.openQr();
   }
 }
+
