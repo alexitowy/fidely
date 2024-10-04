@@ -120,14 +120,13 @@ export class SearchComponent {
 
     if (role === 'confirm') {
       this.data = data;
-      this.countFilter = 0;
-      data.forEach(filter => {
-        if (filter.active === true) {
-          this.countFilter++;
-        }
-      });
-      const filters = this.data.filter(
-        (filter) => filter.active).map((item) => item.id)
+      const activeFilters = data.filter ((filter)=> filter.active === true);
+      if (activeFilters.length > 9) {
+        this.countFilter = 9;
+      } else {
+        this.countFilter = activeFilters.length;
+      }
+      const filters = activeFilters.map((item)=> item.id);
       this.filterEvent.emit(filters);
     }
   }
