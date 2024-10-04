@@ -4,7 +4,8 @@ import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { ModalQrComponent } from 'src/app/shared/components/modal-qr/modal-qr.component';
+import { UtilsService } from 'src/app/core/services/utils.service';
+
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomePage {
     private readonly firebaseAuthService: FirebaseAuthenticationService,
     private readonly navCtr: NavController,
     private readonly localStorageService: LocalStorageService,
-    private readonly modalCtrl: ModalController
+    private utilsService: UtilsService 
   ) { }
 
   async ionViewWillEnter(): Promise<void> {
@@ -96,15 +97,6 @@ export class HomePage {
     }
   }
 
-  async openQr(): Promise<void> {
-    const modal = await this.modalCtrl.create({
-      component: ModalQrComponent,
-      id: 'modalQr'
-    }
-    )
-    modal.present();
-  }
-
   filterEvent(event: string[]) {
     this.filters = event;
     if (this.filters.length > 0) {
@@ -131,6 +123,10 @@ export class HomePage {
     this.bondsView = this.bonds.filter((bond: CardBons) => {
       return this.filters.includes(bond.categoryId);
     });
+  }
+
+  showQr(): void {
+    this.utilsService.openQr();
   }
 }
 
