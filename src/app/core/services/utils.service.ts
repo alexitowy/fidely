@@ -1,12 +1,12 @@
-import { LiteralArray } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   ActionSheetController,
   LoadingController,
+  ModalController,
   ToastController,
-  ToastOptions,
 } from '@ionic/angular';
+import { ModalQrComponent } from 'src/app/shared/components/modal-qr/modal-qr.component';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,8 @@ export class UtilsService {
     private readonly toastController: ToastController,
     private readonly loadingController: LoadingController,
     private readonly router: Router,
-    private readonly actionSheetCtrl: ActionSheetController
+    private readonly actionSheetCtrl: ActionSheetController,
+    private readonly modalCtrl: ModalController
   ) {}
 
   async presentToast(
@@ -100,5 +101,14 @@ export class UtilsService {
     const { role } = await actionSheet.onWillDismiss();
 
     return role === 'destructive';
+  }
+
+  async openQr(): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: ModalQrComponent,
+      id: 'modalQr'
+    }
+    )
+    modal.present();
   }
 }
