@@ -31,6 +31,7 @@ export interface CardBons {
   desc: string;
   currentCountService: string;
   maxCountService: string;
+  categoryId: string;
   award: string;
   favorite: boolean;
   isAdd: boolean
