@@ -58,6 +58,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '6',
+          categoryId: '1',
           stamps: {
             limit: '8',
             complete: '7',
@@ -76,6 +77,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '6',
+          categoryId: '1',
           stamps: {
             limit: '8',
             complete: '7',
@@ -121,6 +123,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '6',
+          categoryId: '2',
           stamps: {
             limit: '8',
             complete: '7',
@@ -166,6 +169,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '5',
+          categoryId: '3',
           stamps: {
             limit: '7',
             complete: '4',
@@ -211,6 +215,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '4',
+          categoryId: '4',
           stamps: {
             limit: '6',
             complete: '5',
@@ -256,6 +261,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '10',
+          categoryId: '5',
           stamps: {
             limit: '10',
             complete: '8',
@@ -300,6 +306,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '12',
+          categoryId: '6',
           stamps: {
             limit: '15',
             complete: '10',
@@ -345,6 +352,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '8',
+          categoryId: '7',
           stamps: {
             limit: '10',
             complete: '6',
@@ -390,6 +398,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '5',
+          categoryId: '8',
           stamps: {
             limit: '6',
             complete: '5',
@@ -434,6 +443,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '7',
+          categoryId: '9',
           stamps: {
             limit: '8',
             complete: '6',
@@ -479,6 +489,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '6',
+          categoryId: '10',
           stamps: {
             limit: '8',
             complete: '5',
@@ -524,6 +535,7 @@ export class ViewSearchPage {
           favorite: false,
           isAdd: false,
           maxCountService: '10',
+          categoryId: '11',
           stamps: {
             limit: '10',
             complete: '7',
@@ -583,14 +595,14 @@ export class ViewSearchPage {
       this.wordSearch = wordSearch;
       if (wordSearch === '') {
         if (this.filters.length > 0) {
-          this.filterArray();
+          this.filterCategory();
         } else {
           this.cardsView = [...this.cards];
         }
         this.noResults = this.cardsView.length === 0;
       } else {
         if (this.filters.length > 0) {
-          this.filterArray();
+          this.filterCategory();
           this.cardsView = this.cardsView.filter((card: CardShop) => {
             return card.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
           });
@@ -604,7 +616,7 @@ export class ViewSearchPage {
     }
   }
 
-  private filterArray() {
+  private filterCategory() {
     this.cardsView = this.cards.filter((card: CardShop) => {
       return this.filters.includes(card.categoryId);
     });
@@ -613,7 +625,7 @@ export class ViewSearchPage {
   filterEvent(event: string[]) {
     this.filters = event;
     if (this.filters.length > 0) {
-      this.filterArray();
+      this.filterCategory();
       if (this.wordSearch !== '') {
         this.cardsView = this.cardsView.filter((card: CardShop) => {
           return card.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
