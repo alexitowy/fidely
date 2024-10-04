@@ -5,7 +5,7 @@ import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { ModalQrComponent } from 'src/app/shared/components/modal-qr/modal-qr.component';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-view-search',
@@ -567,7 +567,8 @@ export class ViewSearchPage {
     private readonly localStorageService: LocalStorageService,
     private readonly navCtrl: NavController,
     private readonly router: Router,
-    private readonly modalCtrl: ModalController
+    private utilsService: UtilsService
+    
   ) { }
 
   async ionViewWillEnter(): Promise<void> {
@@ -579,15 +580,6 @@ export class ViewSearchPage {
 
   toNavigate(card: CardShop): void {
     this.router.navigate([`/tabs/details/${card.id}`]);
-  }
-
-  async openQr(): Promise<void> {
-    const modal = await this.modalCtrl.create({
-      component: ModalQrComponent,
-      id: 'modalQr'
-    }
-    )
-    modal.present();
   }
 
   search(wordSearch: string): void {
@@ -641,5 +633,9 @@ export class ViewSearchPage {
       }
     }
     this.noResults = this.cardsView.length === 0;
+  }
+
+  showQr(): void {
+    this.utilsService.openQr();
   }
 }
