@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ModalQrComponent } from 'src/app/shared/components/modal-qr/modal-qr.component';
 
 @Component({
   selector: 'app-home',
@@ -15,12 +16,14 @@ export class HomePage {
   bonds: CardBons[] = [];
   bondsView: CardBons[] = [];
   noResults: boolean;
-
+  filters: string[] = [];
+  wordSearch: string = '';
 
   constructor(
     private readonly firebaseAuthService: FirebaseAuthenticationService,
     private readonly navCtr: NavController,
-    private readonly localStorageService: LocalStorageService
+    private readonly localStorageService: LocalStorageService,
+    private readonly modalCtrl: ModalController
   ) { }
 
   async ionViewWillEnter(): Promise<void> {
@@ -67,19 +70,67 @@ export class HomePage {
 
   search(wordSearch: string): void {
     if (typeof wordSearch === 'string') {
+      this.wordSearch = wordSearch;
       if (wordSearch === '') {
-        this.bondsView = [...this.bonds];
-        this.noResults = false;
+        if (this.filters.length > 0) {
+          this.filterCategory();
+          this.sortFavorite();
+        } else {
+          this.bondsView = [...this.bonds];
+        }
+        this.noResults = this.bondsView.length === 0;
       } else {
-        this.bondsView = this.bonds.filter(
-          (bond: CardBons) => {
+        if (this.filters.length > 0) {
+          this.filterCategory();
+          this.sortFavorite();
+          this.bondsView = this.bondsView.filter((bond: CardBons) => {
             return bond.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
           });
+        } else {
+          this.bondsView = this.bonds.filter((bond: CardBons) => {
+            return bond.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
+          });
+        }
         this.noResults = this.bondsView.length === 0;
       }
-
-      this.sortFavorite();
     }
+  }
+
+  async openQr(): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: ModalQrComponent,
+      id: 'modalQr'
+    }
+    )
+    modal.present();
+  }
+
+  filterEvent(event: string[]) {
+    this.filters = event;
+    if (this.filters.length > 0) {
+      this.filterCategory();
+      this.sortFavorite();
+      if (this.wordSearch !== '') {
+        this.bondsView = this.bondsView.filter((bond: CardBons) => {
+          return bond.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
+        });
+      }
+    } else {
+      if(this.wordSearch !== '') {
+        this.bondsView = this.bonds.filter((bond: CardBons) => {
+          return bond.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
+        });
+      } else {
+        this.bondsView = [...this.bonds];
+      }
+    }
+    this.noResults = this.bondsView.length === 0;
+  }
+
+  private filterCategory() {
+    this.bondsView = this.bonds.filter((bond: CardBons) => {
+      return this.filters.includes(bond.categoryId);
+    });
   }
 }
 

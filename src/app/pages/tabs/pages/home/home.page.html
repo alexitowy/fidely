@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <app-search (search)="search($event)"></app-search>
+  <app-search (search)="search($event)" (filterEvent)="filterEvent($event)"></app-search>
   <ion-grid class="ion-padding-vertical-0" fixed>
     <ion-row>
       <ion-col class="ion-padding-horizontal-20 ion-padding-vertical-0" size="12">
@@ -19,7 +19,7 @@
     </ion-row>
   </ion-grid>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button (click)="openQr()">
       <ion-icon name="qr-code-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
