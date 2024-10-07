@@ -32,4 +32,24 @@ ion-modal#modalQr {
     opacity: 1;
     width: 100%;
   }
+  .content-qr{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+ion-modal#modalDeleteAccount {
+  --width: 90%;
+  --height: 45%;
+  --border: 1px solid;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  &::part(backdrop) {
+    background: var(--ion-color-fontGrey);
+    opacity: 1;
+    width: 100%;
+  }
 }
