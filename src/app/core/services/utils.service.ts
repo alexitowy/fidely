@@ -81,9 +81,9 @@ export class UtilsService {
     this.router.navigateByUrl(url);
   }
 
-  async confirmDelete() {
+  async confirmDelete(header: string) {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Quieres eliminar la tarjeta?',
+      header: header,
       buttons: [
         {
           text: 'Sí',
