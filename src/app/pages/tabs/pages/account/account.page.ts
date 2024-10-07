@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-delete-account/modal-delete-account.component';
 
 @Component({
   selector: 'app-account',
@@ -42,7 +44,8 @@ export class AccountPage implements OnInit {
   ]
 
   constructor(
-    private utilsService: UtilsService
+    private utilsService: UtilsService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -51,5 +54,12 @@ export class AccountPage implements OnInit {
   showQr(): void {
     this.utilsService.openQr();
   }
-}
 
+  async deleteAccount(): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: ModalDeleteAccountComponent,
+      id: 'modalDeleteAccount'
+    });
+    await modal.present();
+}
+}
