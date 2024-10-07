@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="cancel()"><ion-icon slot="start" name="close"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Eliminar cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid class="content-grid" fixed>
+    <ion-row>
+      <ion-col class="ion-padding-0 ion-padding-bottom-12" size="12">
+        <p class="ion-margin-0">¿Está seguro que quiere eliminar la cuenta?</p>
+      </ion-col>
+      <ion-col class="ion-margin-bottom-12" size="12">
+        <ion-label>Selecciona un motivo:</ion-label>
+      </ion-col>
+      <ion-col size="12">
+        <ion-radio-group name="auto" (ionChange)="otherDesc($event)">
+          <ion-item lines="none">
+            <ion-radio labelPlacement="end" justify="start" value="1">No uso la app lo suficiente</ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio labelPlacement="end" justify="start" value="2">Encontré una app mejor</ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio labelPlacement="end" justify="start" value="3">Otra</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        <ion-item lines="none" *ngIf="reasonSelected === '3'">
+          <ion-input type="text" placeholder="Escribe aquí..."></ion-input>
+        </ion-item>
+        <ion-item *ngIf="noSelected" lines="none">
+          <ion-label color="danger">Selecciona una opción</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar>
+    <ion-button fill="outline" color="danger" shape="round" (click)="delete()">
+      Eliminar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
