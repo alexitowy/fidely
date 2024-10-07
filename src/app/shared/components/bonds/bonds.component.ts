@@ -34,7 +34,7 @@ export class BondsComponent implements OnInit {
   async addCard(bond: any):  Promise<void> {
     this.cardsStorage = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
     if (bond.isAdd) {
-      const confirmModal = await this.utilsService.confirmDelete();
+      const confirmModal = await this.utilsService.confirmDelete('¿Quieres eliminar la tarjeta?');
       if (confirmModal) {
         this.cardsStorage = this.cardsStorage.filter(
           (item) => item.id !== bond.id
