@@ -30,4 +30,8 @@ export class LocalStorageService {
   removeItems(key: string[]) {
     key.forEach(async (item) => await this.remove(item));
   }
+
+  async clear() {
+    await Preferences.clear();
+  }
 }
