@@ -1,7 +1,7 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" mode="ios">
   <ion-toolbar class="ion-text-center">
     <ion-buttons slot="end">
-      <ion-button color="primary" (click)="cancel()"><ion-icon slot="start" name="close"></ion-icon></ion-button>
+      <ion-button class="btn-close" (click)="cancel()"><ion-icon slot="start" name="close"></ion-icon></ion-button>
     </ion-buttons>
     <ion-title>Eliminar cuenta</ion-title>
   </ion-toolbar>
@@ -37,9 +37,9 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer collapse="fade">
-  <ion-toolbar class="ion-text-center">
-    <ion-button fill="outline" color="danger" shape="round" (click)="delete()">
+<ion-footer>
+  <ion-toolbar class="ion-padding-top-20" class="ion-text-center">
+    <ion-button fill="solid" color="danger" shape="round" (click)="delete()">
       Eliminar
     </ion-button>
   </ion-toolbar>
