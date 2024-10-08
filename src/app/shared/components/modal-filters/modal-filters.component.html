@@ -1,7 +1,7 @@
-      <ion-header class="ion-no-border">
-        <ion-toolbar>
+      <ion-header class="ion-no-border" mode="ios">
+        <ion-toolbar class="ion-text-center">
           <ion-buttons slot="end">
-            <ion-button (click)="cancel()" ><ion-icon slot="start" name="close"></ion-icon></ion-button>
+            <ion-button class="btn-close" (click)="cancel()" ><ion-icon slot="start" name="close"></ion-icon></ion-button>
           </ion-buttons>
           <ion-title>Filtrar</ion-title>
         </ion-toolbar>
@@ -14,7 +14,11 @@
             <ion-col size="12"><ion-chip (click)="touchFilter(filter)" *ngFor="let filter of filtersCopy" color="primary" mode="ios" [outline]="!filter.active">
               <ion-label>{{filter.name}}</ion-label>
              </ion-chip></ion-col>
-          </ion-row>
+          </ion-row> 
+        </ion-grid>
+      </ion-content>
+      <ion-footer>
+        <ion-toolbar>
           <ion-row>
             <ion-col class="ion-padding-top-20" size="6">
               <ion-button (click)="clear()" expand="block" fill="outline" shape="round">
@@ -27,9 +31,8 @@
             </ion-button>
           </ion-col>
           </ion-row>
-        </ion-grid>
-
-      </ion-content>
+        </ion-toolbar>
+      </ion-footer>
 
 
 
