@@ -1,6 +1,7 @@
-import { getLocaleFirstDayOfWeek } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController, RadioGroupCustomEvent } from '@ionic/angular';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
@@ -13,8 +14,10 @@ export class ModalDeleteAccountComponent  implements OnInit {
   noSelected = false;
 
   constructor(
-    private modalCtrl: ModalController,
-    private readonly utilsService: UtilsService
+    private readonly modalCtrl: ModalController,
+    private readonly utilsService: UtilsService,
+    private readonly localStorageService: LocalStorageService,
+    private readonly router: Router
   ) { }
 
   ngOnInit() {}
@@ -31,6 +34,12 @@ export class ModalDeleteAccountComponent  implements OnInit {
   async delete(){
     if (this.reasonSelected !== undefined){
       const confirmModal = await this.utilsService.confirmDelete('¿Quieres eliminar tu cuenta?');
+      if(confirmModal){
+        await this.localStorageService.clear();
+        await this.modalCtrl.dismiss();
+        this.utilsService.presentToastSuccess('Cuenta eliminada con éxito.');
+        //this.router.navigateByUrl('/login');
+      }
     } else {
       this.noSelected = true;
     }
