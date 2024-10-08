@@ -52,4 +52,9 @@ ion-modal#modalDeleteAccount {
     opacity: 1;
     width: 100%;
   }
+
+  ion-toolbar {
+    --background: white;
+    --color: black;
+  }
 }
