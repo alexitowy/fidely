@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BondsComponent } from './components/bonds/bonds.component';
-import { CardAccountComponent } from './components/card-account/card-account.component';
 import { CardComponent } from './components/card/card.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -33,7 +32,6 @@ register();
     OverviewComponent,
     GalleryComponent,
     BondsComponent,
-    CardAccountComponent,
     ModalFiltersComponent,
     SwiperComponent,
     ModalConfirmComponent,
@@ -51,7 +49,6 @@ register();
     OverviewComponent,
     GalleryComponent,
     BondsComponent,
-    CardAccountComponent,
     ModalFiltersComponent,
     SwiperComponent,
     ModalConfirmComponent,
