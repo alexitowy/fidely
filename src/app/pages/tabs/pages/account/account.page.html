@@ -1,44 +1,100 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-title>Hola, Jhon Doe</ion-title>
+  <ion-toolbar color="black">
+    <ion-title size="large">Perfil</ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon size="large" slot="start" name="person-circle-outline"></ion-icon>
+        <ion-icon size="large" slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid fixed class="ion-padding-horizontal-16">
     <ion-row>
-      <ion-col size="12">
-        <div class="container-qr" (click)="showQr()">
-          <img src="assets/frame.png" alt="qr">
-        </div>
+      <ion-col class="content-profile" size="12">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of mountains" src="https://picsum.photos/80/80" />
+          </ion-avatar>
+          <ion-label>User</ion-label>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="ion-text-center" size="12">
+      <ion-col size="12">
+        <ion-card class="container-qr" (click)="showQr()">
+          <img src="assets/frame.png" alt="qr">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Ajustes</ion-label>
+          </ion-list-header>
+          <ion-item [button]="true" routerLink="/tabs/profile">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Datos personales</ion-label>
+          </ion-item>
+          <ion-item [button]="true" routerLink="/tabs/home">
+            <ion-icon name="list-circle-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Mis tarjetas</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Legal</ion-label>
+          </ion-list-header>
+          <ion-item [button]="true">
+            <ion-icon name="document-text-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Aviso legal</ion-label>
+          </ion-item>
+          <ion-item [button]="true">
+            <ion-icon name="document-text-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Términos y condiciones</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Soporte</ion-label>
+          </ion-list-header>
+          <ion-item [button]="true">
+            <ion-icon name="help-circle-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Ayuda</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Privacidad</ion-label>
+          </ion-list-header>
+          <ion-item [button]="true">
+            <ion-icon name="help-circle-outline" size="large"></ion-icon>
+            <ion-label class="ion-padding-left-8">Cambiar contraseña</ion-label>
+          </ion-item>
+        </ion-list>
+          <ion-item [button]="true">
+            <ion-icon name="close-circle-outline" color="danger" size="large"></ion-icon>
+            <ion-label (click)="deleteAccount()" color="danger" class="ion-padding-left-8">Eliminar cuenta</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-font-size-20 ion-padding-vertical-30" size="12">
+        <ion-label (click)="logOut()" class="log-out">Cerrar sesión</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
         <ion-label>Fidely v1.0.0</ion-label>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col class="ion-padding-top-20 ion-font-size-20" size="12">
-        <ion-label>Mi cuenta</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col *ngFor="let option of optionsAccount" size="6" class="ion-padding-5">
-        <app-card-account [data]="option"></app-card-account>
-    </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="ion-font-size-20" size="12">
-        <ion-label (click)="deleteAccount()" color="danger">Eliminar cuenta</ion-label>
-      </ion-col>
-    </ion-row>
   </ion-grid>
-
-
 </ion-content>

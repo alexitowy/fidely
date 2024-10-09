@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-delete-account/modal-delete-account.component';
 
@@ -10,42 +11,11 @@ import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-del
 })
 export class AccountPage implements OnInit {
 
-  optionsAccount = [
-    {
-      img: 'assets/user.png',
-      text: 'Datos personales',
-      url: '/tabs/profile'
-    },
-    {
-      img: 'assets/card.png',
-      text: 'Mis tarjetas',
-      url: ''
-    },
-    {
-      img: 'assets/terms.png',
-      text: 'Aviso legal',
-      url: ''
-    },
-    {
-      img: 'assets/terms.png',
-      text: 'Términos y condiciones',
-      url: ''
-    },
-    {
-      img: 'assets/help.png',
-      text: 'Ayuda',
-      url: ''
-    },
-    {
-      img: 'assets/go.png',
-      text: 'Cerrar sesión',
-      url: '/login'
-    },
-  ]
-
   constructor(
     private utilsService: UtilsService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private readonly navCtrl: NavController,
+    private readonly firebaseAuthService: FirebaseAuthenticationService
   ) { }
 
   ngOnInit() {
@@ -61,5 +31,10 @@ export class AccountPage implements OnInit {
       id: 'modalDeleteAccount'
     });
     await modal.present();
+}
+
+async logOut(){
+  await this.firebaseAuthService.signOut();
+  this.navCtrl.navigateRoot('/login');
 }
 }

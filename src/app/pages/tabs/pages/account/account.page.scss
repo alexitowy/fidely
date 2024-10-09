@@ -1,8 +1,31 @@
 .container-qr{
-  border: 1px solid black;
-  border-radius: 8px;
   text-align: center;
+  margin: 15px 0;
   img{
-    max-height: 150px;
+   max-height: 125px;
   }
+}
+
+.content-profile{
+  ion-item{
+    border-bottom: 1px solid var(--ion-color-fontGrey);
+  }
+  
+  ion-avatar{
+    width: 60px;
+    height: 60px;
+  }
+}
+
+ion-list-header{
+  padding: 0px;
+}
+ 
+ion-item{
+  --padding-bottom: 10px;
+  --padding-top: 10px;
+}
+
+.log-out{
+  text-decoration: underline;
 }
