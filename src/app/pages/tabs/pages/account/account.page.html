@@ -1,9 +1,9 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="black">
-    <ion-title size="large">Perfil</ion-title>
+  <ion-toolbar color="white">
+    <ion-title size="large" color="dark">Perfil</ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon size="large" slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-icon color="dark" size="large" slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -76,9 +76,8 @@
           </ion-list-header>
           <ion-item [button]="true">
             <ion-icon name="help-circle-outline" size="large"></ion-icon>
-            <ion-label class="ion-padding-left-8">Cambiar contraseña</ion-label>
+            <ion-label class="ion-padding-left-8" (click)="changePassword()">Cambiar contraseña</ion-label>
           </ion-item>
-        </ion-list>
           <ion-item [button]="true">
             <ion-icon name="close-circle-outline" color="danger" size="large"></ion-icon>
             <ion-label (click)="deleteAccount()" color="danger" class="ion-padding-left-8">Eliminar cuenta</ion-label>

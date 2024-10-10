@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { ModalChangePasswordComponent } from 'src/app/shared/components/modal-change-password/modal-change-password.component';
 import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-delete-account/modal-delete-account.component';
 
 @Component({
@@ -36,5 +37,13 @@ export class AccountPage implements OnInit {
 async logOut(){
   await this.firebaseAuthService.signOut();
   this.navCtrl.navigateRoot('/login');
+}
+
+async changePassword(): Promise<void> {
+  const modal = await this.modalCtrl.create({
+    component: ModalChangePasswordComponent,
+    id: 'modalChangePassword'
+  });
+  await modal.present();
 }
 }
