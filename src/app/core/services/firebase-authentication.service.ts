@@ -101,6 +101,14 @@ export class FirebaseAuthenticationService {
     await FirebaseAuthentication.sendPasswordResetEmail({ email });
   }
 
+  public async updatePassword(password: string): Promise<void> {
+    await FirebaseAuthentication.updatePassword({newPassword: password});
+  }
+
+  public async deleteAccount(): Promise<void> {
+    await FirebaseAuthentication.deleteUser();
+  }
+
   public async signOut(): Promise<void> {
     await FirebaseAuthentication.signOut();
   }
@@ -108,4 +116,5 @@ export class FirebaseAuthenticationService {
   public async useAppLanguage(): Promise<void> {
     await FirebaseAuthentication.useAppLanguage();
   }
+
 }
