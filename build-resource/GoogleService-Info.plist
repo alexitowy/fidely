@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>424791863353-23jt2jobtp6kkavc6isqj03lbpi5ke6j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.424791863353-23jt2jobtp6kkavc6isqj03lbpi5ke6j</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>424791863353-f9di6mlar0qdpm2g8720kd8c16u474et.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA6liwpUt4wMtok4QMMEOPSuenuu92dqa4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>424791863353</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cofanes.fidely-dev</string>
+	<key>PROJECT_ID</key>
+	<string>fidelity-back</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fidelity-back.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:424791863353:ios:bf8de2b8b553a0f02b5de8</string>
+</dict>
+</plist>
