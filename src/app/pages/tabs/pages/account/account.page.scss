@@ -7,10 +7,6 @@
 }
 
 .content-profile{
-  ion-item{
-    border-bottom: 1px solid var(--ion-color-fontGrey);
-  }
-  
   ion-avatar{
     width: 60px;
     height: 60px;
@@ -20,7 +16,7 @@
 ion-list-header{
   padding: 0px;
 }
- 
+
 ion-item{
   --padding-bottom: 10px;
   --padding-top: 10px;
