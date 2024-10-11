@@ -1,5 +1,10 @@
+<ion-header>
+  <ion-toolbar color="white">
+    <app-search (search)="search($event)" (filterEvent)="filterEvent($event)"></app-search>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <app-search (search)="search($event)" (filterEvent)="filterEvent($event)"></app-search>
   <ion-grid class="ion-padding-vertical-0" fixed>
     <ion-row>
       <ion-col class="ion-padding-horizontal-20 ion-padding-vertical-0" size="12">
