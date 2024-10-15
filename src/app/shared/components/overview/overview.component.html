@@ -4,15 +4,15 @@
   <ion-item class="item-list">
     <ion-icon aria-hidden="true" name="location-outline" slot="start" color="fontGrey"></ion-icon>
     <ion-label color="fontGrey">
-      <a class="item-tag" href="https://maps.app.goo.gl/KnEHFvo8GiyVDgNn7">
-
+      <a class="item-tag" [href]="shop.adressUrl">
+        {{shop.adressName}}
       </a></ion-label>
   </ion-item>
   <ion-item class="item-list">
     <ion-icon aria-hidden="true" name="phone-portrait-outline" slot="start" color="fontGrey"></ion-icon>
     <ion-label color="fontGrey">
-      <a class="item-tag" href="tel:+34609483726">
-        609483726
+      <a class="item-tag" [href]="'tel:+34' + shop.phone">
+        {{shop.phone}}
     </a>
   </ion-label>
   </ion-item>
@@ -27,7 +27,7 @@
         <ion-label color="fontGrey">Horarios</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        <div class="time-content ion-padding-bottom-4" *ngFor="let clock of clocks">
+        <div class="time-content ion-padding-bottom-4" *ngFor="let clock of shop.clocks">
           <p>{{clock.day}}</p>
           <p>{{clock.time}}</p>
         </div>
@@ -36,7 +36,7 @@
   </ion-accordion-group>
 </ion-list>
 <div class="ion-padding-16">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.329592622765!2d-3.71663662409533!3d40.42370015521512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e0!3m2!1ses!2ses!4v1724835500375!5m2!1ses!2ses" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe *ngIf="secureUrl" [src]="secureUrl" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 
