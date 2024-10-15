@@ -7,13 +7,16 @@ export interface CardShop {
   title: string;
   subtitle: string;
   desc: string;
-  url: string;
+  adressUrl: string;
+  adressName: string;
+  phone: string;
   favorite: boolean;
   categoryName: string;
   categoryColor: string;
   categoryId: string;
   bonds : CardBons[];
   gallery: DataSwiper[];
+  clocks: Clock[];
 }
 
 export interface Stamps {
@@ -36,4 +39,9 @@ export interface CardBons {
   favorite: boolean;
   isAdd: boolean
   stamps: Stamps;
+}
+
+export interface Clock {
+  day: string;
+  time: string;
 }
