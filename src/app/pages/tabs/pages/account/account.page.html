@@ -13,10 +13,11 @@
     <ion-row>
       <ion-col class="content-profile" size="12">
         <ion-item lines="full">
-          <ion-avatar slot="start">
-            <img alt="Silhouette of mountains" src="https://picsum.photos/80/80" />
-          </ion-avatar>
-          <ion-label>User</ion-label>
+          <ion-avatar *ngIf="currentUser?.photoUrl" slot="start">
+            <img alt="Silhouette of mountains" [src]="currentUser?.photoUrl" />
+          </ion-avatar> 
+          <div *ngIf="!currentUser?.photoUrl" class="content-letter">{{getLetter()}}</div>
+          <ion-label>{{currentUser?.displayName}}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>

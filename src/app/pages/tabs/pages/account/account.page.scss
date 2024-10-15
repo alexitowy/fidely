@@ -1,27 +1,37 @@
-.container-qr{
+.container-qr {
   text-align: center;
   margin: 15px 0;
-  img{
-   max-height: 125px;
+  img {
+    max-height: 125px;
   }
 }
 
-.content-profile{
-  ion-avatar{
+.content-profile {
+  ion-avatar {
     width: 60px;
     height: 60px;
   }
 }
 
-ion-list-header{
+ion-list-header {
   padding: 0px;
 }
 
-ion-item{
+ion-item {
   --padding-bottom: 10px;
   --padding-top: 10px;
 }
 
-.log-out{
+.log-out {
   text-decoration: underline;
+}
+
+.content-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid;
 }

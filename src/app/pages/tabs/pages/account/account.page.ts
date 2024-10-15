@@ -11,6 +11,7 @@ import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-del
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
+  currentUser: any;
 
   constructor(
     private utilsService: UtilsService,
@@ -19,7 +20,13 @@ export class AccountPage implements OnInit {
     private readonly firebaseAuthService: FirebaseAuthenticationService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.currentUser = await this.firebaseAuthService.getCurrentUser();
+    this.currentUser.photoUrl = null;  
+  }
+
+  getLetter(){
+    return 'hl';
   }
 
   showQr(): void {
