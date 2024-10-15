@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 import { DataSwiper } from 'src/app/core/interfaces/dataSwiper.interface';
@@ -41,7 +41,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Baoba Belleza',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España. Céntro Médico Estético de referencia en pleno corazón de la capital de España. Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '666666666',
       favorite: false,
       categoryName: 'Medicina estética',
       categoryColor: 'category1',
@@ -97,6 +99,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -106,7 +138,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Alisado',
       desc: 'Céntro Médico Estético de referencia en pleno corazón de la capital de España.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483722',
       favorite: false,
       categoryName: 'Peluqueria',
       categoryColor: 'category2',
@@ -143,6 +177,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -152,7 +216,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Relax y cuidado',
       desc: 'Spa urbano especializado en tratamientos de relajación y bienestar.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483723',
       favorite: false,
       categoryName: 'Spa',
       categoryColor: 'category2',
@@ -189,6 +255,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -198,7 +294,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Cosmética natural',
       desc: 'Tienda de cosmética natural y ecológica.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483724',
       favorite: false,
       categoryName: 'Belleza',
       categoryColor: 'category3',
@@ -235,6 +333,35 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ], clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -244,7 +371,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Bienestar mental y físico',
       desc: 'Centro de yoga especializado en clases para todos los niveles.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483724',
       favorite: false,
       categoryName: 'Yoga',
       categoryColor: 'category4',
@@ -280,6 +409,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -289,7 +448,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Fitness y salud',
       desc: 'Gimnasio con equipamiento de última generación y entrenadores personales.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483724',
       favorite: false,
       categoryName: 'Otros',
       categoryColor: 'category5',
@@ -326,6 +487,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -335,7 +526,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Estética y Peluquería',
       desc: 'Salón de belleza con tratamientos exclusivos de peluquería y estética.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',      
+      phone: '609483725',
       favorite: false,
       categoryName: 'Salon de uñas',
       categoryColor: 'category1',
@@ -372,6 +565,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ], 
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -381,7 +604,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Nutrición y Dietética',
       desc: 'Consultoría de nutrición y dietética para mejorar tu salud.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483726',
       favorite: false,
       categoryName: 'Salud',
       categoryColor: 'category2',
@@ -406,7 +631,8 @@ export class ViewSearchPage {
             imgDefault: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Flogo-white.png?alt=media&token=default128'
           }
         }
-      ], gallery: [
+      ], 
+      gallery: [
         {
           id: '1',
           img: '',
@@ -417,6 +643,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -426,7 +682,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Comida vegana',
       desc: 'Restaurante vegano especializado en alimentos orgánicos.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483727',
       favorite: false,
       categoryName: 'Vegano',
       categoryColor: 'category3',
@@ -463,6 +721,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -472,7 +760,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Productos sostenibles',
       desc: 'Tienda de productos ecológicos y sostenibles para el hogar.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483728',
       favorite: false,
       categoryName: 'Compras',
       categoryColor: 'category4',
@@ -509,6 +799,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     },
     {
@@ -518,7 +838,9 @@ export class ViewSearchPage {
       cover: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/fondoBaoba.webp?alt=media&token=44847806-40ef-48bf-806d-556c1143dd12',
       subtitle: 'Entrenamiento de alto rendimiento',
       desc: 'Gimnasio especializado en entrenamiento funcional de alta intensidad.',
-      url: '',
+      adressName: 'Metro Plaza España, C. de Juan Álvarez Mendizábal, 3, Moncloa - Aravaca, 28008 Madrid',
+      adressUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5869.007014565862!2d-3.7140617000000002!3d40.4236961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287dd1b70e87%3A0x1467a5480f581d8e!2sBaob%C3%A1%20Belleza!5e1!3m2!1sen!2ses!4v1728988871560!5m2!1sen!2ses',
+      phone: '609483729',
       favorite: false,
       categoryName: 'Deporte',
       categoryColor: 'category5',
@@ -555,6 +877,36 @@ export class ViewSearchPage {
           img: '',
           url: 'https://picsum.photos/400/120'
         }
+      ],
+      clocks: [
+        {
+          day: 'Lunes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Martes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Miércoles',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Jueves',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Viernes',
+          time: '10:00-21:00'
+        },
+        {
+          day: 'Sábado',
+          time: '12:00-20:00'
+        },
+        {
+          day: 'Domingo',
+          time: 'Cerrado'
+        },
       ]
     }
   ];
