@@ -66,10 +66,10 @@ export class DetailsPage {
 
   async share(): Promise<void> {
     await Share.share({
-      title: 'test',
-      text: 'test',
-      url: 'https://maps.app.goo.gl/KnEHFvo8GiyVDgNn7',
-      dialogTitle: 'testing',
+      title: this.shop.title,
+      text: 'Echa un vistazo a esta tienda',
+      url: '/details/' + this.shop.id,
+      dialogTitle: this.shop.title,
     });
   }
 
