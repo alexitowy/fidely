@@ -22,11 +22,16 @@ export class AccountPage implements OnInit {
 
   async ngOnInit() {
     this.currentUser = await this.firebaseAuthService.getCurrentUser();
-    this.currentUser.photoUrl = null;  
+/*     this.currentUser.photoUrl = null;   */
   }
 
   getLetter(){
-    return 'hl';
+    let letters = 'US';
+    const names = this.currentUser?.displayName.split(' ');
+    if (names) {
+      letters = names[0].charAt(0) + names[1].charAt(0);
+    }
+    return letters;
   }
 
   showQr(): void {
