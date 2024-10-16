@@ -4,6 +4,7 @@ import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-au
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { ModalChangePasswordComponent } from 'src/app/shared/components/modal-change-password/modal-change-password.component';
 import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-delete-account/modal-delete-account.component';
+import { ModalNotificationsComponent } from 'src/app/shared/components/modal-notifications/modal-notifications.component';
 
 @Component({
   selector: 'app-account',
@@ -60,6 +61,14 @@ async logOut(){
 async changePassword(): Promise<void> {
   const modal = await this.modalCtrl.create({
     component: ModalChangePasswordComponent,
+    id: 'modalChangePassword'
+  });
+  await modal.present();
+}
+
+async notifications(): Promise<void> {
+  const modal = await this.modalCtrl.create({
+    component: ModalNotificationsComponent,
     id: 'modalChangePassword'
   });
   await modal.present();
