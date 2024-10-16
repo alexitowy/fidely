@@ -21,6 +21,7 @@ import { CardBondsComponent } from './components/card-bonds/card-bonds.component
 import { ModalQrComponent } from './components/modal-qr/modal-qr.component';
 import { ModalDeleteAccountComponent } from './components/modal-delete-account/modal-delete-account.component';
 import { ModalChangePasswordComponent } from './components/modal-change-password/modal-change-password.component';
+import { ModalNotificationsComponent } from './components/modal-notifications/modal-notifications.component';
 
 
 register();
@@ -41,7 +42,8 @@ register();
     CardBondsComponent,
     ModalQrComponent,
     ModalDeleteAccountComponent,
-    ModalChangePasswordComponent
+    ModalChangePasswordComponent,
+    ModalNotificationsComponent
   ],
   exports: [
     HeaderComponent,
@@ -59,7 +61,8 @@ register();
     CardBondsComponent,
     ModalQrComponent,
     ModalDeleteAccountComponent,
-    ModalChangePasswordComponent
+    ModalChangePasswordComponent,
+    ModalNotificationsComponent
   ],
   imports: [
     CommonModule,
