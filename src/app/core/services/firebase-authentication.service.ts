@@ -117,4 +117,10 @@ export class FirebaseAuthenticationService {
     await FirebaseAuthentication.useAppLanguage();
   }
 
+  public async updateData(name: string): Promise<void> {
+    console.log(name);
+    
+    await FirebaseAuthentication.updateProfile({displayName: name});
+  }
+
 }
