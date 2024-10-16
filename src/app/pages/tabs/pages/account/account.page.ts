@@ -21,8 +21,14 @@ export class AccountPage implements OnInit {
   ) { }
 
   async ngOnInit() {
+    /*     this.currentUser.photoUrl = null;   */
+  }
+  
+  async ionViewWillEnter(){
+    console.log('Holi');
+    
     this.currentUser = await this.firebaseAuthService.getCurrentUser();
-/*     this.currentUser.photoUrl = null;   */
+
   }
 
   getLetter(){
