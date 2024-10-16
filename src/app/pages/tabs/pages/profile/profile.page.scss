@@ -1,7 +1,8 @@
 .image-profile {
   object-fit: cover;
-  width: 200px;
-  height: 200px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
 }
 
 ion-datetime-button {
@@ -29,5 +30,19 @@ ion-datetime-button {
     display: flex;
     flex-direction: column;
     align-items: start;
+  }
+}
+
+ion-grid {
+  height: 100%;
+  position: relative;
+}
+.btn-update {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  div {
+    display: flex;
+    justify-content: center;
   }
 }
