@@ -45,3 +45,11 @@ export interface Clock {
   day: string;
   time: string;
 }
+
+export interface Notifications {
+  id: string;
+  icon: string;
+  shopName: string;
+  desc: string;
+  date: string;
+}
