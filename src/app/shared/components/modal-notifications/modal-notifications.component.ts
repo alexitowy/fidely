@@ -7,6 +7,7 @@ import { Notifications } from 'src/app/core/interfaces/dataCard.interface';
   templateUrl: './modal-notifications.component.html',
   styleUrls: ['./modal-notifications.component.scss'],
 })
+
 export class ModalNotificationsComponent  implements OnInit {
 
   notifications: Notifications [] = [
@@ -92,5 +93,4 @@ export class ModalNotificationsComponent  implements OnInit {
   cancel(): Promise<boolean> {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
-
 }

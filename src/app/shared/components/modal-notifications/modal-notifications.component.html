@@ -9,13 +9,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding class="ion-margin-vertical-24 ion-margin-horizontal-16">
+    <ion-item-sliding class="ion-margin-vertical-24">
       <ion-item *ngFor="let notification of notifications" lines="full" class="ion-padding-12">
-        <ion-avatar aria-hidden="true" slot="start">
-          <img alt="" [src]="notification.icon" />
+        <ion-avatar aria-hidden="true" slot="start" class="img-notification">
+          <img [src]="notification.icon" />
         </ion-avatar>
-        <ion-label>
-          <h2>{{notification.shopName}}</h2>
+        <ion-label class="ion-padding-horizontal-16">
+          <h2 color="fontGrey">{{notification.shopName}}</h2>
           <p>{{notification.desc}}</p>
           <p>{{notification.date}}</p>
         </ion-label>
