@@ -52,4 +52,5 @@ export interface Notifications {
   shopName: string;
   desc: string;
   date: string;
+  isNew: boolean;
 }
