@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpErrorInterceptor } from './core/interceptors/error.interceptor';
 
-
+import '@github/relative-time-element';
 
 
 
