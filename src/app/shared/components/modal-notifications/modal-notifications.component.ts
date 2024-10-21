@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Notifications } from 'src/app/core/interfaces/dataCard.interface';
+import { UtilsService } from 'src/app/core/services/utils.service';
+
 
 @Component({
   selector: 'app-modal-notifications',
@@ -16,81 +18,105 @@ export class ModalNotificationsComponent  implements OnInit {
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Belleza Natural",
       desc: "¡Obtén un 20% de descuento en todos los productos orgánicos para el cuidado de la piel! Válido hasta fin de mes.",
-      date: "2024-10-31",
+      date: "2024-10-21T16:30:00",
+      isNew: true,
     },
     {
       id: '2',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Glamour & Estilo",
       desc: "¡Promoción especial de manicura y pedicura! Llévate un 2x1 este fin de semana.",
-      date: "2024-10-20",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     },
     {
       id: '3',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Brillo de Sol",
       desc: "¡50% de descuento en todos los productos para protección solar! Prepárate para el verano.",
-      date: "2024-11-10",
+      date: "2024-10-22T16:30:00",
+      isNew: true,
     },
     {
       id: '4',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Zaccha",
       desc: "Luce espectacular con un 30% de descuento en tratamientos capilares de queratina.",
-      date: "2024-10-25",
+      date: "2024-10-20T16:00:00",
+      isNew: false,
     },
     {
       id: '5',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Relax & Spa",
       desc: "Relájate con un masaje de 1 hora a mitad de precio. ¡Reserva tu cita ahora!",
-      date: "2024-11-05",
+      date: "2024-10-23T16:30:00",
+      isNew: true,
     },
     {
       id: '6',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Terapia Esencial",
       desc: "¡15% de descuento en aceites esenciales y productos de aromaterapia!",
-      date: "2024-11-01",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     },
     {
       id: '7',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Maquillaje Pro",
       desc: "Asiste a nuestro taller de maquillaje gratuito al comprar productos de la marca Glamour Makeup.",
-      date: "2024-10-22",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     },
     {
       id: '8',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Estilo Urbano",
       desc: "¡30% de descuento en todos los cortes de cabello este mes! Luce el estilo que siempre quisiste.",
-      date: "2024-10-30",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     },
     {
       id: '9',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Fresh Skin",
       desc: "Compra un suero facial y llévate una mascarilla hidratante gratis. ¡Piel radiante garantizada!",
-      date: "2024-10-28",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     },
     {
       id: '10',
       icon: 'https://firebasestorage.googleapis.com/v0/b/fidelity-back.appspot.com/o/Icons%2Ffacebook-brands-solid.svg?alt=media&token=cd543acd-7bf1-44a9-ae06-844773e961f3',
       shopName: "Glow & Shine",
       desc: "¡Descuento del 25% en todos los tratamientos faciales para una piel luminosa!",
-      date: "2024-11-15",
+      date: "2024-10-21T16:30:00",
+      isNew: false,
     }
   ];
 
+  noNotifications: boolean;
+
 
   constructor(
-    private readonly modalCtrl: ModalController
-  ) { }
+    private readonly modalCtrl: ModalController,
+    private readonly utilsService: UtilsService,
+  ) {
+    
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+
+  }
 
   cancel(): Promise<boolean> {
     return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
+  deleteNotification(notification: Notifications) {
+    this.notifications = this.notifications.filter(n => n.id !== notification.id);
+    this.utilsService.presentToastSuccess('Se ha eliminado correctamente');
+    this.noNotifications = this.notifications.length === 0;
   }
 }

@@ -9,22 +9,28 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding class="ion-margin-vertical-24">
-      <ion-item *ngFor="let notification of notifications" lines="full" class="ion-padding-12">
+    <ion-item-sliding *ngFor="let notification of notifications" [ngClass]="{'new-notification': notification.isNew}">
+      <ion-item lines="full" class="ion-padding-left-12" >
         <ion-avatar aria-hidden="true" slot="start" class="img-notification">
           <img [src]="notification.icon" />
         </ion-avatar>
-        <ion-label class="ion-padding-horizontal-16">
+        <ion-label class="ion-padding-horizontal-12">
           <h2 color="fontGrey">{{notification.shopName}}</h2>
           <p>{{notification.desc}}</p>
-          <p>{{notification.date}}</p>
+          <relative-time  [datetime]="notification.date" lang="es"></relative-time>
         </ion-label>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger">
+      <ion-item-options side="end" >
+        <ion-item-option color="danger" (click)="deleteNotification(notification)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <ion-row class="msg-notification" *ngIf="noNotifications">
+    <ion-col class="msg-notification" size="12">
+      <img class="img-notification" src="assets/notification.svg" alt="">
+      <p class="no-results">No tienes notificaciones.</p>
+    </ion-col>
+  </ion-row>
 </ion-content>
