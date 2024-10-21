@@ -23,7 +23,6 @@ import { ModalDeleteAccountComponent } from './components/modal-delete-account/m
 import { ModalChangePasswordComponent } from './components/modal-change-password/modal-change-password.component';
 import { ModalNotificationsComponent } from './components/modal-notifications/modal-notifications.component';
 
-
 register();
 
 @NgModule({
