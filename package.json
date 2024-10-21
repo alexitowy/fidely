@@ -31,6 +31,7 @@
     "@capacitor/preferences": "^6.0.2",
     "@capacitor/share": "^6.0.2",
     "@capacitor/status-bar": "6.0.1",
+    "@github/relative-time-element": "^4.4.3",
     "@ionic/angular": "^8.0.0",
     "firebase": "^10.13.0",
     "ionicons": "^7.0.0",
