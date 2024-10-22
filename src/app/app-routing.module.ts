@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule),
   },
   {
     path: '**',
