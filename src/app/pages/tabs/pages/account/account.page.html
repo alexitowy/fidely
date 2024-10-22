@@ -2,7 +2,8 @@
   <ion-toolbar color="white">
     <ion-title size="large" color="dark">Perfil</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="notifications()">
+      <div *ngIf="countNotification > 0" class="badge-icon">{{countNotification}}</div>
+      <ion-button (click)="toNavigateNotifications()">
         <ion-icon color="dark" size="large" slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
