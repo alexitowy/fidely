@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
-import { CardBons, CardShop } from 'src/app/core/interfaces/dataCard.interface';
+import { CardBonds } from 'src/app/core/interfaces/cardBond.interface';
+import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 
@@ -12,7 +13,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class BondsComponent implements OnInit {
   @Input() shop: CardShop;
   
-  cardsStorage: CardBons[];
+  cardsStorage: CardBonds[];
 
 
   constructor(

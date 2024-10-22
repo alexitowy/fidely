@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
+import { CardBonds } from 'src/app/core/interfaces/cardBond.interface';
+
 
 @Component({
   selector: 'app-card-bonds',
@@ -7,8 +8,8 @@ import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
   styleUrls: ['./card-bonds.component.scss'],
 })
 export class CardBondsComponent {
-@Input() bond: CardBons;
-@Output() addBond = new EventEmitter<CardBons>();
+@Input() bond: CardBonds;
+@Output() addBond = new EventEmitter<CardBonds>();
 
   constructor() { }
 

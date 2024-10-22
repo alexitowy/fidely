@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
+
+
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
+import { NotificationsService } from 'src/app/core/services/notifications.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { ModalChangePasswordComponent } from 'src/app/shared/components/modal-change-password/modal-change-password.component';
 import { ModalDeleteAccountComponent } from 'src/app/shared/components/modal-delete-account/modal-delete-account.component';
@@ -13,26 +16,28 @@ import { ModalNotificationsComponent } from 'src/app/shared/components/modal-not
 })
 export class AccountPage implements OnInit {
   currentUser: any;
+  countNotification: number = 3;
 
   constructor(
-    private utilsService: UtilsService,
-    private modalCtrl: ModalController,
+    private readonly utilsService: UtilsService,
+    private readonly modalCtrl: ModalController,
     private readonly navCtrl: NavController,
-    private readonly firebaseAuthService: FirebaseAuthenticationService
-  ) { }
+    private readonly firebaseAuthService: FirebaseAuthenticationService,
+    private readonly notificationsService: NotificationsService
+  ) {}
 
   async ngOnInit() {
-    /*     this.currentUser.photoUrl = null;   */
+    this.countNotification = this.notificationsService.getNewNotifications();
+   
   }
-  
-  async ionViewWillEnter(){
+
+  async ionViewWillEnter() {
     console.log('Holi');
-    
-    this.currentUser = await this.firebaseAuthService.getCurrentUser();
 
+    this.currentUser = await this.firebaseAuthService.getCurrentUser();
   }
 
-  getLetter(){
+  getLetter() {
     let letters = 'US';
     const names = this.currentUser?.displayName.split(' ');
     if (names) {
@@ -48,29 +53,31 @@ export class AccountPage implements OnInit {
   async deleteAccount(): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ModalDeleteAccountComponent,
-      id: 'modalDeleteAccount'
+      id: 'modalDeleteAccount',
     });
     await modal.present();
-}
+  }
 
-async logOut(){
-  await this.firebaseAuthService.signOut();
-  this.navCtrl.navigateRoot('/login');
-}
+  async logOut() {
+    await this.firebaseAuthService.signOut();
+    this.navCtrl.navigateRoot('/login');
+  }
 
-async changePassword(): Promise<void> {
-  const modal = await this.modalCtrl.create({
-    component: ModalChangePasswordComponent,
-    id: 'modalChangePassword'
-  });
-  await modal.present();
-}
+  async changePassword(): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: ModalChangePasswordComponent,
+      id: 'modalChangePassword',
+    });
+    await modal.present();
+  }
 
-async notifications(): Promise<void> {
-  const modal = await this.modalCtrl.create({
-    component: ModalNotificationsComponent,
-    id: 'modalChangePassword'
-  });
-  await modal.present();
-}
+  async toNavigateNotifications(): Promise<void> {
+    this.countNotification = 0;
+    
+    const modal = await this.modalCtrl.create({
+      component: ModalNotificationsComponent,
+      id: 'modalChangePassword',
+    });
+    await modal.present();
+  }
 }

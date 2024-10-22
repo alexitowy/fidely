@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
-import { CardBons } from 'src/app/core/interfaces/dataCard.interface';
+import { CardBonds } from 'src/app/core/interfaces/cardBond.interface';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
@@ -14,8 +14,8 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 })
 export class HomePage {
 
-  bonds: CardBons[] = [];
-  bondsView: CardBons[] = [];
+  bonds: CardBonds[] = [];
+  bondsView: CardBonds[] = [];
   noResults: boolean;
   filters: string[] = [];
   wordSearch: string = '';
@@ -37,7 +37,7 @@ export class HomePage {
     await this.firebaseAuthService.signOut();
     this.navCtr.navigateRoot('/login');
   }
-  async touchFavCard(card: CardBons) {
+  async touchFavCard(card: CardBonds) {
     this.bonds = (await this.localStorageService.get(KeyStorage.BONDS)) || [];
     if (card.favorite === true) {
       this.bonds.forEach((bond) => {
@@ -59,7 +59,7 @@ export class HomePage {
   }
 
   private sortFavorite(): void {
-    this.bondsView = this.bondsView.sort((a: CardBons, b: CardBons) => {
+    this.bondsView = this.bondsView.sort((a: CardBonds, b: CardBonds) => {
       if (a.favorite === b.favorite) {
         return 0;
       } else if (a.favorite === true) {
@@ -84,11 +84,11 @@ export class HomePage {
         if (this.filters.length > 0) {
           this.filterCategory();
           this.sortFavorite();
-          this.bondsView = this.bondsView.filter((bond: CardBons) => {
+          this.bondsView = this.bondsView.filter((bond: CardBonds) => {
             return bond.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
           });
         } else {
-          this.bondsView = this.bonds.filter((bond: CardBons) => {
+          this.bondsView = this.bonds.filter((bond: CardBonds) => {
             return bond.title.toLocaleLowerCase().includes(wordSearch.toLocaleLowerCase());
           });
         }
@@ -103,13 +103,13 @@ export class HomePage {
       this.filterCategory();
       this.sortFavorite();
       if (this.wordSearch !== '') {
-        this.bondsView = this.bondsView.filter((bond: CardBons) => {
+        this.bondsView = this.bondsView.filter((bond: CardBonds) => {
           return bond.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
         });
       }
     } else {
       if(this.wordSearch !== '') {
-        this.bondsView = this.bonds.filter((bond: CardBons) => {
+        this.bondsView = this.bonds.filter((bond: CardBonds) => {
           return bond.title.toLocaleLowerCase().includes(this.wordSearch.toLocaleLowerCase());
         });
       } else {
@@ -120,7 +120,7 @@ export class HomePage {
   }
 
   private filterCategory() {
-    this.bondsView = this.bonds.filter((bond: CardBons) => {
+    this.bondsView = this.bonds.filter((bond: CardBonds) => {
       return this.filters.includes(bond.categoryId);
     });
   }
