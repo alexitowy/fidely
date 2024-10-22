@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Notifications } from 'src/app/core/interfaces/notification.interface';
 import { NotificationsService } from 'src/app/core/services/notifications.service';
 
@@ -18,7 +18,8 @@ export class ModalNotificationsComponent  implements OnInit {
 
   constructor(
     private readonly modalCtrl: ModalController,
-    private readonly notificationsService: NotificationsService
+    private readonly notificationsService: NotificationsService,
+    private readonly navCtrl: NavController,
 
   ) {}
 
@@ -44,5 +45,14 @@ export class ModalNotificationsComponent  implements OnInit {
   deleteNotification(notidfication: Notifications){
     this.notificationsService.deleteNotification(notidfication);
     this.notifications = this.notificationsService.getAllNotifications();
+  }
+
+  readTrue(notification: Notifications){
+    this.notificationsService.changeReadNotification(notification);
+    this.notifications = this.notificationsService.getAllNotifications();
+    this.cancel();
+    this.navCtrl.navigateForward('/details/'+ notification.shopId, { state: {
+      backUrl: '/tabs/account'
+    }});
   }
 }

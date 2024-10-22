@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let notification of notifications" [ngClass]="{'new-notification': notification.isNew}" >
+    <ion-item-sliding *ngFor="let notification of notifications" [ngClass]="{'new-notification': notification.isRead === false}" (click)="readTrue(notification)">
       <ion-item lines="full" class="ion-padding-left-12" >
         <ion-avatar aria-hidden="true" slot="start" class="img-notification">
           <img [src]="notification.icon" />
