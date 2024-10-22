@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let notification of notifications" [ngClass]="{'new-notification': notification.isNew}" (touchstart)="touchItem($event, notification)" (touchend)="touchEnd($event)">
+    <ion-item-sliding *ngFor="let notification of notifications" [ngClass]="{'new-notification': notification.isNew}" >
       <ion-item lines="full" class="ion-padding-left-12" >
         <ion-avatar aria-hidden="true" slot="start" class="img-notification">
           <img [src]="notification.icon" />
@@ -27,7 +27,7 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-row class="msg-notification" *ngIf="notifications">
+  <ion-row class="msg-notification" *ngIf="notifications.length === 0">
     <ion-col class="msg-notification" size="12">
       <img class="img-msg-notification" src="assets/notification.svg" alt="">
       <p class="no-results">No tienes notificaciones.</p>
