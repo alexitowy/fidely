@@ -931,7 +931,9 @@ export class ViewSearchPage {
   }
 
   toNavigate(card: CardShop): void {
-    this.router.navigate([`/tabs/details/${card.id}`]);
+    this.router.navigate([`/tabs/details/${card.id}`], { state: {
+      backUrl: '/tabs/view-search'
+    }});
   }
 
   search(wordSearch: string): void {
