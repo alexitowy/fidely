@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Share } from '@capacitor/share';
 import { NavController } from '@ionic/angular';
 import { KeyStorage } from 'src/app/core/enums/localStorage.enum';
@@ -11,22 +11,33 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
 })
-export class DetailsPage {
+export class DetailsPage implements OnInit  {
   viewSelected = 'bonds';
   favoriteShops: any[];
   shop: CardShop;
+  back: string;
 
   constructor(
     private readonly navCtrl: NavController,
     private readonly localStorageService: LocalStorageService,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+
   ) {
+    
     this.route.params.subscribe(async (params) => {
       const id = params['id'];
       const shops = (await this.localStorageService.get(KeyStorage.SHOPS)) || [];
       this.shop = shops.find((shop: CardShop) => shop.id === id);
       this.checkIsFavorite();
     });
+  }
+  ngOnInit(): void {
+    this.back = this.router.getCurrentNavigation()?.extras?.state['backUrl'];
+    console.log(this.back);
+  }
+
+  ionViewDidEnter(){
   }
 
   async checkIsFavorite(): Promise<void> {
@@ -74,6 +85,7 @@ export class DetailsPage {
   }
 
   backNavigate(): void {
-    this.navCtrl.navigateRoot('/tabs/view-search');
+    //TODO recuperar el parametro de las rutas para saber a donde volver
+    this.navCtrl.navigateRoot(this.back || '/tabs/view-search');
   }
 }
