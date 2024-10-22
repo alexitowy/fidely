@@ -1,4 +1,6 @@
 import { DataSwiper } from "./dataSwiper.interface";
+import { CardBonds } from "./cardBond.interface";
+import { Clock } from "./clock.interface";
 
 export interface CardShop {
   id: string;
@@ -14,43 +16,7 @@ export interface CardShop {
   categoryName: string;
   categoryColor: string;
   categoryId: string;
-  bonds : CardBons[];
+  bonds : CardBonds[];
   gallery: DataSwiper[];
   clocks: Clock[];
-}
-
-export interface Stamps {
-  limit: string;
-  complete: string;
-  imgComplete: string;
-  imgDefault: string;
-}
-
-export interface CardBons {
-  id: string;
-  icon: string;
-  title: string;
-  subtitle: string;
-  desc: string;
-  currentCountService: string;
-  maxCountService: string;
-  categoryId: string;
-  award: string;
-  favorite: boolean;
-  isAdd: boolean
-  stamps: Stamps;
-}
-
-export interface Clock {
-  day: string;
-  time: string;
-}
-
-export interface Notifications {
-  id: string;
-  icon: string;
-  shopName: string;
-  desc: string;
-  date: string;
-  isNew: boolean;
 }
