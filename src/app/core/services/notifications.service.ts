@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Notifications } from '../interfaces/notification.interface';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -110,7 +111,9 @@ export class NotificationsService {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private readonly utilsService: UtilsService,
+  ) { }
 
   getNewNotifications(){
    const newNotification = this.notifications.filter( (notification)=> notification.isNew === true);
@@ -123,6 +126,11 @@ export class NotificationsService {
 
   getAllNotifications(){
     return this.notifications;
+  }
+
+  deleteNotification(notification: Notifications) {
+    this.notifications = this.notifications.filter(n => n.id !== notification.id);
+    this.utilsService.presentToastSuccess('Se ha eliminado correctamente');
   }
 
 }
