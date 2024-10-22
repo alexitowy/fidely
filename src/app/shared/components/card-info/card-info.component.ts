@@ -15,6 +15,8 @@ export class CardInfoComponent{
   ) {}
 
   toNavigate(): void{
-    this.navCtrl.navigateForward(`/tabs/details/${this.card.id}`);
+    this.navCtrl.navigateForward(`/tabs/details/${this.card.id}`,{ state: {
+      backUrl: '/tabs/view-search'
+    }});
   }
 }
