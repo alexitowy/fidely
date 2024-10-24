@@ -1,10 +1,10 @@
 <ion-content *ngIf="shop">
 
   <ion-icon (click)="backNavigate()" class="icon-back-details" size="large" name="chevron-back-outline"></ion-icon>
-  <ion-button (click)="share()" class="icon-share-details" color="light" shape="round">
+  <ion-button (click)="share()" class="icon-share-details" color="light" shape="round" mode="ios">
     <ion-icon  size="SM" slot="icon-only" name="share-outline"></ion-icon>
   </ion-button>
-  <ion-button (click)="toogleFavorite()"  class="icon-heart-details" color="light" shape="round">
+  <ion-button (click)="toogleFavorite()"  class="icon-heart-details" color="light" shape="round" mode="ios">
     <ion-icon size="SM" slot="icon-only" [name]="shop.favorite? 'heart': 'heart-outline' "></ion-icon>
   </ion-button>
 
