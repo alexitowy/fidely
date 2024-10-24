@@ -10,9 +10,6 @@ import { NotificationsService } from 'src/app/core/services/notifications.servic
 })
 
 export class ModalNotificationsComponent  implements OnInit {
-
-  
-
   notifications: any [];
   timeOut: any;
 
@@ -25,7 +22,6 @@ export class ModalNotificationsComponent  implements OnInit {
 
   ngOnInit() {
     this.notifications = this.notificationsService.getAllNotifications();
-    
     
   }
 
@@ -56,3 +52,4 @@ export class ModalNotificationsComponent  implements OnInit {
     }});
   }
 }
+ 
