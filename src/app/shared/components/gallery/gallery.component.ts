@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 
 @Component({
@@ -8,14 +9,28 @@ import { CardShop } from 'src/app/core/interfaces/dataCard.interface';
 })
 export class GalleryComponent  {
   @Input() shop: CardShop;
+  @ViewChild(IonModal) modal: IonModal;
+ 
 
   configParams: any = {
     slidesPerView: 1,
-    navigation: true,
     centeredSlides: true,
     centeredSlidesBounds: true,
+    
    };
 
-  constructor() {}
+   selectedImage = null;
+   
+  constructor() {
+    
+  }
 
+  openModal(index: number) {
+    this.selectedImage = index; // Imagen seleccionada
+      this.modal.present(); // Muestra el modal
+  }
+
+  closeModal() {
+    this.modal.dismiss(); // Cierra el modal
+  }
 }

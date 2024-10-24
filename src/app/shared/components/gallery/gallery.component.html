@@ -1,1 +1,25 @@
-<app-swiper [swiperParams]="configParams"  [dataImg]="shop.gallery"></app-swiper>
+<div class="content-gallery">
+  <div
+    class="div-image"
+    *ngFor="let gallery of shop.gallery; index as i"
+    (click)="openModal(i)"
+  >
+    <img [src]="gallery.url" alt="" />
+  </div>
+</div>
+<ion-modal #modal >
+  <ng-template>
+    <ion-content class="ion-padding content-modal">
+      <ion-button (click)="closeModal()" color="white" class="btn-close" mode="ios"
+        ><ion-icon slot="icon-only" name="close"></ion-icon
+      ></ion-button>
+      <div class="content-selected-img">
+        <app-swiper
+          [swiperParams]="configParams"
+          [dataImg]="shop.gallery"
+          [seletedImage]="selectedImage"
+        ></app-swiper>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
