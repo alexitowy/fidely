@@ -15,10 +15,15 @@ export class SwiperComponent  implements OnInit {
   };
 
   @Input() dataImg: DataSwiper [];
+  @Input() seletedImage: number = 0;
 
-  constructor() { }
+  constructor() { 
+    
+    console.log('Inicio');
+  }
 
   ngOnInit(): void {
+    this.swiperParams.initialSlide = this.seletedImage;
     Object.assign(this.swiper.nativeElement, this.swiperParams);
     this.swiper.nativeElement.initialize();
   }
