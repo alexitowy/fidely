@@ -32,15 +32,13 @@ export class AccountPage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    console.log('Holi');
-
     this.currentUser = await this.firebaseAuthService.getCurrentUser();
   }
 
   getLetter() {
     let letters = 'US';
-    const names = this.currentUser?.displayName.split(' ');
-    if (names) {
+    const names = this.currentUser?.displayName?.split(' ');
+    if (names && names.length > 1) {
       letters = names[0].charAt(0) + names[1].charAt(0);
     }
     return letters;
