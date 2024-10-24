@@ -15,10 +15,8 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class ViewSearchPage {
   configParams: any = {
     slidesPerView: 1,
-    navigation: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
-    autoHeight: true,
   };
   lstSwiper: DataSwiper[] = [
     {
@@ -92,12 +90,32 @@ export class ViewSearchPage {
         {
           id: '1',
           img: '',
-          url: 'https://picsum.photos/400/120'
+          url: 'https://picsum.photos/400/400'
         },
         {
           id: '2',
           img: '',
-          url: 'https://picsum.photos/400/120'
+          url: 'https://picsum.photos/400/400'
+        },
+        {
+          id: '3',
+          img: '',
+          url: 'https://picsum.photos/400/400'
+        },
+        {
+          id: '4',
+          img: '',
+          url: 'https://picsum.photos/400/400'
+        },
+        {
+          id: '5',
+          img: '',
+          url: 'https://picsum.photos/400/600'
+        },
+        {
+          id: '6',
+          img: '',
+          url: 'https://picsum.photos/600/300'
         }
       ],
       clocks: [
