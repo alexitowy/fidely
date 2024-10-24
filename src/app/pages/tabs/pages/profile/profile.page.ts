@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { FirebaseAuthenticationService } from 'src/app/core/services/firebase-authentication.service';
@@ -9,7 +9,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage {
   profileForm: FormGroup ;
 
   currentUser: any;
@@ -19,9 +19,6 @@ export class ProfilePage implements OnInit {
     private readonly utilsService: UtilsService,
     private readonly navCtrl: NavController
   ) {}
-
-  async ngOnInit() {
-  }
   
   async ionViewWillEnter(){
     this.currentUser = await this.firebaseAuthService.getCurrentUser();
@@ -38,19 +35,14 @@ export class ProfilePage implements OnInit {
       ]),
       email: new FormControl(
         this.currentUser?.email ?  this.currentUser.email : '', [Validators.email, Validators.required]),
-      dateBirth: new FormControl(null, Validators.required),
+      dateBirth: new FormControl(null),
       phone: new FormControl(this.currentUser?.phone ? this.currentUser.phone : '', [
-        Validators.required,
         Validators.pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g),
       ]),
     });
   }
 
   async onUpdate() {
-    console.log(this.profileForm.valid);
-    console.log(this.profileForm.value);
-    
-    
     if (this.profileForm.valid) {
       await this.firebaseAuthService.updateData(this.profileForm.controls['name'].value);
       this.utilsService.presentToastSuccess('Datos actualizados');
@@ -60,3 +52,4 @@ export class ProfilePage implements OnInit {
     }
   }
 }
+ 
