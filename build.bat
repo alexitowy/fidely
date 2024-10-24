@@ -127,11 +127,11 @@ ECHO.
 ECHO ____________________RAW SOBREESCRITO____________________
 
 
-@REM ECHO.
-@REM ECHO SOBREESCRIBIENDO RECURSOS GRAFICOS...
-@REM ECHO.
-@REM CALL npx capacitor-assets generate --android
-@REM ECHO ____________________RECURSOS GRAFICOS SOBREESCRITOS CORRECTAMENTE____________________
+ECHO.
+ECHO SOBREESCRIBIENDO RECURSOS GRAFICOS...
+ECHO.
+CALL npx capacitor-assets generate --android
+ECHO ____________________RECURSOS GRAFICOS SOBREESCRITOS CORRECTAMENTE____________________
 
 SET /p versionName="Introduzca el nombre de la versi�n: "
 SET /p versionCode=<.\build-resource\android\Versions\code

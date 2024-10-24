@@ -12,9 +12,6 @@ const config: CapacitorConfig = {
     FirebaseAuthentication: {
       skipNativeAuth: false,
       providers: ["google.com", "twitter.com", "facebook.com"]
-    },
-    FirebaseRemoteConfig: {
-      minimumFetchIntervalInSeconds: 3600,
     }
   }
 };
